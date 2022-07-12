@@ -1,4 +1,7 @@
 node_modules
-dist/bundle.js
+client/dist/bundle.js
+bundle.js
 config.js
 bundle.js.LICENSE.txt
+package-lock.json
+

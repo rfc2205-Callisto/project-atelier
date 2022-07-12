@@ -1,7 +1,6 @@
 const express = require('express');
 const axios = require('axios');
-const path = require("path");
-const config = require("../config.js")
+const path = require('path');
 
 //create server
 var app = express();
