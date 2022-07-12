@@ -4,8 +4,6 @@ const config = require('../../../config.js');
 import Search from './search.jsx';
 import QuestionList from './questionList.jsx';
 
-//if need to use token
-//`${config.TOKEN}`
 class QA extends React.Component {
   constructor(props) {
     super(props);
@@ -63,7 +61,7 @@ class QA extends React.Component {
       <>
         <h3>Question & Answers</h3>
         <Search qList={this.state} searchFun={this.handleSearch} />
-        <QuestionList prod_id={this.state.product_id} allQ={this.state.related}
+        <QuestionList key={`Product-${this.state.product_id}`} prod_id={this.state.product_id} allQ={this.state.related}
         relatedQ={this.state.related.slice(0,this.state.defQ)} addQ={this.handleAddQ} />
       </>
     )

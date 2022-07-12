@@ -14,7 +14,7 @@ class Search extends React.Component {
 
   handleClick = (e) => {
     e.preventDefault();
-    var allResult = this.props.qList.data.results;
+    var allResult = this.props.qList.related;
     console.log(allResult)
 
     var related = [];

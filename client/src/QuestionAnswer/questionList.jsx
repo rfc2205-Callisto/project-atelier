@@ -31,7 +31,7 @@ class QuestionList extends React.Component {
   render() {
     var LoadQ;
     if(this.props.allQ.length>this.props.relatedQ.length){
-      LoadQ=< button onClick={this.handleClick} > Load more questions</button >
+      LoadQ=< button onClick={this.handleClick} >Load more questions</button >
     }else{
       LoadQ=null;
     }
@@ -42,13 +42,13 @@ class QuestionList extends React.Component {
           this.props.relatedQ.map((Quest) => {
             return (
               <>
-                <div key={Quest.question_id} className="questBody">Q: {Quest.question_body}</div>
+                <div className="questBody">Q: {Quest.question_body}</div>
                 <div>Helpful? Yes({Quest.question_helpfulness})</div>
                 <div className="addAns">
                   <AddAnswer prod_id={this.props.prod_id} quest_id={Quest.question_id} />
                 </div>
                 <div className="date">{Quest.question_date}</div>
-                <AnswerList allA={Object.values(Quest.answers)} relatedA={Object.values(Quest.answers).slice(0,this.state.defA)} addA={this.handleAddA}/>
+                <AnswerList key={`Answer-${Quest.question_id}`} allA={Object.values(Quest.answers)} relatedA={Object.values(Quest.answers).slice(0,this.state.defA)} addA={this.handleAddA}/>
               </>
             )
           })

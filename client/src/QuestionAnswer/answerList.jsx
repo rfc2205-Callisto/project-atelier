@@ -36,11 +36,11 @@ class AnswerList extends React.Component {
         {this.props.relatedA.map((ans) => {
           return (
             <>
-              <div key={ans.id}>{ans.body}</div>
-              <PhotoList photos={ans.photos} />
-              <div>by {ans.answerer_name}</div>
-              <div>{ans.date}</div>
-              <div>Helpful? Yes({ans.helpfulness})</div>
+              <div >{ans.body}</div>
+              <PhotoList key={`Photo-${ans.id}`} photos={ans.photos} />
+              <div >by {ans.answerer_name}</div>
+              <div >{ans.date}</div>
+              <div >Helpful? Yes({ans.helpfulness})</div>
             </>
           )
         })}

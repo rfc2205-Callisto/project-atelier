@@ -41,7 +41,7 @@ class AddQuestion extends React.Component {
 
         <button onClick={this.open}>Add Question</button>
 
-        <Dialog style={{ color: "blue" }} isOpen={this.state.showDialog} onDismiss={this.close}>
+        <Dialog aria-label="Close" style={{ color: "blue" }} isOpen={this.state.showDialog} onDismiss={this.close}>
           <p>My text is blue because the style prop got applied to the div</p>
           <input value={this.state.name} placeholder="username ..." onChange={(e) => { this.setState({ name: e.target.value }) }} />
           <input value={this.state.body} placeholder="add answer ..." onChange={(e) => { this.setState({ body: e.target.value }) }} />
