@@ -17,7 +17,7 @@ class Gallery extends React.Component {
 
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src={this.props.imgsrc} class="d-block w-100" style="height:100px;width:100px;"/>
+            <img src={this.props.imgsrc} class="d-block w-100"/>
           </div>
 
         </div>
