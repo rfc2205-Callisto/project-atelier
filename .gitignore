@@ -3,5 +3,9 @@ client/dist/bundle.js
 bundle.js
 config.js
 bundle.js.LICENSE.txt
+config.js
+coverage
+apiTesting.js
+.DS_Store
 package-lock.json
 

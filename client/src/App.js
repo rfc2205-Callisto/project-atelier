@@ -1,6 +1,7 @@
 
 import React from "react";
 import axios from 'axios';
+import QA from './QuestionAnswer/qa.jsx'
 import AppProductDetail from "./productDetails/AppProductDetail.jsx"
 import config from '../../config.js'
 import RR from './RR.js'
@@ -38,11 +39,13 @@ class App extends React.Component {
         <h1>
           Hello {name}, Ratings and Reviews go here v
         </h1>
+      </>
         <span>
           <button onClick={this.newProductDown}>-</button>
           <button onClick={this.newProductUp}>+</button>
         </span>
         <RR id={this.state.product_id}/>
+        <QA />
       </React.Fragment>
     );
   }
