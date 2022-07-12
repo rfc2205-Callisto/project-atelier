@@ -42,7 +42,7 @@ class AddAnswer extends React.Component {
 
         <Dialog aria-label="Close" style={{ color: "red" }} isOpen={this.state.showDialog} onDismiss={this.close}>
           <p>My text is red because the style prop got applied to the div</p>
-          <input value={this.state.name} placeholder="username ..." onChange={(e) => { this.setState({ name: e.target.value }) }}/>
+          <input value={this.state.name} placeholder="username ..." onChange={(e) => { this.setState({ name: e.target.value }) }}></input>
           <input value={this.state.body} placeholder="add answer ..." onChange={(e) => { this.setState({ body: e.target.value }) }}/>
           <input value={this.state.email} placeholder="email ..." onChange={(e) => { this.setState({ email: e.target.value }) }}/>
           <button>Upload picture</button>
