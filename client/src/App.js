@@ -1,6 +1,7 @@
 
 import React from "react";
 import axios from 'axios';
+import AppProductDetail from "./productDetails/AppProductDetail.jsx"
 import config from '../../config.js'
 import RR from './RR.js'
 
@@ -33,6 +34,7 @@ class App extends React.Component {
     const name = this.state.name;
     return (
       <React.Fragment>
+        <AppProductDetail/>
         <h1>
           Hello {name}, Ratings and Reviews go here v
         </h1>
