@@ -40,9 +40,6 @@ class QA extends React.Component {
 
   componentDidMount() {
     this.fetchData();
-    console.log(this.state.related);
-    console.log(this.state.defQ)
-
   }
 
 
@@ -53,6 +50,7 @@ class QA extends React.Component {
       related: sortFilter
     })
   }
+
   handleAddQ=()=>{
     var addCount=this.state.defQ+2;
     this.setState({
@@ -61,7 +59,6 @@ class QA extends React.Component {
   }
 
   render() {
-
     return (
       <>
         <h3>Question & Answers</h3>

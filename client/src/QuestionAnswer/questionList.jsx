@@ -11,9 +11,6 @@ import AddAnswer from './addAnswer.jsx';
 import AddQuestion from './addQuestion.jsx';
 
 
-
-//if need to use token
-//`${config.TOKEN}`
 class QuestionList extends React.Component {
   constructor(props) {
     super(props);

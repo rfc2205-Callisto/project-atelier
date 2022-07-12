@@ -4,8 +4,6 @@ const config = require('../../../config.js');
 import { Dialog, DialogOverlay, DialogContent } from "@reach/dialog";
 import "@reach/dialog/styles.css";
 
-//if need to use token
-//`${config.TOKEN}`
 class AddQuestion extends React.Component {
   constructor(props) {
     super(props);
@@ -29,12 +27,7 @@ class AddQuestion extends React.Component {
       "name": this.state.name,
       "email": this.state.email
     };
-    // var apiReq = {
-    //   method: 'post',
-    //   url: '/qa/questions',
 
-    //   data: data
-    // };
     axios.post('/qa/questions',data).then((res) => {
       console.log('yay Question is added supposely')
       console.log(res.data)

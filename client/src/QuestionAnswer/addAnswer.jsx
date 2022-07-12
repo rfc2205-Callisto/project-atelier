@@ -3,11 +3,7 @@ import axios from 'axios';
 const config = require('../../../config.js');
 import { Dialog, DialogOverlay, DialogContent } from "@reach/dialog";
 import "@reach/dialog/styles.css";
-// import { Modal } from './Modal.jsx'
-// import TriggerButton from './triggerButton.jsx';
 
-//if need to use token
-//`${config.TOKEN}`
 class AddAnswer extends React.Component {
   constructor(props) {
     super(props);

@@ -3,8 +3,6 @@ import axios from 'axios';
 const config = require('../../../config.js');
 import QuestionList from './questionList.jsx';
 
-//if need to use token
-//`${config.TOKEN}`
 class Search extends React.Component {
   constructor(props) {
     super(props);
