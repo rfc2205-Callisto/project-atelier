@@ -1,6 +1,13 @@
 import React from "react";
 import axios from 'axios';
-import config from '../../config.js'
+import config from '../../config.js';
+import "bootstrap/dist/js/bootstrap.bundle.min";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
+import Dropdown from 'react-bootstrap/Dropdown';
+import DropdownButton from 'react-bootstrap/DropdownButton';
+import stars from './stars.js'
 
 class RR extends React.Component {
   constructor(props) {
@@ -10,7 +17,9 @@ class RR extends React.Component {
       count: 2,
       sort: 'helpful',
       results: [],
-      length: 0
+      length: 0,
+      show: false,
+      modesrc: ''
     }
   }
 
@@ -74,33 +83,78 @@ class RR extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    console.log('UPDATED')
     if (prevState.count !== this.state.count) {
       this.fetchReviews(this.state.page, this.state.count, this.state.sort);
+      console.log('UPDATED')
+    }
+    if (prevProps.id !== this.props.id)  {
+      this.fetchReviews(this.state.page, 2, this.state.sort);
+      this.howManyResults();
+      console.log('UPDATED')
     }
   }
 
+  thumbClick = (e) => {
+    e.preventDefault();
+    this.setState({
+      show: true,
+      modesrc: e.target.src
+    })
+  }
+
+  thumbClose = () => {
+    this.setState({
+      show: false
+    })
+  }
+
+  fullReviewButton = (e) => {
+    e.preventDefault();
+    document.getElementById('body').innerHTML = e.target.parentElement.className;
+  }
+
+  longBodyChecker = (result) => {
+    if (result.body.length > 250) {
+      return <p className={result.body} id='body'>{result.body.slice(0, 250) + '...'}<button onClick={this.fullReviewButton}>Show Full Review</button></p>;
+    } else {
+      return <p>{result.body}</p>;
+    }}
+
+
   resultsMapper = () => {
     return this.state.results.map((result) => {
-      return <div key ={result.review_id}>
-        <h1>Summary: {result.summary}</h1>
-        <h2>{result.response}</h2>
-      <p>Body: {result.body}</p>
-      <div>Date: {result.date} Name: {result.reviewer_name}</div>
+      return <div id='rrtile' key={result.review_id}>
+        <h1>{stars[result.rating]}</h1>
+        <h2>{result.summary}</h2>
+        <h3>{result.response}</h3>
+      <div>{this.longBodyChecker(result)}</div>
+      <div>Reviewed On: {result.date} By: {result.reviewer_name}</div>
       <div>Helpfulness: {result.helpfulness}</div>
-      <ul>{result.photos.map((photo) => {
-        return <li key={photo.id}><img src={photo.url}/></li>
-      })}</ul>
+      <div>{result.photos.map((photo) => {
+        return <span key={photo.id}><img onClick={this.thumbClick} id='thumbnail' src={photo.url} width={200} height={200}/></span>
+      })}</div>
       </div>
     })
   }
 
   moreReviews = (e) => {
     e.preventDefault();
-    alert(this.state.count);
     this.setState({
       count: this.state.count + 2
     })
+  }
+
+  writeReview = (e) => {
+    e.preventDefault();
+    alert('This button doesn\'t work yet')
+  }
+
+  changeSort = (e) => {
+    e.preventDefault();
+    alert(this.innerHTML)
+    // this.setState({
+    //   sort:
+    // })
   }
 
   render() {
@@ -109,18 +163,35 @@ class RR extends React.Component {
     } else {
       var button = null;
     }
-    console.log(this.state.length)
 
     if (this.state.results.length > 0) {
       return (
         <React.Fragment>
+          <Modal id='modal' show={this.state.show} onHide={this.thumbClose}>
+            <Modal.Header>
+              <Button onClick={this.thumbClose}>X</Button>
+            </Modal.Header>
+            <Modal.Body><img id='picture' src={this.state.modesrc} /></Modal.Body>
+          </Modal>
           <h1>
             Ratings and Reviews
           </h1>
+          <span>{`${this.state.length} Reviews sorted by`}
+            <DropdownButton id="dropdown-basic-button" title={this.state.sort}>
+              <Dropdown.Item id='action'onClick={this.changeSort}>Action</Dropdown.Item>
+              <Dropdown.Item>Another action</Dropdown.Item>
+              <Dropdown.Item>Something else</Dropdown.Item>
+            </DropdownButton>
+          </span>
           <div>{this.resultsMapper()}</div>
-          <div>{button}</div>
+          <span id='reviewButtons'>
+            <div>{button}</div>
+            <button onClick={this.writeReview}>Write a Review</button></span>
         </React.Fragment>
       );
+    }
+    else {
+      return <button onClick={this.writeReview}>Write a Review</button>
     }
   }
 }

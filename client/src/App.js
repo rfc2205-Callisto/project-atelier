@@ -14,6 +14,39 @@ class App extends React.Component {
   }
   componentDidMount() {
     console.log('App is Mounted :)')
+  }
+
+  newProductUp = (e) => {
+    e.preventDefault();
+    this.setState({
+      product_id: this.state.product_id +1
+    })
+  }
+  newProductDown = (e) => {
+    e.preventDefault();
+    this.setState({
+      product_id: this.state.product_id -1
+    })
+  }
+
+  render() {
+    const name = this.state.name;
+    return (
+      <React.Fragment>
+        <h1>
+          Hello {name}, Ratings and Reviews go here v
+        </h1>
+        <span>
+          <button onClick={this.newProductDown}>-</button>
+          <button onClick={this.newProductUp}>+</button>
+        </span>
+        <RR id={this.state.product_id}/>
+      </React.Fragment>
+    );
+  }
+}
+
+// axios request example:
     // var config = {
     //   method: 'get',
     //   url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfc/products',
@@ -35,18 +68,5 @@ class App extends React.Component {
     //   })
     //   .then((result) => console.log('data from api', result.data))
     //   .catch((err) => { console.log("here is an error"); console.log(err) })
-  }
-  render() {
-    const name = this.state.name;
-    return (
-      <React.Fragment>
-        <h1>
-          Hello {name}, Ratings and Reviews go here v
-        </h1>
-        <RR id={this.state.product_id}/>
-      </React.Fragment>
-    );
-  }
-}
 
 export default App;
