@@ -2,18 +2,61 @@
 import React from "react";
 import axios from 'axios';
 import QA from './QuestionAnswer/qa.jsx'
+import AppProductDetail from "./productDetails/AppProductDetail.jsx"
+import config from '../../config.js'
+import RR from './RR.js'
 
 class App extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      name: 'Zach',
+      product_id: 66645
+    }
   }
-  // componentDidMount() {
+  componentDidMount() {
+    console.log('App is Mounted :)')
+  }
 
+  newProductUp = (e) => {
+    e.preventDefault();
+    this.setState({
+      product_id: this.state.product_id +1
+    })
+  }
+  newProductDown = (e) => {
+    e.preventDefault();
+    this.setState({
+      product_id: this.state.product_id -1
+    })
+  }
+
+  render() {
+    const name = this.state.name;
+    return (
+      <React.Fragment>
+        <AppProductDetail/>
+        <h1>
+          Hello {name}, Ratings and Reviews go here v
+        </h1>
+      </>
+        <span>
+          <button onClick={this.newProductDown}>-</button>
+          <button onClick={this.newProductUp}>+</button>
+        </span>
+        <RR id={this.state.product_id}/>
+        <QA />
+      </React.Fragment>
+    );
+  }
+}
+
+// axios request example:
     // var config = {
     //   method: 'get',
     //   url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfc/products',
     //   headers: {
-    //     'Authorization': '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'
+    //     'Authorization': 'config.TOKEN'
     //   }
     // };
 
@@ -24,19 +67,11 @@ class App extends React.Component {
     // .catch(function (error) {
     //   console.log(error);
     // });
-
-  // }
-  render() {
-    const { name } = this.props;
-    return (
-      <>
-        <h1>
-          Hello {name}
-        </h1>
-        <QA />
-      </>
-    );
-  }
-}
+    // axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfc/products',
+    //   {headers:{
+    //     'Authorization': `token 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` }
+    //   })
+    //   .then((result) => console.log('data from api', result.data))
+    //   .catch((err) => { console.log("here is an error"); console.log(err) })
 
 export default App;
