@@ -1,4 +1,62 @@
-h1 {
-  color: white;
-  background-color: black;
+
+.h4 {
+  margin-bottom: 0;
+}
+
+.thumbnail {
+  height: 90px;
+  width: 95px;
+  object-fit:fill;
+  border-radius: 50%;
+  padding: 7px;
+  border-width: 10px;
+  border: solid white;
+
+
+}
+
+.thumbnailselected {
+  background-color: lightgreen;
+}
+
+.size {
+  /* styling */
+  background-color: white;
+  border: thin solid black;
+  border-radius: 4px;
+  display: inline-block;
+  font: inherit;
+  /* line-height: 1.5em; */
+  /* padding: 0.5em 3.5em 0.5em 1em; */
+
+  /* reset */
+
+  margin-right: 10px;
+  height: 40px;
+}
+.quantity {
+  /* styling */
+  background-color: white;
+  border: thin solid black;
+  border-radius: 4px;
+  display: inline-block;
+  font: inherit;
+  margin-right: 10px;
+  height: 40px;
+}
+
+.addtobag {
+  /* styling */
+  background-color: white;
+  border: thin solid black;
+  border-radius: 4px;
+  display: inline-block;
+  font: inherit;
+  margin-right: 10px;
+  margin-top: 10px;
+  height: 40px;
+}
+
+.row {
+  display: flex; /* equal height of the children */
 }
