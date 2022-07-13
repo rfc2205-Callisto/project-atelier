@@ -26,18 +26,14 @@ class RR extends React.Component {
   howManyResults = () => {
     var options = {
       method: 'get',
-      url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfc/reviews',
+      url: '/reviews',
       params: {
         'page': 1,
         'count': 50,
         'sort': this.state.sort,
         'product_id': this.props.id
-      },
-      headers: {
-        'Authorization': `${config.TOKEN}`
       }
     };
-
     axios(options)
     .then((response) => {
       this.setState({
@@ -52,18 +48,14 @@ class RR extends React.Component {
   fetchReviews = (page, count, sort) => {
     var options = {
       method: 'get',
-      url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfc/reviews',
+      url: '/reviews',
       params: {
         'page': page,
         'count': count,
         'sort': sort,
         'product_id': this.props.id
-      },
-      headers: {
-        'Authorization': `${config.TOKEN}`
       }
     };
-
     axios(options)
     .then((response) => {
       this.setState({
@@ -84,6 +76,10 @@ class RR extends React.Component {
 
   componentDidUpdate(prevProps, prevState) {
     if (prevState.count !== this.state.count) {
+      this.fetchReviews(this.state.page, this.state.count, this.state.sort);
+      console.log('UPDATED')
+    }
+    if (prevState.sort !== this.state.sort) {
       this.fetchReviews(this.state.page, this.state.count, this.state.sort);
       console.log('UPDATED')
     }
@@ -149,12 +145,23 @@ class RR extends React.Component {
     alert('This button doesn\'t work yet')
   }
 
-  changeSort = (e) => {
+  changeSortHelp = (e) => {
     e.preventDefault();
-    alert(this.innerHTML)
-    // this.setState({
-    //   sort:
-    // })
+    this.setState({
+      sort: 'helpful'
+    })
+  }
+  changeSortRel = (e) => {
+    e.preventDefault();
+    this.setState({
+      sort: 'relevant'
+    })
+  }
+  changeSortNew = (e) => {
+    e.preventDefault();
+    this.setState({
+      sort: 'newest'
+    })
   }
 
   render() {
@@ -177,10 +184,10 @@ class RR extends React.Component {
             Ratings and Reviews
           </h1>
           <span>{`${this.state.length} Reviews sorted by`}
-            <DropdownButton id="dropdown-basic-button" title={this.state.sort}>
-              <Dropdown.Item id='action'onClick={this.changeSort}>Action</Dropdown.Item>
-              <Dropdown.Item>Another action</Dropdown.Item>
-              <Dropdown.Item>Something else</Dropdown.Item>
+            <DropdownButton id="dropdown-basic-button" title={this.state.sort.toUpperCase()}>
+              <Dropdown.Item onClick={this.changeSortHelp}>Helpful</Dropdown.Item>
+              <Dropdown.Item onClick={this.changeSortRel}>Relevant</Dropdown.Item>
+              <Dropdown.Item onClick={this.changeSortNew}>Newest</Dropdown.Item>
             </DropdownButton>
           </span>
           <div>{this.resultsMapper()}</div>

@@ -15,7 +15,7 @@ class QA extends React.Component {
   }
 
   fetchData = () => {
-    var product_id = 66642;
+    var product_id = this.props.id;
     var apiReq = {
       method: 'get',
       url: '/qa/questions',
@@ -40,6 +40,11 @@ class QA extends React.Component {
     this.fetchData();
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.id !== this.props.id)  {
+      this.fetchData();
+    }
+  }
 
   handleSearch = (filterResult) => {
     var sortFilter=filterResult.sort((a,b)=>(a.helpfulness>b.helpfulness)?-1:1)

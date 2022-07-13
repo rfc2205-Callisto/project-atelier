@@ -10,8 +10,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: 'Zach',
-      product_id: 66645
+      product_id: 66642
     }
   }
   componentDidMount() {
@@ -36,16 +35,12 @@ class App extends React.Component {
     return (
       <React.Fragment>
         <AppProductDetail/>
-        <h1>
-          Hello {name}, Ratings and Reviews go here v
-        </h1>
-      </>
         <span>
           <button onClick={this.newProductDown}>-</button>
           <button onClick={this.newProductUp}>+</button>
         </span>
         <RR id={this.state.product_id}/>
-        <QA />
+        <QA id={this.state.product_id}/>
       </React.Fragment>
     );
   }
