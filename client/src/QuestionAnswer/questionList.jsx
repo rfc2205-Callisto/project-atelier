@@ -37,25 +37,30 @@ class QuestionList extends React.Component {
     }
 
     return (
-      <>
+      <div class="container">
         {
           this.props.relatedQ.map((Quest) => {
             return (
-              <>
-                <div className="questBody">Q: {Quest.question_body}</div>
-                <div>Helpful? Yes({Quest.question_helpfulness})</div>
-                <div className="addAns">
-                  <AddAnswer prod_id={this.props.prod_id} quest_id={Quest.question_id} />
+              <div class="border">
+                <div class="row ">
+                  <div class="col-1">Q:</div>
+                  <div class="col-7 questBody" > {Quest.question_body}</div>
+                  <div class="col-2">Helpful? Yes({Quest.question_helpfulness})</div>
+                  <div class="col-2 addAns" >
+                    <AddAnswer prod_id={this.props.prod_id} quest_id={Quest.question_id} />
+                  </div>
                 </div>
-                <div className="date">{Quest.question_date}</div>
-                <AnswerList key={`Answer-${Quest.question_id}`} allA={Object.values(Quest.answers)} relatedA={Object.values(Quest.answers).slice(0,this.state.defA)} addA={this.handleAddA}/>
-              </>
+                <div class="row ">
+                  {/* <div class="date">{Quest.question_date}</div> */}
+                  <AnswerList key={`Answer-${Quest.question_id}`} allA={Object.values(Quest.answers)} relatedA={Object.values(Quest.answers).slice(0,this.state.defA)} addA={this.handleAddA}/>
+                </div>
+              </div>
             )
           })
         }
         {LoadQ}
         <AddQuestion prod_id={this.props.prod_id} />
-      </>
+      </div>
     )
 
   }

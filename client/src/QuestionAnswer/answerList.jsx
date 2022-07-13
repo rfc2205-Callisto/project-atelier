@@ -18,12 +18,6 @@ class AnswerList extends React.Component {
   }
 
   render() {
-    var Answ;
-    if (this.props.relatedA !== 0) {
-      Answ = <div className="answers">A:</div>
-    } else {
-      Answ = null
-    }
     var LoadA;
     if(this.props.allA.length>this.props.relatedA.length){
       LoadA=<button onClick={this.handleClick}>Load More Answers</button>
@@ -32,15 +26,17 @@ class AnswerList extends React.Component {
     }
     return (
       <>
-        {Answ}
         {this.props.relatedA.map((ans) => {
           return (
             <>
-              <div >{ans.body}</div>
-              <PhotoList key={`Photo-${ans.id}`} photos={ans.photos} />
-              <div >by {ans.answerer_name}</div>
-              <div >{ans.date}</div>
-              <div >Helpful? Yes({ans.helpfulness})</div>
+              <div class="col-1 answers">A:</div>
+              <div class="col-11">{ans.body}</div>
+              <PhotoList class="container" key={`Photo-${ans.id}`} photos={ans.photos} />
+              <div class="row">
+                <div class="col-2">by {ans.answerer_name}</div>
+                <div class="col-4">{ans.date}</div>
+                <div class="col-4">Helpful? Yes({ans.helpfulness})</div>
+              </div>
             </>
           )
         })}

@@ -54,7 +54,7 @@ app.post('/qa/questions/:question_id/answers', (req, res) => {
   }
 
   axios(apiReq).then((data) => { res.json(data) }).catch((err) => { console.log('there is error in api post answer request') })
-app.use(express.static(path.join(__dirname + '/../client/dist')));
+});
 
 app.get("/product", (req, res) => {
   axios.get("https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfc/products/66666/", {headers: {'Authorization': config.TOKEN}})

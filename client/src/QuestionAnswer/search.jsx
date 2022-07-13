@@ -29,13 +29,13 @@ class Search extends React.Component {
 
   render() {
     return (
-      <>
-        <form>
-          <input value={this.state.entry} placeholder="search ..." onChange={(e) => { this.setState({ entry: e.target.value }) }}></input>
-          <button onClick={this.handleClick}>Search</button>
+      <div class="container-xxl">
+        <form class="row">
+          <input class="col-11" value={this.state.entry} placeholder="search ..." onChange={(e) => { this.setState({ entry: e.target.value }) }}></input>
+          <button class="col-1" onClick={this.handleClick}>Search</button>
         </form>
         {/* <QuestionList relatedQ={this.state.result}/> */}
-      </>
+      </div>
     )
   }
 }

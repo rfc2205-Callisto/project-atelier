@@ -60,7 +60,7 @@ class QA extends React.Component {
     return (
       <>
         <h3>Question & Answers</h3>
-        <Search qList={this.state} searchFun={this.handleSearch} />
+        <Search className="searchQ" qList={this.state} searchFun={this.handleSearch} />
         <QuestionList key={`Product-${this.state.product_id}`} prod_id={this.state.product_id} allQ={this.state.related}
         relatedQ={this.state.related.slice(0,this.state.defQ)} addQ={this.handleAddQ} />
       </>
