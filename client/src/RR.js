@@ -1,8 +1,5 @@
 import React from "react";
 import axios from 'axios';
-import config from '../../config.js';
-import "bootstrap/dist/js/bootstrap.bundle.min";
-import "bootstrap/dist/css/bootstrap.min.css";
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Dropdown from 'react-bootstrap/Dropdown';
@@ -16,36 +13,14 @@ class RR extends React.Component {
       page: 1,
       count: 2,
       sort: 'helpful',
-      results: [],
+      all: [],
       length: 0,
       show: false,
       modesrc: ''
     }
   }
 
-  howManyResults = () => {
-    var options = {
-      method: 'get',
-      url: '/reviews',
-      params: {
-        'page': 1,
-        'count': 50,
-        'sort': this.state.sort,
-        'product_id': this.props.id
-      }
-    };
-    axios(options)
-    .then((response) => {
-      this.setState({
-        length: response.data.results.length
-      })
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-  }
-
-  fetchReviews = (page, count, sort) => {
+  allResults = (page, count, sort) => {
     var options = {
       method: 'get',
       url: '/reviews',
@@ -59,7 +34,8 @@ class RR extends React.Component {
     axios(options)
     .then((response) => {
       this.setState({
-        results: response.data.results
+        length: response.data.results.length,
+        all: response.data.results
       })
     })
     .catch((error) => {
@@ -69,23 +45,24 @@ class RR extends React.Component {
 
   componentDidMount() {
     console.log('RR is Mounted :)')
-    this.fetchReviews(this.state.page, this.state.count,
+    this.allResults(this.state.page, this.state.count,
       this.state.sort);
-    this.howManyResults();
+    this.allResults(this.state.page, 50,
+      this.state.sort);
   }
 
   componentDidUpdate(prevProps, prevState) {
     if (prevState.count !== this.state.count) {
-      this.fetchReviews(this.state.page, this.state.count, this.state.sort);
+      this.allResults(this.state.page, this.state.count, this.state.sort);
       console.log('UPDATED')
     }
     if (prevState.sort !== this.state.sort) {
-      this.fetchReviews(this.state.page, this.state.count, this.state.sort);
+      this.allResults(this.state.page, this.state.count, this.state.sort);
       console.log('UPDATED')
     }
     if (prevProps.id !== this.props.id)  {
-      this.fetchReviews(this.state.page, 2, this.state.sort);
-      this.howManyResults();
+      this.allResults(this.state.page, 2, this.state.sort);
+      this.allResults();
       console.log('UPDATED')
     }
   }
@@ -106,31 +83,65 @@ class RR extends React.Component {
 
   fullReviewButton = (e) => {
     e.preventDefault();
-    document.getElementById('body').innerHTML = e.target.parentElement.className;
+    document.getElementById(e.target.parentElement.id).innerHTML = e.target.parentElement.className;
   }
 
   longBodyChecker = (result) => {
     if (result.body.length > 250) {
-      return <p className={result.body} id='body'>{result.body.slice(0, 250) + '...'}<button onClick={this.fullReviewButton}>Show Full Review</button></p>;
+      return <p className={result.body} id={result.review_id}>{result.body.slice(0, 250) + '...'}<button onClick={this.fullReviewButton}>Show Full Review</button></p>;
     } else {
       return <p>{result.body}</p>;
     }}
 
+  recommendChecker = (result) => {
+    if (result.recommend === false) {
+      return null;
+    } else {
+      return <span>✅&nbsp;&nbsp;I recommend this product!</span>
+    }
+  }
+  responseChecker = (result) => {
+    if (result.response === null || result.response === '') {
+      return null;
+    } else {
+      return <p id='response'>{`Response from Seller:\n${result.response}`}</p>
+    }
+  }
 
   resultsMapper = () => {
-    return this.state.results.map((result) => {
-      return <div id='rrtile' key={result.review_id}>
-        <h1>{stars[result.rating]}</h1>
-        <h2>{result.summary}</h2>
-        <h3>{result.response}</h3>
-      <div>{this.longBodyChecker(result)}</div>
-      <div>Reviewed On: {result.date} By: {result.reviewer_name}</div>
-      <div>Helpfulness: {result.helpfulness}</div>
-      <div>{result.photos.map((photo) => {
+    var list = []
+    var count = this.state.count;
+    for (var i = 0; i < count; i ++) {
+      var review = this.state.all[i];
+      list.push(<div id='rrtile' key={review.review_id}>
+        <h1>{stars[review.rating]}</h1>
+        <h2>{review.summary}</h2>
+      <div>{this.longBodyChecker(review)}</div>
+      <div>Reviewed On: {review.date} By: {review.reviewer_name}</div>
+      <div>{this.recommendChecker(review)}</div>
+      <div>{this.responseChecker(review)}</div>
+      <div>Helpfulness: {review.helpfulness}</div>
+      <div>{review.photos.map((photo) => {
         return <span key={photo.id}><img onClick={this.thumbClick} id='thumbnail' src={photo.url} width={200} height={200}/></span>
       })}</div>
-      </div>
-    })
+      </div>)
+    }
+
+    return <div>{list}</div>
+    // return this.state.results.map((result) => {
+    //   return <div id='rrtile' key={result.review_id}>
+    //     <h1>{stars[result.rating]}</h1>
+    //     <h2>{result.summary}</h2>
+    //   <div>{this.longBodyChecker(result)}</div>
+    //   <div>Reviewed On: {result.date} By: {result.reviewer_name}</div>
+    //   <div>{this.recommendChecker(result)}</div>
+    //   <div>{this.responseChecker(result)}</div>
+    //   <div>Helpfulness: {result.helpfulness}</div>
+    //   <div>{result.photos.map((photo) => {
+    //     return <span key={photo.id}><img onClick={this.thumbClick} id='thumbnail' src={photo.url} width={200} height={200}/></span>
+    //   })}</div>
+    //   </div>
+    // })
   }
 
   moreReviews = (e) => {
@@ -164,6 +175,15 @@ class RR extends React.Component {
     })
   }
 
+  avRat = () => {
+    var sum = 0;
+    this.state.all.forEach((result) => {
+      sum += result.rating;
+    })
+    var ave = (sum / this.state.length);
+    return  Math.ceil(ave * 10) / 10;
+  }
+
   render() {
     if (this.state.length > this.state.count) {
       var button = <button onClick={this.moreReviews}>Show More Reviews</button>;
@@ -171,9 +191,9 @@ class RR extends React.Component {
       var button = null;
     }
 
-    if (this.state.results.length > 0) {
+    if (this.state.all.length > 0) {
       return (
-        <React.Fragment>
+        <div>
           <Modal id='modal' show={this.state.show} onHide={this.thumbClose}>
             <Modal.Header>
               <Button onClick={this.thumbClose}>X</Button>
@@ -183,6 +203,7 @@ class RR extends React.Component {
           <h1>
             Ratings and Reviews
           </h1>
+          <div>Average Rating = {this.avRat()}</div>
           <span>{`${this.state.length} Reviews sorted by`}
             <DropdownButton id="dropdown-basic-button" title={this.state.sort.toUpperCase()}>
               <Dropdown.Item onClick={this.changeSortHelp}>Helpful</Dropdown.Item>
@@ -194,7 +215,7 @@ class RR extends React.Component {
           <span id='reviewButtons'>
             <div>{button}</div>
             <button onClick={this.writeReview}>Write a Review</button></span>
-        </React.Fragment>
+        </div>
       );
     }
     else {

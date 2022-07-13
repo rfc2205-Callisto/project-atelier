@@ -26,7 +26,7 @@ app.get('/qa/questions', (req, res) => {
 })
 
 app.post('/qa/questions', (req, res) => {
-  console.log(req.body)
+  // console.log(req.body)
   var apiReq = {
     method: 'post',
     url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfc/qa/questions',
