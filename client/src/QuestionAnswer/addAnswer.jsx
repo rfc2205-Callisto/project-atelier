@@ -37,8 +37,8 @@ class AddAnswer extends React.Component {
 
   render() {
     return (
-      <div>
-        <button class="answerer" onClick={this.open}>Add Answer</button>
+      <>
+        <button onClick={this.open}>Add Answer</button>
 
         <Dialog aria-label="Close" style={{ color: "red" }} isOpen={this.state.showDialog} onDismiss={this.close}>
           <p>My text is red because the style prop got applied to the div</p>
@@ -48,7 +48,7 @@ class AddAnswer extends React.Component {
           <button>Upload picture</button>
           <button onClick={this.handleSubmit}>Okay</button>
         </Dialog>
-      </div>
+      </>
     )
   }
 }

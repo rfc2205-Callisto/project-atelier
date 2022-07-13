@@ -10,7 +10,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       name: 'Zach',
-      product_id: 37317
+      product_id: 66642
     }
   }
   componentDidMount() {
@@ -49,27 +49,5 @@ class App extends React.Component {
   }
 }
 
-// axios request example:
-    // var config = {
-    //   method: 'get',
-    //   url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfc/products',
-    //   headers: {
-    //     'Authorization': 'config.TOKEN'
-    //   }
-    // };
-
-    // axios(config)
-    // .then(function (response) {
-    //   console.log(JSON.stringify(response.data));
-    // })
-    // .catch(function (error) {
-    //   console.log(error);
-    // });
-    // axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfc/products',
-    //   {headers:{
-    //     'Authorization': `token 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` }
-    //   })
-    //   .then((result) => console.log('data from api', result.data))
-    //   .catch((err) => { console.log("here is an error"); console.log(err) })
 
 export default App;

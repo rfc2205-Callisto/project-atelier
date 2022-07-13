@@ -56,10 +56,29 @@ app.post('/qa/questions/:question_id/answers', (req, res) => {
   axios(apiReq).then((data) => { res.json(data) }).catch((err) => { console.log('there is error in api post answer request') })
 });
 
+app.put('/qa/questions/:question_id/helpful',(req,res)=>{
+  var apiReq = {
+    method: 'put',
+    url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfc/qa/questions/${req.params.question_id}/helpful`,
+    headers: {
+      'Authorization': `${config.TOKEN}`
+    }
+  }
+  axios(apiReq).then(()=>{res.sensendStatusd(204)}).catch((err) => { throw err})
+})
+app.put('/qa/answers/:answer_id/helpful',(req,res)=>{
+  var apiReq = {
+    method: 'put',
+    url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfc/qa/answers/${req.params.answer_id}/helpful`,
+    headers: {
+      'Authorization': `${config.TOKEN}`
+    }
+  }
+  axios(apiReq).then(()=>{res.sendStatus(204)}).catch((err) => { throw err})
+})
 app.get("/product", (req, res) => {
   axios.get("https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfc/products/66666/", {headers: {'Authorization': config.TOKEN}})
     .then((data) => {
-      console.log("****data: ", data.data);
       res.send(data.data);
     })
 })
@@ -67,7 +86,6 @@ app.get("/product", (req, res) => {
 app.get("/styles", (req, res) => {
   axios.get("https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfc/products/66666/styles", {headers: {'Authorization': config.TOKEN}})
     .then((data) => {
-      console.log("****data: ", data.data);
       res.send(data.data);
     })
 })

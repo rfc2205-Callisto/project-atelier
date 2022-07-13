@@ -30,9 +30,9 @@ class Search extends React.Component {
   render() {
     return (
       <div class="container">
-        <form class="row">
-          <input class="col-11" value={this.state.entry} placeholder="search ..." onChange={(e) => { this.setState({ entry: e.target.value }) }}></input>
-          <button class="col-1" onClick={this.handleClick}>Search</button>
+        <form class="search">
+          <input class="searchBar" value={this.state.entry} placeholder="search ..." onChange={(e) => { this.setState({ entry: e.target.value }) }}></input>
+          <button class="searchButton" onClick={this.handleClick}>Search</button>
         </form>
         {/* <QuestionList relatedQ={this.state.result}/> */}
       </div>
