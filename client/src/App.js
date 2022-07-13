@@ -3,7 +3,6 @@ import React from "react";
 import axios from 'axios';
 import QA from './QuestionAnswer/qa.jsx'
 import AppProductDetail from "./productDetails/AppProductDetail.jsx"
-import config from '../../config.js'
 import RR from './RR.js'
 
 class App extends React.Component {
@@ -11,7 +10,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       name: 'Zach',
-      product_id: 66645
+      product_id: 37317
     }
   }
   componentDidMount() {

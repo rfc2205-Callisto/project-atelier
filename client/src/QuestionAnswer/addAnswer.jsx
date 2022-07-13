@@ -1,6 +1,6 @@
 import React from "react";
 import axios from 'axios';
-const config = require('../../../config.js');
+
 import { Dialog, DialogOverlay, DialogContent } from "@reach/dialog";
 import "@reach/dialog/styles.css";
 
@@ -38,7 +38,7 @@ class AddAnswer extends React.Component {
   render() {
     return (
       <div>
-        <button onClick={this.open}>Add Answer</button>
+        <button class="answerer" onClick={this.open}>Add Answer</button>
 
         <Dialog aria-label="Close" style={{ color: "red" }} isOpen={this.state.showDialog} onDismiss={this.close}>
           <p>My text is red because the style prop got applied to the div</p>

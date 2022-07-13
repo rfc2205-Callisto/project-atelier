@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import axios from 'axios';
-const config = require('../../../config.js');
 
 import TimeAgo from 'javascript-time-ago';
 import en from 'javascript-time-ago/locale/en';// English.
@@ -41,11 +40,11 @@ class QuestionList extends React.Component {
         {
           this.props.relatedQ.map((Quest) => {
             return (
-              <div class="border">
-                <div class="row ">
-                  <div class="col-1">Q:</div>
+              <div class="oneQ">
+                <div class="row">
+                  <div class="col-auto ">Q:</div>
                   <div class="col-7 questBody" > {Quest.question_body}</div>
-                  <div class="col-2">Helpful? Yes({Quest.question_helpfulness})</div>
+                  <div class="col-2 helpfulness">Helpful? Yes({Quest.question_helpfulness})</div>
                   <div class="col-2 addAns" >
                     <AddAnswer prod_id={this.props.prod_id} quest_id={Quest.question_id} />
                   </div>
@@ -67,4 +66,37 @@ class QuestionList extends React.Component {
 }
 
 export default QuestionList;
+
+// before change the question list with bootstrap
+// return (
+//       <div class="container">
+//         {
+//           this.props.relatedQ.map((Quest) => {
+//             return (
+//               <div class="border">
+//                 <div class="row">
+//                   <div class="col-1">Q:</div>
+//                   <div class="col-7 questBody" > {Quest.question_body}</div>
+//                   <div class="col-2 helpfulness">Helpful? Yes({Quest.question_helpfulness})</div>
+//                   <div class="col-2 addAns" >
+//                     <AddAnswer prod_id={this.props.prod_id} quest_id={Quest.question_id} />
+//                   </div>
+//                 </div>
+//                 <div class="row ">
+//                   {/* <div class="date">{Quest.question_date}</div> */}
+//                   <AnswerList key={`Answer-${Quest.question_id}`} allA={Object.values(Quest.answers)} relatedA={Object.values(Quest.answers).slice(0,this.state.defA)} addA={this.handleAddA}/>
+//                 </div>
+//               </div>
+//             )
+//           })
+//         }
+//         {LoadQ}
+//         <AddQuestion prod_id={this.props.prod_id} />
+//       </div>
+//     )
+
+//   }
+// }
+
+// export default QuestionList;
 

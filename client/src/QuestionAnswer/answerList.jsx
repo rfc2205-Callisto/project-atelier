@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import axios from 'axios';
-const config = require('../../../config.js');
 
 import TimeAgo from 'javascript-time-ago';
 import en from 'javascript-time-ago/locale/en';// English.
@@ -32,10 +31,10 @@ class AnswerList extends React.Component {
               <div class="col-1 answers">A:</div>
               <div class="col-11">{ans.body}</div>
               <PhotoList class="container" key={`Photo-${ans.id}`} photos={ans.photos} />
-              <div class="row">
-                <div class="col-2">by {ans.answerer_name}</div>
-                <div class="col-4">{ans.date}</div>
-                <div class="col-4">Helpful? Yes({ans.helpfulness})</div>
+              <div class="row gx-5">
+                <div class="col-2 answerer">by {ans.answerer_name}</div>
+                <div class="col-4 answerer">{ans.date}</div>
+                <div class="col-4 answerer">Helpful? Yes({ans.helpfulness})</div>
               </div>
             </>
           )

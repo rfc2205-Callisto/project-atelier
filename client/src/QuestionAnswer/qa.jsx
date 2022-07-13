@@ -1,6 +1,6 @@
 import React from "react";
 import axios from 'axios';
-const config = require('../../../config.js');
+
 import Search from './search.jsx';
 import QuestionList from './questionList.jsx';
 
