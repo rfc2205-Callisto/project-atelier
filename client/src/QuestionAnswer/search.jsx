@@ -34,7 +34,7 @@ class Search extends React.Component {
       <div class="container">
         <form class="search">
           <input class="searchBar" value={this.state.entry} placeholder="search ..." onChange={(e) => { this.setState({ entry: e.target.value }) }}></input>
-          <button class="searchButton" onClick={this.handleClick}>Search</button>
+          <button class="searchButton" onClick={this.handleClick}>🔍</button>
         </form>
         {/* <QuestionList relatedQ={this.state.result}/> */}
       </div>

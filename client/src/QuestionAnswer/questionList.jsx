@@ -3,15 +3,17 @@ import axios from 'axios';
 
 
 import AnswerList from './answerList.jsx';
-import AddAnswer from './addAnswer.jsx';
+import AddAnswer from './addAnswerNew.jsx';
 import AddQuestionNew from './addQuestionNew.jsx';
+
 
 
 class QuestionList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      showDialog: false,
+      showDialogQ: false,
+      showDialogA: false,
       defA: 2,
       helpQ: false
     }
@@ -36,22 +38,28 @@ class QuestionList extends React.Component {
       axios.put(`qa/questions/${id}/helpful`).then(() => { console.log('question helpfulness updated') }).catch((err) => { console.log('question helpfulness not submitted') });
     }
   }
-  handleDialog = () => {
-    var newState = this.state.showDialog ? false : true;
-    this.setState({showDialog: newState})
+  handleDialogQ = (e) => {
+    var newState = !this.state.showDialogQ;
+    this.setState({showDialogQ: newState})
   }
-
+  handleDialogA = (e) => {
+    var newState = !this.state.showDialogA;
+    this.setState({
+      showDialogA: newState,
+    quest_id:e.target.quest_id||''
+  })
+  }
   render() {
     var LoadQ;
     if (this.props.allQ.length > this.props.relatedQ.length) {
       LoadQ = < button class="loadQ" onClick={this.handleClick} >Load more questions</button >
     } else {
-      LoadQ = <div class="loadQ"></div>
+      LoadQ = null
     }
-
     return (
       <>
-        {this.state.showDialog && < AddQuestionNew prod_id={this.props.prod_id} closeModal={this.handleDialog}/>}
+        {this.state.showDialogQ && < AddQuestionNew prod_id={this.props.prod_id} closeModal={this.handleDialogQ}/>}
+        {this.state.showDialogA && <AddAnswer prod_id={this.props.prod_id} quest_id={this.state.quest_id} closeModal={this.handleDialogA}/>}
         <div class="container">
           {
             this.props.relatedQ.map((Quest) => {
@@ -62,7 +70,7 @@ class QuestionList extends React.Component {
                     <div class="questBody" > {Quest.question_body}</div>
                     <div class="helpfulness" onClick={this.helpfulButton}>Helpful? <u>Yes({Quest.question_helpfulness})</u></div>
                     <div class="addAns" >
-                      <AddAnswer prod_id={this.props.prod_id} quest_id={Quest.question_id} />
+                      <button quest_id={Quest.question_id} class="addA" onClick={this.handleDialogA}>Add Answer</button>
                     </div>
                   </div>
                   <AnswerList key={`Answer-${Quest.question_id}`} allA={Object.values(Quest.answers)} relatedA={Object.values(Quest.answers).slice(0, this.state.defA)} addA={this.handleAddA} fetchData={this.props.fetchData} />
@@ -75,7 +83,7 @@ class QuestionList extends React.Component {
         <div class="container">
           < div class="otherOptions" >
             {LoadQ}
-            <button class="addQ" onClick={this.handleDialog}>Add Question</button>
+            <button class="addQ" onClick={this.handleDialogQ}>Add Question</button>
           </div >
         </div>
 
