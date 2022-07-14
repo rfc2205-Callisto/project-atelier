@@ -14,17 +14,19 @@ class Search extends React.Component {
 
   handleClick = (e) => {
     e.preventDefault();
-    var allResult = this.props.qList.related;
-    console.log(allResult)
-
-    var related = [];
-    for (var i = 0; i < allResult.length; i++) {
-      if (allResult[i].question_body.includes(this.state.entry)) {
-        related.push(allResult[i]);
+    var allResult = this.props.allQ;
+    if(this.state.entry===''||this.state.entry===undefined){
+      this.props.searchFun(allResult);
+    }else{
+      var related = [];
+      for (var i = 0; i < allResult.length; i++) {
+        if (allResult[i].question_body.includes(this.state.entry)) {
+          related.push(allResult[i]);
+        }
       }
+      this.props.searchFun(related)
     }
 
-    this.props.searchFun(related)
   }
 
   render() {

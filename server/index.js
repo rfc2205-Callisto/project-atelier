@@ -64,12 +64,22 @@ app.put('/qa/questions/:question_id/helpful',(req,res)=>{
       'Authorization': `${config.TOKEN}`
     }
   }
-  axios(apiReq).then(()=>{res.sensendStatusd(204)}).catch((err) => { throw err})
+  axios(apiReq).then(()=>{res.sendStatus(204)}).catch((err) => { throw err})
 })
 app.put('/qa/answers/:answer_id/helpful',(req,res)=>{
   var apiReq = {
     method: 'put',
     url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfc/qa/answers/${req.params.answer_id}/helpful`,
+    headers: {
+      'Authorization': `${config.TOKEN}`
+    }
+  }
+  axios(apiReq).then(()=>{res.sendStatus(204)}).catch((err) => { throw err})
+})
+app.put('/qa/answers/:answer_id/report',(req,res)=>{
+  var apiReq = {
+    method: 'put',
+    url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfc/qa/answers/${req.params.answer_id}/report`,
     headers: {
       'Authorization': `${config.TOKEN}`
     }

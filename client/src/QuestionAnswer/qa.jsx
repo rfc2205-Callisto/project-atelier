@@ -8,6 +8,7 @@ class QA extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      allQ:[],
       related: [],
       defQ:2,
       moreQ:false
@@ -15,7 +16,7 @@ class QA extends React.Component {
   }
 
   fetchData = () => {
-    var product_id = 66666;
+    var product_id = 66642;
     var apiReq = {
       method: 'get',
       url: '/qa/questions',
@@ -26,10 +27,13 @@ class QA extends React.Component {
     };
 
     axios(apiReq).then((response) => {
-      console.log(response.data);
       var data = response.data;
-      this.setState({ product_id: data.product_id })
-      this.setState({ related: data.results })
+      var result=data.results.sort((a,b)=>(a.helpfulness>b.helpfulness)?-1:1);
+      this.setState({
+        product_id: data.product_id,
+        allQ:result,
+        related: result
+       })
     })
       .catch(function (error) {
         console.log(error);
@@ -60,7 +64,7 @@ class QA extends React.Component {
     return (
       <>
         <h3>Question & Answers</h3>
-        <Search className="searchQ" qList={this.state} searchFun={this.handleSearch} />
+        <Search className="searchQ" allQ={this.state.allQ} searchFun={this.handleSearch} />
         <QuestionList key={`Product-${this.state.product_id}`} prod_id={this.state.product_id} allQ={this.state.related}
         relatedQ={this.state.related.slice(0,this.state.defQ)} addQ={this.handleAddQ} />
       </>

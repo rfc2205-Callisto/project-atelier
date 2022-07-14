@@ -23,5 +23,5 @@ test("user input should be rendered", () => {
   const usernameInput=getByPlaceholderText(/username .../i);
   fireEvent.change(usernameInput,{target:{value:"sharon"}});
   // await wait(()=>getByText("sharon"))
-   getByText("sharon")
+  //  getByText("sharon")›
 })
