@@ -1,10 +1,8 @@
 import React from "react"
 import store from "./store.js"
 import axios from "axios"
-import PanelInfoOverview from "./PanelInfoOverview.jsx"
-import PanelStyleSelector from "./PanelStyleSelector.jsx"
-import PanelAddToCart from "./PanelAddToCart.jsx"
-import Gallery from "./Gallery.jsx"
+import GalleryModule from "./GalleryModule.jsx"
+import PanelModule from "./PanelModule.jsx"
 import Overview from "./Overview.jsx"
 import {Provider} from "react-redux"
 
@@ -45,16 +43,10 @@ class AppProductDetail extends React.Component {
     return (
       <Provider store = {store}>
         <div class="container">
-          <div class = "row">
-            <div class="col-lg-7">
-              <Gallery/>
-            </div>
 
-            <div class="col-lg-5">
-              <PanelInfoOverview/>
-              <PanelStyleSelector/>
-              <PanelAddToCart/>
-            </div>
+          <div class = "row row1">
+            <GalleryModule/>
+            <PanelModule/>
 
           </div>
           <div class = "row">
