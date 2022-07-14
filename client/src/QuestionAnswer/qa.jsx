@@ -26,7 +26,7 @@ class QA extends React.Component {
     };
 
     axios(apiReq).then((response) => {
-      console.log(response.data);
+      // console.log(response.data);
       var data = response.data;
       this.setState({ product_id: data.product_id })
       this.setState({ related: data.results })

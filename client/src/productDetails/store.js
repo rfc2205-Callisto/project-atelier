@@ -13,7 +13,7 @@ style_id: 0 }],
 const reducerFunc = function(state = defaultState, action) {
   switch (action.type) {
     case 'initialize':
-      console.log("****initialize")
+      // console.log("****initialize")
       var newstate = {};
       // Info that are fixed
       newstate.overview = action.productOverview;
@@ -26,7 +26,7 @@ const reducerFunc = function(state = defaultState, action) {
       }
       newstate.rating = 4;
       // Info upon change
-      console.log(action.styleData);
+      // console.log(action.styleData);
       newstate.selectedStyleID = action.styleData[0].style_id;
       newstate.selectedStyle = action.styleData[0];
       newstate.selectedStyleSizeNQuan = action.styleData[0].skus;

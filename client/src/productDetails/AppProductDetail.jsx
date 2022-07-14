@@ -22,9 +22,9 @@ class AppProductDetail extends React.Component {
   fetchData = () => {
     axios.get("/product")
       .then((data)=>{
-        console.log("overview data",data.data);
+        // console.log("overview data",data.data);
         axios.get("/styles").then((styleData) => {
-          console.log("Style data",styleData.data);
+          // console.log("Style data",styleData.data);
           var initialAction = {
             type: "initialize",
             productOverview: data.data,

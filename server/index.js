@@ -85,8 +85,26 @@ app.get('/reviews', (req, res) => {
     .then((reviews) => {
       res.json(reviews.data)
     })
-    .catch(() => {
-      console.log('Serverside Error in Review\'s Get Request')
+    .catch((err) => {
+      console.log('Serverside Error in Review\'s Get Request', err)
+    })
+})
+
+app.get('/reviews/meta', (req, res) => {
+  var options = {
+    method: 'get',
+    url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfc/reviews/meta',
+    headers: {
+      'Authorization': `${config.TOKEN}`
+    },
+    params: req.query
+  };
+  axios(options)
+    .then((meta) => {
+      res.json(meta.data)
+    })
+    .catch((err) => {
+      console.log('Serverside Error in Review\'s Meta Get Request:', err)
     })
 })
 
