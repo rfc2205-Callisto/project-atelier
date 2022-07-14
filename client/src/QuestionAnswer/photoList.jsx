@@ -3,17 +3,19 @@ import axios from 'axios';
 
 import PhotoDetail from './photoDetail.jsx';
 
-const PhotoList = (props) => {
+var PhotoList = (props) => {
   var [openModal,setOpenModal]=useState(false);
 
   if (props.photos.length !== 0) {
     return (
-      {openModal&&<PhotoDetail/>}
-      <div className="photo">{
-        props.photos.map((photo) => {
-          return (<img src={photo}></img>)
-        })
-      }</div>
+      <>
+        {openModal&&<PhotoDetail photos={props.photos} closeModal={setOpenModal}/>}
+        <div className="photo">{
+          props.photos.map((photo) => {
+            return (<img src={photo} onClick={()=>{setOpenModal(true)}}></img>)
+          })
+        }</div>
+      </>
     )
   }else{
     return <></>

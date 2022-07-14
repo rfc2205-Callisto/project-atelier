@@ -4,7 +4,7 @@ import axios from 'axios';
 
 import AnswerList from './answerList.jsx';
 import AddAnswer from './addAnswerNew.jsx';
-import AddQuestionNew from './addQuestionNew.jsx';
+import AddQuestion from './addQuestionNew.jsx';
 
 
 
@@ -58,7 +58,7 @@ class QuestionList extends React.Component {
     }
     return (
       <>
-        {this.state.showDialogQ && < AddQuestionNew prod_id={this.props.prod_id} closeModal={this.handleDialogQ}/>}
+        {this.state.showDialogQ && < AddQuestion prod_id={this.props.prod_id} closeModal={this.handleDialogQ}/>}
         {this.state.showDialogA && <AddAnswer prod_id={this.props.prod_id} quest_id={this.state.quest_id} closeModal={this.handleDialogA}/>}
         <div class="container">
           {

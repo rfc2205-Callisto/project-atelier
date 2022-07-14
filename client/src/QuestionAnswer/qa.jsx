@@ -16,7 +16,7 @@ class QA extends React.Component {
   }
 
   fetchData = () => {
-    var product_id = 66666;
+    var product_id = 66642;
     var apiReq = {
       method: 'get',
       url: '/qa/questions',

@@ -2,7 +2,7 @@ import React from "react";
 import axios from 'axios';
 
 
-function AddQuestionNew(props){
+function AddQuestion(props){
 
 
   var [name,setName]=React.useState()
@@ -49,4 +49,4 @@ function AddQuestionNew(props){
 
 }
 
-export default AddQuestionNew
+export default AddQuestion
