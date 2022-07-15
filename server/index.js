@@ -154,6 +154,24 @@ app.put('/reviews/help', (req, res) => {
     })
   })
 
+  app.put('/reviews/report', (req, res) => {
+    var options = {
+      method: 'put',
+      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfc/reviews/${req.query.review_id}/report`,
+      headers: {
+        'Authorization': `${config.TOKEN}`
+      }
+    };
+    axios(options)
+      .then(() => {
+        console.log('REPORTED!')
+        res.sendStatus(201);
+      })
+      .catch((err) => {
+        console.log('Serverside Error in Review\'s Report Request:', err)
+      })
+    })
+
 
 app.listen(port, () => {
   console.log(`server is listening on port ${port}`);

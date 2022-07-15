@@ -20,7 +20,10 @@ class RR extends React.Component {
       characteristics: {},
       ratings: {},
       recommends: {},
-      helpful: []
+      helpful: [],
+      reported: [],
+      starFilter: [],
+      filter: false
     }
   }
 // ********* AXIOS REQUESTS **********
@@ -71,16 +74,17 @@ class RR extends React.Component {
   sendHelp = (e) => {
     e.preventDefault();
     var id = Number(e.target.parentElement.parentElement.className);
-    // var element = document.getElementByClassName(`${id}1`);
-    // element.style = 'color: red'
+    var elements = document.getElementsByClassName(`${id}1`)[0];
+    elements.innerHTML = '✓';
+    elements.onClick = '';
+    elements.style.pointerEvents = 'none'
+    elements.style.textDecoration = 'none'
     var clicked = this.state.helpful;
-    console.log(this.state.helpful);
     if (clicked.indexOf(id) === -1) {
       clicked.unshift(id);
       this.setState({
         helpful: clicked
       })
-      console.log(this.state.helpful);
 
       var options = {
         method: 'put',
@@ -97,6 +101,41 @@ class RR extends React.Component {
       console.log('axios request error',error);
     });
   }
+  }
+
+  sendReport = (e) => {
+    e.preventDefault();
+    var id = Number(e.target.parentElement.parentElement.className);
+    var elements = document.getElementsByClassName(`${id}2`)[0];
+    elements.innerHTML = 'REPORTED';
+    elements.style.color = 'red';
+    elements.onClick = '';
+    elements.style.backgroundColor = 'black'
+    elements.style.pointerEvents = 'none'
+    elements.style.textDecoration = 'none'
+
+    var reported = this.state.reported;
+    if (reported.indexOf(id) === -1) {
+      reported.unshift(id);
+      this.setState({
+        reported: reported
+      })
+
+      var options = {
+        method: 'put',
+        url: '/reviews/report',
+        params: {
+          'review_id': id
+        }
+      };
+      axios(options)
+        .then(() => {
+          console.log('Reported!')
+        })
+        .catch((error) => {
+          console.log('axios request error', error);
+        });
+    }
   }
 // ********* LifeCycle Methods ***********
   componentDidMount() {
@@ -191,6 +230,28 @@ class RR extends React.Component {
       sort: 'newest'
     })
   }
+  starFilter = (e) => {
+    e.preventDefault();
+    var id = Number(e.target.id);
+    var starFilterArray = this.state.starFilter;
+    var index = starFilterArray.indexOf(id);
+    var newState;
+    if (index === -1) {
+      starFilterArray.push(id);
+    } else {
+      starFilterArray.splice(index, 1)
+    }
+    if (starFilterArray.length === 0) {
+      newState = false;
+    } else {
+      newState = true;
+    }
+    this.setState({
+      filter: newState,
+      starFilter: starFilterArray
+    })
+    alert(this.state.filter)
+  }
 // ******* Averaging Functions *****
   avRat = () => {
     var total = 0;
@@ -219,18 +280,39 @@ resultsMapper = () => {
     if (review === undefined) {
       return list;
     }
-    list.push(<div id='rrtile' key={review.review_id} className={review.review_id}>
+    //
+    if (this.state.filter === true) {
+      console.log(review.rating, this.state.starFilter)
+      if (this.state.starFilter.indexOf(review.rating) > -1) {
+        list.push(<div id='rrtile' key={review.review_id} className={review.review_id}>
+        <h1>{stars[review.rating]}</h1>
+        <h2>{review.summary}</h2>
+      <div>{this.longBodyChecker(review)}</div>
+      <div>Reviewed On: {this.dateFormatter(review.date)} By: {review.reviewer_name}</div>
+      <div>{this.recommendChecker(review)}</div>
+      <div>{this.responseChecker(review)}</div>
+      <span>Helpful? <u className={`${review.review_id}1`} onClick={this.sendHelp}>Yes</u>  {review.helpfulness} | <u className={`${review.review_id}2`} onClick={this.sendReport}>Report</u></span>
+      <div>{review.photos.map((photo) => {
+        return <span key={photo.id}><img onClick={this.thumbClick} id='thumbnail' src={photo.url} width={200} height={200}/></span>
+      })}</div>
+      </div>)
+      }
+    } else {
+      list.push(<div id='rrtile' key={review.review_id} className={review.review_id}>
       <h1>{stars[review.rating]}</h1>
       <h2>{review.summary}</h2>
     <div>{this.longBodyChecker(review)}</div>
     <div>Reviewed On: {this.dateFormatter(review.date)} By: {review.reviewer_name}</div>
     <div>{this.recommendChecker(review)}</div>
     <div>{this.responseChecker(review)}</div>
-    <span>Helpful? <u className={`${review.review_id}1`} onClick={this.sendHelp}>Yes</u>  {review.helpfulness} | <u>Report</u></span>
+    <span>Helpful? <u className={`${review.review_id}1`} onClick={this.sendHelp}>Yes</u>  {review.helpfulness} | <u className={`${review.review_id}2`} onClick={this.sendReport}>Report</u></span>
     <div>{review.photos.map((photo) => {
       return <span key={photo.id}><img onClick={this.thumbClick} id='thumbnail' src={photo.url} width={200} height={200}/></span>
     })}</div>
     </div>)
+    }
+    //
+
   }
 
   return <div>{list}</div>
@@ -240,11 +322,16 @@ ratingsMapper = () => {
   var list = [];
   var total = 0;
   var obj = this.state.ratings;
+  var keys = [1, 2, 3, 4, 5];
   for (var key in obj) {
     total += Number(obj[key]);
   }
-  for (var key in obj) {
-    list.push(<div>{key} Star  <progress value ={Math.floor(Number(obj[key])/total*100)} max = "100"/></div>)
+  for (var i = 0; i < 5; i ++) {
+    if (obj[keys[i]] === undefined) {
+      list.push(<div class='stars' onClick={this.starFilter} id={keys[i]}>{keys[i]} Stars  <progress id={keys[i]} value ="0" max = "100"/></div>)
+    } else {
+      list.push(<div class='stars' onClick={this.starFilter} id={keys[i]}>{keys[i]} Stars  <progress id={keys[i]} value ={Math.floor(Number(obj[keys[i]])/total*100)} max = "100"/></div>)
+    }
   }
   return <div>{list}</div>
 }
@@ -259,7 +346,7 @@ charMapper = () => {
     <div style={{'background-color':'beige', 'text-align-last': 'center', width: '200px'}}>|</div>
     <div style={{height: '1px', width: `${length}px`, 'text-align-last': 'right'}}>^</div>
     <br/>
-    {reference[key][0]}&emsp;&emsp;{reference[key][1]}&emsp;&emsp;{reference[key][2]}</div>)
+    {reference[key][0]}&emsp;&nbsp;{reference[key][1]}&nbsp;&emsp;{reference[key][2]}</div>)
   }
   return <div>{list}</div>
 }

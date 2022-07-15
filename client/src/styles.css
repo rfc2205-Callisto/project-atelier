@@ -165,8 +165,6 @@
   -webkit-transform: rotate(-180deg);
 }
 
-}
-
 .scrollOK:hover {
   color: black;
 }
@@ -383,9 +381,13 @@ progress::-webkit-progress-bar {
   flex-direction: row;
 }
 u:hover {
-  color: blue;
+  color: grey;
+  font-weight: bolder;
 }
-
+.stars:hover {
+  color: gold;
+  font-weight: bolder;
+}
 .search {
   display: inline-block;
   width:90%;
