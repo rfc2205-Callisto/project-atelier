@@ -39,7 +39,7 @@ class App extends React.Component {
         <h1>
           Hello {name}, Ratings and Reviews go here v
         </h1>
-      </>
+
         <span>
           <button onClick={this.newProductDown}>-</button>
           <button onClick={this.newProductUp}>+</button>
