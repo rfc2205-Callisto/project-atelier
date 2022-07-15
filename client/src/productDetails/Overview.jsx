@@ -12,18 +12,18 @@ class Overview extends React.Component {
     // console.log(this.props.features);
     for (var i = 0; i < this.props.features.length; i++) {
       // console.log(this.props.features[i].feature)
-      featuresGoesHere.push(<div class="row fs-5">{"  ✓"} {this.props.features[i].feature}</div>)
+      featuresGoesHere.push(<div class="row fs-5 row-feature">{"  ✓"} {this.props.features[i].feature}</div>)
     }
     return (
       <div class="row ">
         <div class="col-lg-1">
 
         </div>
-        <div class="col-lg-6">
+        <div class="col-lg-6 col-description">
           <p class="fs-5 fw-bold lh-0">{this.props.slogan}</p>
           <p class="fs-5 fw-light lh-0">{this.props.description}</p>
         </div>
-        <div class="col-lg-5">
+        <div class="col-lg-5 col-feature">
           {featuresGoesHere}
         </div>
 
