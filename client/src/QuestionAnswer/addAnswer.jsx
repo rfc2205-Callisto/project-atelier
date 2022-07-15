@@ -1,6 +1,6 @@
 import React from "react";
 import axios from 'axios';
-const config = require('../../../config.js');
+
 import { Dialog, DialogOverlay, DialogContent } from "@reach/dialog";
 import "@reach/dialog/styles.css";
 
@@ -37,7 +37,7 @@ class AddAnswer extends React.Component {
 
   render() {
     return (
-      <div>
+      <>
         <button onClick={this.open}>Add Answer</button>
 
         <Dialog aria-label="Close" style={{ color: "red" }} isOpen={this.state.showDialog} onDismiss={this.close}>
@@ -48,7 +48,7 @@ class AddAnswer extends React.Component {
           <button>Upload picture</button>
           <button onClick={this.handleSubmit}>Okay</button>
         </Dialog>
-      </div>
+      </>
     )
   }
 }

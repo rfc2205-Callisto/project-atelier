@@ -1,6 +1,6 @@
 import React from "react";
 import axios from 'axios';
-const config = require('../../../config.js');
+
 import { Dialog, DialogOverlay, DialogContent } from "@reach/dialog";
 import "@reach/dialog/styles.css";
 
@@ -37,9 +37,9 @@ class AddQuestion extends React.Component {
 
   render() {
     return (
-      <div>
+      <>
 
-        <button onClick={this.open}>Add Question</button>
+        <button class="addQ" onClick={this.open}>Add Question</button>
 
         <Dialog aria-label="Close" style={{ color: "blue" }} isOpen={this.state.showDialog} onDismiss={this.close}>
           <p>My text is blue because the style prop got applied to the div</p>
@@ -49,7 +49,7 @@ class AddQuestion extends React.Component {
           <button>Upload picture</button>
           <button onClick={this.handleSubmit}>Okay</button>
         </Dialog>
-      </div>
+      </>
     )
   }
 }

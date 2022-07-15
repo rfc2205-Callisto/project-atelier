@@ -1,6 +1,6 @@
 import React from "react";
 import axios from 'axios';
-const config = require('../../../config.js');
+
 import QuestionList from './questionList.jsx';
 
 class Search extends React.Component {
@@ -14,28 +14,30 @@ class Search extends React.Component {
 
   handleClick = (e) => {
     e.preventDefault();
-    var allResult = this.props.qList.related;
-    console.log(allResult)
-
-    var related = [];
-    for (var i = 0; i < allResult.length; i++) {
-      if (allResult[i].question_body.includes(this.state.entry)) {
-        related.push(allResult[i]);
+    var allResult = this.props.allQ;
+    if(this.state.entry===''||this.state.entry===undefined){
+      this.props.searchFun(allResult);
+    }else{
+      var related = [];
+      for (var i = 0; i < allResult.length; i++) {
+        if (allResult[i].question_body.includes(this.state.entry)) {
+          related.push(allResult[i]);
+        }
       }
+      this.props.searchFun(related)
     }
 
-    this.props.searchFun(related)
   }
 
   render() {
     return (
-      <>
-        <form>
-          <input value={this.state.entry} placeholder="search ..." onChange={(e) => { this.setState({ entry: e.target.value }) }}></input>
-          <button onClick={this.handleClick}>Search</button>
+      <div class="container">
+        <form class="search">
+          <input class="searchBar" value={this.state.entry} placeholder="search ..." onChange={(e) => { this.setState({ entry: e.target.value }) }}></input>
+          <button class="searchButton" onClick={this.handleClick}>🔍</button>
         </form>
         {/* <QuestionList relatedQ={this.state.result}/> */}
-      </>
+      </div>
     )
   }
 }
