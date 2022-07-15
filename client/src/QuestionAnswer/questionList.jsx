@@ -66,12 +66,12 @@ class QuestionList extends React.Component {
               return (
                 <div class="oneQ">
                   <div class="partQ" id={Quest.question_id}>
-                    <span class="symbol">Q:</span>
-                    <span class="questBody" > {Quest.question_body}</span>
-                    <span class="helpfulness" onClick={this.helpfulButton}>Helpful? <u>Yes({Quest.question_helpfulness})</u></span>
-                    <span class="addAns" >
+                    <div class="symbol">Q:</div>
+                    <div class="questBody" > {Quest.question_body}</div>
+                    <div class="helpfulness" onClick={this.helpfulButton}>Helpful? <u>Yes({Quest.question_helpfulness})</u></div>
+                    <div class="addAns" >
                       <button id={Quest.question_id} class="addA" onClick={this.handleDialogA}>Add Answer</button>
-                    </span>
+                    </div>
                   </div>
                   <AnswerList key={`Answer-${Quest.question_id}`} allA={Object.values(Quest.answers)} relatedA={Object.values(Quest.answers).slice(0, this.state.defA)} addA={this.handleAddA} fetchData={this.props.fetchData} />
                 </div>
