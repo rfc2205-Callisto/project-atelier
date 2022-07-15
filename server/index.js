@@ -97,7 +97,6 @@ app.get("/product", (req, res) => {
 app.get("/styles", (req, res) => {
   axios.get("https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfc/products/66666/styles", {headers: {'Authorization': config.TOKEN}})
     .then((data) => {
-      // console.log("****data: ", data.data);
       res.send(data.data);
     })
 })

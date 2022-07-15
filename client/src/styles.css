@@ -165,6 +165,40 @@
   -webkit-transform: rotate(-180deg);
 }
 
+}
+
+.scrollOK:hover {
+  color: black;
+}
+
+.scrollNotOK:hover {
+
+}
+
+.rowscrollup {
+  padding-top: 5px;
+  padding-bottom: 7px;
+}
+.rowscrolldown {
+  padding-top: 7px;
+}
+
+
+.scrollbarimgSelected {
+  background: lightblue;
+}
+
+.scrollbarimgUnselected {
+  -webkit-filter: grayscale(100%) blur(1px); /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%) blur(1px);
+}
+
+
+.down {
+  transform: rotate(-180deg);
+  -webkit-transform: rotate(-180deg);
+}
+
 /* Style selector */
 .thumbnail {
   height: 90px;
@@ -351,6 +385,124 @@ progress::-webkit-progress-bar {
 u:hover {
   color: blue;
 }
+
+.search {
+  display: inline-block;
+  width:90%;
+  height: 50px;
+  justify-content: center;
+  /* grid-template-columns: 4fr 1fr;
+  grid-template-rows: 1fr; */
+}
+.searchBar{
+  width:auto;
+  height: 40px;
+  margin: 2px;
+}
+
+.searchButton {
+  margin: 2px;
+  width:50;
+  height: 40px;
+  border: none;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.helpfulness,
+.answerer {
+  font-size: 11px;
+}
+
+.oneQ {
+  border: 1px black solid;
+}
+
+/* .partQ {
+  align-items: center;
+  justify-content: center;
+
+  display: grid;
+
+  grid-template-columns: 20px 3fr 1fr 1fr;
+  grid-template-rows: 1fr;
+} */
+
+.partA {
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  grid-template-rows: 1fr;
+}
+
+.symbol {
+  grid-column: 1/span1;
+  grid-row: 1/span1;
+}
+
+.answer {
+  grid-column: 2/span1;
+  grid-row: 1/span1;
+}
+
+/* .questBody {
+  max-width: 500px;
+  align-items: center;
+  justify-content: center;
+
+  grid-column: 2/span1;
+  grid-row: 1/span1;
+  overflow-wrap:break-word;
+}
+
+.helpfulness {
+  grid-column: 3/span1;
+  grid-row: 1/span1;
+  word-wrap: break-word;
+}
+.addAns {
+  grid-column: 4/span1;
+  grid-row: 1/span1;
+} */
+
+.photo {
+  object-fit: cover;
+  grid-column: 1/span4;
+  grid-row: 2/span1;
+}
+/* **************************** */
+.partQ{
+  width:auto;
+}
+/* .symbol{
+  width:30px;
+  display: inline-block;
+}
+.questBody{
+  width: 70%;
+  display: inline-block;
+}
+.helpfulness,
+.addAns{
+  font-size: 10px;
+  width: 30px;
+  display: inline-block;
+
+} */
+.answerer div {
+  padding: 5px;
+  display: inline-block;
+}
+
+.helpfulness:hover{
+  color: blue;
+}
+/* .addAns button {
+  font-size: 10px;
+  justify-self: stretch;
+  border: none;
+  background-color: skyblue;
+  border-radius: 4px;
+} */
 
 .search {
   display: inline-block;

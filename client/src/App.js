@@ -9,6 +9,10 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+<<<<<<< HEAD
+=======
+      name: 'Zach',
+>>>>>>> ebae2980b953108834e02ac0d1b73a3096d0d633
       product_id: 66642
     }
   }
@@ -34,7 +38,14 @@ class App extends React.Component {
     return (
       <React.Fragment>
         <AppProductDetail/>
+<<<<<<< HEAD
         <div>
+=======
+        <h1>
+          Hello {name}, Ratings and Reviews go here v
+        </h1>
+        <span>
+>>>>>>> ebae2980b953108834e02ac0d1b73a3096d0d633
           <button onClick={this.newProductDown}>-</button>
           <div>Product ID: {this.state.product_id} for Testing Purposes</div>
           <button onClick={this.newProductUp}>+</button>
