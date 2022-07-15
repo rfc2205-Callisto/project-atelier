@@ -36,7 +36,7 @@ class AddAnswer extends React.Component {
 
   render() {
     return (
-      <div>
+      <>
         <button onClick={this.open}>Add Answer</button>
 
         <Dialog aria-label="Close" style={{ color: "red" }} isOpen={this.state.showDialog} onDismiss={this.close}>
@@ -47,7 +47,7 @@ class AddAnswer extends React.Component {
           <button>Upload picture</button>
           <button onClick={this.handleSubmit}>Okay</button>
         </Dialog>
-      </div>
+      </>
     )
   }
 }

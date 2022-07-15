@@ -1,39 +1,217 @@
 
-.h4 {
-  margin-bottom: 0;
+
+/* Gallery */
+.ondisplayimg {
+  width: 100%;
+  height: 480px;
+  /* height: 100%; */
+  padding-right: 20px;
+  object-fit: cover;
 }
 
+.scrollbarimg {
+  width: 100%;
+  height: 65px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  object-fit: fill;
+
+}
+
+.fullviewMode {
+  width: 90%;
+  object-fit: cover;
+}
+
+.fullScreenBtn {
+  background: transparent;
+  border: none;
+  position: absolute;
+  top: 0%;
+  right: 15%;
+  height: 60px;
+  width: 70px;
+  font-size: 50px;
+  color: rgb(227, 227, 227);
+  /* font-weight: bold; */
+}
+
+.fullScreenBtn:hover {
+  color: white;
+  font-weight: bold;
+
+}
+
+/* product overview */
+.infoOverview {
+  padding-left: 10px;
+
+
+}
+.productCategory {
+  padding-top: 15px;
+  line-height: 20px;
+}
+.productName {
+  line-height: 40px;
+  padding-bottom: 15px;
+}
+.anchorLink {
+  text-decoration: none;
+  color: gray;
+}
+
+.row1 {
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+
+.col-feature {
+  border-left: solid thin gray;
+  /* border-left: solid 20px lightskyblue; */
+  flex: auto;
+  align-items: center;
+  padding-top: 5%;
+  color: gray;
+  /* border-top: solid thin gray; */
+  padding-bottom: 20px;
+
+}
+
+.col-description {
+  padding-left: 1%;
+  padding-right: 5%;
+
+  padding-top: 2%;
+  padding-bottom: 2%;
+  color: gray;
+  /* border-left: solid 20px lightskyblue; */
+}
+
+.row-feature {
+  padding-left: 15%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+
+
+}
+
+.oldprice {
+  color: red;
+  text-decoration: line-through;
+  font-weight: lighter;
+  padding-left: 0;
+  line-height: 20px;
+  padding-bottom: 15px;
+}
+
+.pricetag {
+  font-weight: lighter;
+  padding-left: 0;
+  line-height: 20px;
+  padding-bottom: 15px;
+}
+
+
+
+/* Img scroll bar */
+
+.scrollbtn {
+  height: 20px;
+  width: 100%;
+
+  background: white;
+  border: none;
+
+}
+
+.scrollOK {
+  color: rgb(183, 183, 183);
+}
+
+.scrollNotOK {
+  color: rgb(183, 183, 183);
+}
+
+.scrollOK:hover {
+  color: black;
+}
+
+.scrollNotOK:hover {
+
+}
+
+.rowscrollup {
+  padding-top: 5px;
+  padding-bottom: 7px;
+}
+.rowscrolldown {
+  padding-top: 7px;
+}
+
+
+.scrollbarimgSelected {
+  background: lightblue;
+}
+
+.scrollbarimgUnselected {
+  -webkit-filter: grayscale(100%) blur(1px); /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%) blur(1px);
+}
+
+
+.down {
+  transform: rotate(-180deg);
+  -webkit-transform: rotate(-180deg);
+}
+
+/* Style selector */
 .thumbnail {
   height: 90px;
   width: 95px;
-  object-fit:fill;
+  object-fit: fill;
   border-radius: 50%;
   padding: 7px;
   border-width: 10px;
   border: solid white;
-
-
 }
 
 .thumbnailselected {
   background-color: lightgreen;
 }
+.styleSelector {
+  border-color: gray;
+  border-radius: 20px;
+  border-style: dashed;
+  border-width: 2px;
+  width: 85%;
+}
 
+.styleName {
+  width: 90px;
+  padding-right: 0;
+}
+.aRowOfStyle {
+  padding-left: 35px;
+  padding-right: 0px;
+  padding-bottom: 3px;
+  padding-top: 3px;
+}
+.twoRowOfStyles {
+  padding-right: 0;
+  padding-left: 20px;
+}
+/* add to cart */
 .size {
-  /* styling */
   background-color: white;
   border: thin solid black;
   border-radius: 4px;
   display: inline-block;
   font: inherit;
-  /* line-height: 1.5em; */
-  /* padding: 0.5em 3.5em 0.5em 1em; */
-
-  /* reset */
-
   margin-right: 10px;
   height: 40px;
 }
+
 .quantity {
   /* styling */
   background-color: white;
@@ -45,6 +223,11 @@
   height: 40px;
 }
 
+.addToCart {
+  padding-top: 10px;
+  width: 580px;
+
+}
 .addtobag {
   /* styling */
   background-color: white;
@@ -57,8 +240,10 @@
   height: 40px;
 }
 
+
 .row {
-  display: flex; /* equal height of the children */
+  display: flex;
+  /* equal height of the children */
 }
 .RR {
   background-color: aqua;
@@ -69,18 +254,22 @@
   display: flex;
   justify-content: center;
 }
+
 h1 {
   color: white;
   background-color: black;
 }
+
 #thumbnail {
   padding: 5px;
 }
+
 #rrtile {
   border: 2px solid #C0C0C0;
   padding: 5px;
   margin: 5px;
 }
+
 #modal {
   z-index: 1000;
   display: flex;
@@ -88,11 +277,13 @@ h1 {
   max-width: max-content;
   max-height: max-content;
 }
+
 #picture {
   margin: auto;
   max-width: 1640px;
   max-height: 880px;
 }
+
 #reviewButtons {
   display: flex;
   justify-content: space-evenly;
@@ -159,4 +350,247 @@ progress::-webkit-progress-bar {
 }
 u:hover {
   color: blue;
+}
+
+.search {
+  display: inline-block;
+  width:90%;
+  height: 50px;
+  justify-content: center;
+  /* grid-template-columns: 4fr 1fr;
+  grid-template-rows: 1fr; */
+}
+.searchBar{
+  width:auto;
+  height: 40px;
+  margin: 2px;
+}
+
+.searchButton {
+  margin: 2px;
+  width:50;
+  height: 40px;
+  border: none;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.helpfulness,
+.answerer {
+  font-size: 11px;
+}
+
+.oneQ {
+  border: 1px black solid;
+}
+
+/* .partQ {
+  align-items: center;
+  justify-content: center;
+
+  display: grid;
+
+  grid-template-columns: 20px 3fr 1fr 1fr;
+  grid-template-rows: 1fr;
+} */
+
+.partA {
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  grid-template-rows: 1fr;
+}
+
+.symbol {
+  grid-column: 1/span1;
+  grid-row: 1/span1;
+}
+
+.answer {
+  grid-column: 2/span1;
+  grid-row: 1/span1;
+}
+
+/* .questBody {
+  max-width: 500px;
+  align-items: center;
+  justify-content: center;
+
+  grid-column: 2/span1;
+  grid-row: 1/span1;
+  overflow-wrap:break-word;
+}
+
+.helpfulness {
+  grid-column: 3/span1;
+  grid-row: 1/span1;
+  word-wrap: break-word;
+}
+.addAns {
+  grid-column: 4/span1;
+  grid-row: 1/span1;
+} */
+
+.photo {
+  object-fit: cover;
+  grid-column: 1/span4;
+  grid-row: 2/span1;
+}
+/* **************************** */
+.partQ{
+  width:auto;
+}
+/* .symbol{
+  width:30px;
+  display: inline-block;
+}
+.questBody{
+  width: 70%;
+  display: inline-block;
+}
+.helpfulness,
+.addAns{
+  font-size: 10px;
+  width: 30px;
+  display: inline-block;
+
+} */
+.answerer div {
+  padding: 5px;
+  display: inline-block;
+}
+
+.helpfulness:hover{
+  color: blue;
+}
+/* .addAns button {
+  font-size: 10px;
+  justify-self: stretch;
+  border: none;
+  background-color: skyblue;
+  border-radius: 4px;
+} */
+
+.otherOptions {
+  display: grid;
+  gap: 2px;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 1fr;
+}
+
+.loadQ,
+.loadA,
+.addQ {
+  /* padding: 2px; */
+  margin-top: 2px;
+  font-size: 10px;
+  border: none;
+  background-color: skyblue;
+  border-radius: 4px;
+}
+
+.photo img {
+  max-height: 70px;
+  display: inline-block
+}
+
+/* .modalBackground{
+  width: 100vw;
+  height: 100vh;
+  background-color: grey;
+  display: fixed;
+  justify-content: center;
+  align-items: center;
+} */
+.container{
+  width: 90%;
+}
+.modalContainer {
+  width: auto;
+  height: 50%;
+  border-radius: 12px;
+  background-color: white;
+  box-shadow: black 0px 5px 15px;
+  display: flex;
+  flex-direction: column;
+  /* padding: 25px; */
+  position: absolute;
+  z-index:1000;
+  /* max-width: max-content;
+  max-height: max-content;
+  justify-content: space-around; */
+}
+
+/* .modalContainer{
+} */
+.modalContainer .title {
+  font-size: 25px;
+  font-weight: bold;
+  /* display: inline-block; */
+  text-align: center;
+  /*left or right*/
+  /* margin-top: 10px; */
+}
+
+.titleCloseBtn {
+  display: flex;
+  justify-content: flex-end;
+  /*items are packed toward the end of flex directon*/
+}
+
+.titleCloseBtn button {
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.modalContainer .body {
+  flex: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  text-align: center;
+  flex-direction: column;
+}
+
+.modalContainer .footer {
+  font-size: 10px;
+  flex: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalContainer .footer button,
+.body label button {
+  width: 150px;
+  height: 45px;
+  margin: 10px;
+  border: none;
+  /* background-color: cornflowerblue; */
+  /* color: white; */
+  /* border-radius: 8px; */
+  font-size: 20px;
+  cursor: pointer;
+}
+
+#cancelBtn {
+  background-color: red;
+}
+
+label,
+input {
+  font-size: 20px;
+  display: inline-block;
+}
+
+.magPic {
+  max-width: 100%;
+  max-height: auto;
+  object-fit: contain;
+  z-index:2
+}
+.photo{
+  z-index:1
 }
