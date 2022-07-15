@@ -1,6 +1,5 @@
 import React from "react";
 import axios from 'axios';
-
 import QuestionList from './questionList.jsx';
 
 class Search extends React.Component {

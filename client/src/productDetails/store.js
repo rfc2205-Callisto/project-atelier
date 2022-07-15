@@ -16,7 +16,7 @@ style_id: 0 }],
 const reducerFunc = function(state = defaultState, action) {
   switch (action.type) {
     case 'initialize':
-      console.log("****initialize")
+      // console.log("****initialize")
       var newstate = {};
       newstate.interval = 5;
       // Info that are fixed

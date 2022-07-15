@@ -1,6 +1,5 @@
 import React from "react";
 import axios from 'axios';
-
 import Search from './search.jsx';
 import QuestionList from './questionList.jsx';
 
@@ -16,7 +15,7 @@ class QA extends React.Component {
   }
 
   fetchData = () => {
-    var product_id = 66664;
+    var product_id = this.props.id;
     var apiReq = {
       method: 'get',
       url: '/qa/questions',
@@ -27,6 +26,7 @@ class QA extends React.Component {
     };
 
     axios(apiReq).then((response) => {
+      // console.log(response.data);
       var data = response.data;
       var result=data.results.sort((a,b)=>(a.helpfulness>b.helpfulness)?-1:1);
       this.setState({
@@ -45,6 +45,11 @@ class QA extends React.Component {
     this.fetchData();
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.id !== this.props.id)  {
+      this.fetchData();
+    }
+  }
 
   handleSearch = (filterResult) => {
     var sortFilter=filterResult.sort((a,b)=>(a.helpfulness>b.helpfulness)?-1:1)
