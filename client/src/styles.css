@@ -100,15 +100,26 @@ h1 {
 }
 
 .search {
-  display: grid;
-  grid-template-columns: 4fr 1fr;
-  grid-template-rows: 1fr;
+  display: inline-block;
+  width:90%;
+  height: 50px;
+  justify-content: center;
+  /* grid-template-columns: 4fr 1fr;
+  grid-template-rows: 1fr; */
+}
+.searchBar{
+  width:auto;
+  height: 40px;
+  margin: 2px;
 }
 
 .searchButton {
+  margin: 2px;
+  width:50;
+  height: 40px;
   border: none;
   border-radius: 4px;
-  /* background-color: transparent; */
+  background-color: transparent;
 }
 
 .helpfulness,
@@ -120,28 +131,17 @@ h1 {
   border: 1px black solid;
 }
 
-.partQ {
+/* .partQ {
   align-items: center;
   justify-content: center;
-  /* background-color: aquamarine; */
+
   display: grid;
 
   grid-template-columns: 20px 3fr 1fr 1fr;
   grid-template-rows: 1fr;
-}
-
-/* .partA {
-  align-items: center;
-  justify-content: center;
-  background-color: lightpink;
-  display: grid;
-
-  grid-template-columns: 20px 3fr 1fr 1fr;
-  grid-template-rows: 3fr 2fr;
 } */
 
 .partA {
-  /* background-color: lightpink; */
   display: grid;
   grid-template-columns: 20px 1fr;
   grid-template-rows: 1fr;
@@ -157,14 +157,14 @@ h1 {
   grid-row: 1/span1;
 }
 
-.questBody {
-  max-width: fit-content;
+/* .questBody {
+  max-width: 500px;
   align-items: center;
   justify-content: center;
 
   grid-column: 2/span1;
   grid-row: 1/span1;
-  overflow-wrap: break-word
+  overflow-wrap:break-word;
 }
 
 .helpfulness {
@@ -172,31 +172,50 @@ h1 {
   grid-row: 1/span1;
   word-wrap: break-word;
 }
-
 .addAns {
-
   grid-column: 4/span1;
   grid-row: 1/span1;
-}
+} */
 
 .photo {
   object-fit: cover;
   grid-column: 1/span4;
   grid-row: 2/span1;
 }
+/* **************************** */
+.partQ{
+  width:auto;
+}
+/* .symbol{
+  width:30px;
+  display: inline-block;
+}
+.questBody{
+  width: 70%;
+  display: inline-block;
+}
+.helpfulness,
+.addAns{
+  font-size: 10px;
+  width: 30px;
+  display: inline-block;
 
+} */
 .answerer div {
   padding: 5px;
   display: inline-block;
 }
 
-.addAns button {
+.helpfulness:hover{
+  color: blue;
+}
+/* .addAns button {
   font-size: 10px;
   justify-self: stretch;
   border: none;
   background-color: skyblue;
   border-radius: 4px;
-}
+} */
 
 .otherOptions {
   display: grid;
@@ -208,7 +227,7 @@ h1 {
 .loadQ,
 .loadA,
 .addQ {
-  padding: 2px;
+  /* padding: 2px; */
   margin-top: 2px;
   font-size: 10px;
   border: none;
@@ -229,6 +248,9 @@ h1 {
   justify-content: center;
   align-items: center;
 } */
+.container{
+  width: 90%;
+}
 .modalContainer {
   width: auto;
   height: 50%;
@@ -238,10 +260,11 @@ h1 {
   display: flex;
   flex-direction: column;
   /* padding: 25px; */
+  position: absolute;
   z-index:1000;
-  /* max-width: max-content; */
+  /* max-width: max-content;
   max-height: max-content;
-  justify-content: space-around;
+  justify-content: space-around; */
 }
 
 /* .modalContainer{
@@ -306,6 +329,7 @@ h1 {
 label,
 input {
   font-size: 20px;
+  display: inline-block;
 }
 
 .magPic {

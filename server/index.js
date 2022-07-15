@@ -50,10 +50,11 @@ app.post('/qa/questions/:question_id/answers', (req, res) => {
       'Authorization': `${config.TOKEN}`,
       'Content-Type': 'application/json'
     },
-    data:JSON.stringify(req.body)
+    data:req.body
   }
 
-  axios(apiReq).then((data) => { res.json(data) }).catch((err) => { console.log('there is error in api post answer request') })
+console.log(apiReq.url);
+  axios(apiReq).then(() => { res.sendStatus(201)}).catch((err) => { console.log(err) })
 });
 
 app.put('/qa/questions/:question_id/helpful',(req,res)=>{

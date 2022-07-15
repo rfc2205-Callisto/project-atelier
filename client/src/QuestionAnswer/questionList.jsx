@@ -46,7 +46,7 @@ class QuestionList extends React.Component {
     var newState = !this.state.showDialogA;
     this.setState({
       showDialogA: newState,
-    quest_id:e.target.quest_id||''
+    quest_id:e.target.id||''
   })
   }
   render() {
@@ -66,16 +66,15 @@ class QuestionList extends React.Component {
               return (
                 <div class="oneQ">
                   <div class="partQ" id={Quest.question_id}>
-                    <div class="symbol">Q:</div>
-                    <div class="questBody" > {Quest.question_body}</div>
-                    <div class="helpfulness" onClick={this.helpfulButton}>Helpful? <u>Yes({Quest.question_helpfulness})</u></div>
-                    <div class="addAns" >
-                      <button quest_id={Quest.question_id} class="addA" onClick={this.handleDialogA}>Add Answer</button>
-                    </div>
+                    <span class="symbol">Q:</span>
+                    <span class="questBody" > {Quest.question_body}</span>
+                    <span class="helpfulness" onClick={this.helpfulButton}>Helpful? <u>Yes({Quest.question_helpfulness})</u></span>
+                    <span class="addAns" >
+                      <button id={Quest.question_id} class="addA" onClick={this.handleDialogA}>Add Answer</button>
+                    </span>
                   </div>
                   <AnswerList key={`Answer-${Quest.question_id}`} allA={Object.values(Quest.answers)} relatedA={Object.values(Quest.answers).slice(0, this.state.defA)} addA={this.handleAddA} fetchData={this.props.fetchData} />
                 </div>
-                // </div>
               )
             })
           }

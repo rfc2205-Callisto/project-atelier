@@ -35,6 +35,7 @@ class AnswerList extends React.Component {
       axios.put(`qa/answers/${id}/report`).then(()=>{console.log('answer is reported')}).catch((err)=>{console.log('answer is not reported')});
     }
   }
+
   render() {
     var LoadA;
     if(this.props.allA.length>this.props.relatedA.length){
@@ -54,8 +55,8 @@ class AnswerList extends React.Component {
                 <div class="answerer" id={ans.id}>
                   <div>by {ans.answerer_name}   |</div>
                   <div>{ans.date.slice(0,10)}   |</div>
-                  <div onClick={this.helpfulButton}>Helpful? <u>Yes({ans.helpfulness})</u>   |</div>
-                  <div onClick={this.reportButton}><u>Report</u></div>
+                  <div className="helpfulness" onClick={this.helpfulButton}>Helpful? <u>Yes({ans.helpfulness})</u>   |</div>
+                  <div className="helpfulness" onClick={this.reportButton}><u>Report</u></div>
                 </div>
               </div>
             </div>
