@@ -9,7 +9,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      product_id: 66646
+      product_id: 66642
     }
   }
   componentDidMount() {

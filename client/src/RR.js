@@ -19,7 +19,8 @@ class RR extends React.Component {
       modesrc: '',
       characteristics: {},
       ratings: {},
-      recommends: {}
+      recommends: {},
+      helpful: []
     }
   }
 // ********* AXIOS REQUESTS **********
@@ -56,7 +57,6 @@ class RR extends React.Component {
     };
     axios(options)
     .then((response) => {
-      console.log('CHARACTERISTICS RESPONSE', response.data)
       this.setState({
         ratings: response.data.ratings,
         recommends: response.data.recommended,
@@ -68,9 +68,39 @@ class RR extends React.Component {
     });
   }
 
+  sendHelp = (e) => {
+    e.preventDefault();
+    var id = Number(e.target.parentElement.parentElement.className);
+    // var element = document.getElementByClassName(`${id}1`);
+    // element.style = 'color: red'
+    var clicked = this.state.helpful;
+    console.log(this.state.helpful);
+    if (clicked.indexOf(id) === -1) {
+      clicked.unshift(id);
+      this.setState({
+        helpful: clicked
+      })
+      console.log(this.state.helpful);
+
+      var options = {
+        method: 'put',
+        url: '/reviews/help',
+        params: {
+          'review_id': id
+        }
+      };
+    axios(options)
+    .then(() => {
+      console.log('Helpful :)')
+    })
+    .catch((error) => {
+      console.log('axios request error',error);
+    });
+  }
+  }
 // ********* LifeCycle Methods ***********
   componentDidMount() {
-    console.log('RR is Mounted :)')
+    console.log('RR is Mounted :)');
     this.getCharacteristics();
     this.allResults(this.state.page, 50,
       this.state.sort);
@@ -81,6 +111,10 @@ class RR extends React.Component {
       this.allResults(this.state.page, 50, this.state.sort);
       console.log('UPDATED')
     }
+    // if (prevState.helpful !== this.state.helpful) {
+    //   this.allResults(this.state.page, 50, this.state.sort);
+    //   console.log('UPDATED')
+    // }
     if (prevState.sort !== this.state.sort) {
       this.allResults(this.state.page, 50, this.state.sort);
       console.log('UPDATED')
@@ -88,7 +122,6 @@ class RR extends React.Component {
     if (prevProps.id !== this.props.id)  {
       this.getCharacteristics();
       this.allResults(this.state.page, 50, this.state.sort);
-      // this.allResults();
       console.log('UPDATED')
     }
   }
@@ -168,12 +201,6 @@ class RR extends React.Component {
       sum +=  Number(obj[key]) * key;
     }
     return  Math.ceil(sum/total * 10) / 10;
-    // var sum = 0;
-    // this.state.all.forEach((result) => {
-    //   sum += result.rating;
-    // })
-    // var ave = (sum / this.state.length);
-    // return  Math.ceil(ave * 10) / 10;
   }
 
   avRec = () => {
@@ -190,16 +217,16 @@ resultsMapper = () => {
   for (var i = 0; i < count; i ++) {
     var review = this.state.all[i];
     if (review === undefined) {
-      return;
+      return list;
     }
-    list.push(<div id='rrtile' key={review.review_id}>
+    list.push(<div id='rrtile' key={review.review_id} className={review.review_id}>
       <h1>{stars[review.rating]}</h1>
       <h2>{review.summary}</h2>
     <div>{this.longBodyChecker(review)}</div>
-    <div>Reviewed On: {review.date} By: {review.reviewer_name}</div>
+    <div>Reviewed On: {this.dateFormatter(review.date)} By: {review.reviewer_name}</div>
     <div>{this.recommendChecker(review)}</div>
     <div>{this.responseChecker(review)}</div>
-    <div>Helpfulness: {review.helpfulness}</div>
+    <span>Helpful? <u className={`${review.review_id}1`} onClick={this.sendHelp}>Yes</u>  {review.helpfulness} | <u>Report</u></span>
     <div>{review.photos.map((photo) => {
       return <span key={photo.id}><img onClick={this.thumbClick} id='thumbnail' src={photo.url} width={200} height={200}/></span>
     })}</div>
@@ -217,11 +244,34 @@ ratingsMapper = () => {
     total += Number(obj[key]);
   }
   for (var key in obj) {
-    // list.push(<div>{`${key} Stars: ${obj[key]}`} votes, {Math.floor(Number(obj[key])/total*100)}%</div>)
     list.push(<div>{key} Star  <progress value ={Math.floor(Number(obj[key])/total*100)} max = "100"/></div>)
   }
   return <div>{list}</div>
 }
+
+charMapper = () => {
+  var list = [];
+  var reference = {'Fit': {0: 'Too Small', 1: 'Perfect', 2: 'Too Large'}, 'Length': {0: 'Too Short', 1: 'Perfect', 2: 'Too Long'}, 'Comfort': {0: 'Poor', 1: '     ', 2: 'Perfect'}, 'Quality': {0: 'Poor', 1: '     ', 2: 'Perfect'}, 'Size': {0: 'Too Small', 1: 'Perfect', 2: 'Too Large'}, 'Width': {0: 'Too Short', 1: 'Perfect', 2: 'Too Wide'}}
+  var obj = this.state.characteristics;
+  for (var key in obj) {
+    var length = Math.floor(Number(obj[key].value)/5*200)
+    list.push(<div style={{margin: '20px 10px', 'font-size': '9pt', 'text-align-last': 'center', width: '200px'}}>{key}<br/>
+    <div style={{'background-color':'beige', 'text-align-last': 'center', width: '200px'}}>|</div>
+    <div style={{height: '1px', width: `${length}px`, 'text-align-last': 'right'}}>^</div>
+    <br/>
+    {reference[key][0]}&emsp;&emsp;{reference[key][1]}&emsp;&emsp;{reference[key][2]}</div>)
+  }
+  return <div>{list}</div>
+}
+
+dateFormatter = (date) => {
+  var months = ['Blank', 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  var year = date.slice(0, 4);
+  var month = Number(date.slice(5, 7));
+  var day = date.slice(8, 10);
+  return `${months[month]} ${day}, ${year}`;
+}
+
 // *********------------*********------------*********------------*********------------ //
   render() {
     if (this.state.length > this.state.count) {
@@ -249,7 +299,8 @@ ratingsMapper = () => {
           </div>
           <div>{`${this.avRec()}% of reviewers recommend this product`}</div>
           <div>{this.ratingsMapper()}</div>
-          <div>{`${this.state.length} Reviews sorted by`}
+          <div>{this.charMapper()}</div>
+          <div id='sortButton'>{`${this.state.length} Reviews sorted by `}
             <DropdownButton id="dropdown-basic-button" title={this.state.sort.toUpperCase()}>
               <Dropdown.Item onClick={this.changeSortHelp}>Helpful</Dropdown.Item>
               <Dropdown.Item onClick={this.changeSortRel}>Relevant</Dropdown.Item>

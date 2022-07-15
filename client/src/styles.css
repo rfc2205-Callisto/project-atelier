@@ -84,9 +84,7 @@ h1 {
 #modal {
   z-index: 1000;
   display: flex;
-  position: unset;
   justify-content: space-around;
-  margin: 100px;
   max-width: max-content;
   max-height: max-content;
 }
@@ -130,23 +128,35 @@ h1 {
   -webkit-text-stroke: 1px orange;
 }
 progress {
-  border: none;
   width: 150px;
   height: 15px;
+  border-radius: 16px;
 }
 
 progress {
   color: lightblue;
 }
-
 progress::-moz-progress-bar {
   background: lightcolor;
 }
-
 progress::-webkit-progress-value {
   background: gold;
 }
 
 progress::-webkit-progress-bar {
   background: grey
+}
+#sortButton {
+  font-size: large;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row;
+}
+#dropdown-basic-button {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+u:hover {
+  color: blue;
 }

@@ -107,6 +107,23 @@ app.get('/reviews/meta', (req, res) => {
       console.log('Serverside Error in Review\'s Meta Get Request:', err)
     })
 })
+app.put('/reviews/help', (req, res) => {
+  var options = {
+    method: 'put',
+    url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfc/reviews/${req.query.review_id}/helpful`,
+    headers: {
+      'Authorization': `${config.TOKEN}`
+    }
+  };
+  axios(options)
+    .then(() => {
+      res.sendStatus(201);
+    })
+    .catch((err) => {
+      console.log('Serverside Error in Review\'s Helpful Request:', err)
+    })
+  })
+
 
 app.listen(port, () => {
   console.log(`server is listening on port ${port}`);
