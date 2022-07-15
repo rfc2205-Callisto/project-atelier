@@ -446,7 +446,7 @@ u:hover {
 .questBody {
   width:70%;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 
   grid-column: 2/span1;
   grid-row: 1/span1;
@@ -537,12 +537,12 @@ u:hover {
   justify-content: center;
   align-items: center;
 } */
-.container{
+/* .container{
   max-width: 700px;
-}
+} */
 .modalContainer {
   width:80%;
-  height: 50%;
+  height: 80%;
   border-radius: 12px;
   background-color: white;
   box-shadow: black 0px 5px 15px;
@@ -637,10 +637,25 @@ input {
 
 .magPic {
   max-width: 100%;
-  max-height: auto;
-  object-fit: contain;
+  /* max-height: auto; */
+  /* object-fit: contain; */
+  max-height: 90%;
+  object-fit: scale-down;
+  /* justify-content: center; */
   z-index:2
 }
 .photo{
   z-index:1
 }
+/************ just for picture modal*****************/
+/* .modalContainer .body {
+  flex: 50%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: inherit;
+  font-size: 20px;
+  text-align: center;
+  flex-direction: column;
+  max-height: 500px;
+} */
