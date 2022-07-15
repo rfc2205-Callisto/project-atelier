@@ -1,6 +1,5 @@
 import React from "react";
 import axios from 'axios';
-const config = require('../../../config.js');
 import { Dialog, DialogOverlay, DialogContent } from "@reach/dialog";
 import "@reach/dialog/styles.css";
 

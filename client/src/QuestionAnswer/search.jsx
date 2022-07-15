@@ -1,6 +1,5 @@
 import React from "react";
 import axios from 'axios';
-const config = require('../../../config.js');
 import QuestionList from './questionList.jsx';
 
 class Search extends React.Component {
