@@ -70,7 +70,7 @@ class PanelAddToCart extends React.Component {
 
 
     return (
-      <div class="row">
+      <div class="row addToCart">
         <form>
             <div class="row">
             <select name="size" id="size" class="col-lg-6 fs-5 fw-light size" onChange={this.selectSize.bind(this)} value={this.state.value}>
@@ -100,7 +100,7 @@ class PanelAddToCart extends React.Component {
 }
 
 const stateToProps = (state)=>{
-  console.log("state to Props,", state.selectedSize);
+  // console.log("state to Props,", state.selectedSize);
   return {
     sizeNquan: state.selectedStyleSizeNQuan,
     quantity: state.selectedSize.quantity
