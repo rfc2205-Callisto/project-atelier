@@ -1,15 +1,15 @@
 import React from "react";
 import reactDOM from 'react-dom';
 import axios from 'axios';
-// const App=React.createElement("h1",null,"Hello Sharon");
-// import Comp1 from './Components/Comp1';//it will find the index.js in the folder
-// import Comp2 from './Components/Comp2';
-// import Comp3 from './Components/Comp3';
+
+//for redux
 import { useSelector, useDispatch, connect } from 'react-redux';
-import allActions from '../../Actions';
+import allActions from '../Actions';
 const config = require('../../../../config.js');
+//other components
 import Search from './search.js'
 import QuestionList from './questionList.js'
+
 
 class QA extends React.Component {
   constructor(props) {
@@ -25,7 +25,7 @@ class QA extends React.Component {
       },
       params: { product_id: this.props.product_id }
     };
-
+console.log(apiReq)
     axios(apiReq).then((data) => {
       var sortQ = data.data.results.sort((a, b) => (a.helpfulness > b.helpfulness) ? -1 : 1);
       var initState = allActions.qaAction.initialize(sortQ);

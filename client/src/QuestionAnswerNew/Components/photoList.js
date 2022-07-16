@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { useSelector, useDispatch, connect } from 'react-redux';
-import allActions from '../../Actions';
 import axios from 'axios';
+
 const config = require('../../../../config.js');
 import PhotoDetail from './photoDetail.js';
 

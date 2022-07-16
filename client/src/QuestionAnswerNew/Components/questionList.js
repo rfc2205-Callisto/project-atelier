@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { useSelector, useDispatch, connect } from 'react-redux';
-import allActions from '../../Actions';
+import { useSelector } from 'react-redux';
 import axios from 'axios';
+
 const config = require('../../../../config.js');
 import AddQuestion from './addQuestion.js'
 import AddAnswer from './addAnswer.js';
@@ -10,6 +10,9 @@ import AnswerList from './answerList.js';
 var QuestionList = () => {
   var allQ = useSelector(state => state.allQ);
   var relatedQ = useSelector(state => state.relatedQ);
+
+  console.log(allQ)
+  console.log(relatedQ)
 
   var [defQ, setDefQ] = useState(2);
   var [showDiagQ, setShowDiagQ] = useState(false);

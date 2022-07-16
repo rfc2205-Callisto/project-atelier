@@ -1,4 +1,4 @@
-import qaReducer from "./qaReducer";
+import qaReducer from "./qaReducer.js";
 import { combineReducers } from "redux";
 
 const rootReducer = combineReducers({

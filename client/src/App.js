@@ -1,9 +1,15 @@
 
 import React from "react";
 import axios from 'axios';
-import QA from './QuestionAnswer/qa.jsx'
+import {createStore} from 'redux';
+import {Provider} from 'react-redux';
+
 import AppProductDetail from "./productDetails/AppProductDetail.jsx"
 import RR from './RR.js'
+import QA from './QuestionAnswerNew/Components/qa.js';
+
+import qaReducer from './QuestionAnswerNew/Reducers/qaReducer';
+var qastore=createStore(qaReducer);
 
 class App extends React.Component {
   constructor(props) {
@@ -44,7 +50,9 @@ class App extends React.Component {
           <button onClick={this.newProductUp}>+</button>
         </div>
         <RR id={this.state.product_id}/>
-        <QA id={this.state.product_id}/>
+        <Provider store={qastore}>
+          <QA />
+        </Provider>
       </React.Fragment>
     );
   }

@@ -1,7 +1,7 @@
 import {createStore} from 'redux';
 
 const defaultState={
-  product_id:66664,
+  product_id:66666,
   allQ:[],
   relatedQ:[],
 };

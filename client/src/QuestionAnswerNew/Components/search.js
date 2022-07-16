@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { useSelector, useDispatch, connect } from 'react-redux';
-import allActions from '../../Actions';
+import { useSelector, useDispatch } from 'react-redux';
+import allActions from '../Actions';
 
 
 var Search = () => {
