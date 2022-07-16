@@ -5,25 +5,27 @@ import Button from 'react-bootstrap/Button';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import stars from './stars.js'
+import NewReview from './NewReview.js'
 
 class RR extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      length: 0,
       page: 1,
       count: 2,
       sort: 'helpful',
-      all: [],
-      length: 0,
-      show: false,
-      modesrc: '',
+      thumbsrc: '',
       characteristics: {},
       ratings: {},
       recommends: {},
+      all: [],
       helpful: [],
       reported: [],
       starFilter: [],
-      filter: false
+      show: false,
+      filter: false,
+      submit: false
     }
   }
 // ********* AXIOS REQUESTS **********
@@ -154,6 +156,10 @@ class RR extends React.Component {
     //   this.allResults(this.state.page, 50, this.state.sort);
     //   console.log('UPDATED')
     // }
+    if (prevState.filter !== this.state.filter) {
+      this.allResults(this.state.page, 50, this.state.sort);
+      console.log('UPDATED')
+    }
     if (prevState.sort !== this.state.sort) {
       this.allResults(this.state.page, 50, this.state.sort);
       console.log('UPDATED')
@@ -190,12 +196,13 @@ class RR extends React.Component {
     e.preventDefault();
     this.setState({
       show: true,
-      modesrc: e.target.src
+      thumbsrc: e.target.src
     })
   }
   thumbClose = () => {
     this.setState({
-      show: false
+      show: false,
+      submit: false
     })
   }
   fullReviewButton = (e) => {
@@ -210,7 +217,9 @@ class RR extends React.Component {
   }
   writeReview = (e) => {
     e.preventDefault();
-    alert('This button doesn\'t work yet')
+    this.setState({
+      submit: true
+    })
   }
   changeSortHelp = (e) => {
     e.preventDefault();
@@ -250,7 +259,6 @@ class RR extends React.Component {
       filter: newState,
       starFilter: starFilterArray
     })
-    alert(this.state.filter)
   }
 // ******* Averaging Functions *****
   avRat = () => {
@@ -261,7 +269,7 @@ class RR extends React.Component {
       total += Number(obj[key]);
       sum +=  Number(obj[key]) * key;
     }
-    return  Math.ceil(sum/total * 10) / 10;
+    return  [(Math.ceil(sum/total * 10) / 10), total];
   }
 
   avRec = () => {
@@ -280,7 +288,6 @@ resultsMapper = () => {
     if (review === undefined) {
       return list;
     }
-    //
     if (this.state.filter === true) {
       console.log(review.rating, this.state.starFilter)
       if (this.state.starFilter.indexOf(review.rating) > -1) {
@@ -311,8 +318,6 @@ resultsMapper = () => {
     })}</div>
     </div>)
     }
-    //
-
   }
 
   return <div>{list}</div>
@@ -328,9 +333,9 @@ ratingsMapper = () => {
   }
   for (var i = 0; i < 5; i ++) {
     if (obj[keys[i]] === undefined) {
-      list.push(<div class='stars' onClick={this.starFilter} id={keys[i]}>{keys[i]} Stars  <progress id={keys[i]} value ="0" max = "100"/></div>)
+      list.push(<div class='stars' onClick={this.starFilter} id={keys[i]}>{keys[i]} Stars  <progress class='starbar' id={keys[i]} value ="0" max = "100"/></div>)
     } else {
-      list.push(<div class='stars' onClick={this.starFilter} id={keys[i]}>{keys[i]} Stars  <progress id={keys[i]} value ={Math.floor(Number(obj[keys[i]])/total*100)} max = "100"/></div>)
+      list.push(<div class='stars' onClick={this.starFilter} id={keys[i]}>{keys[i]} Stars  <progress class='starbar' id={keys[i]} value ={Math.floor(Number(obj[keys[i]])/total*100)} max = "100"/></div>)
     }
   }
   return <div>{list}</div>
@@ -376,13 +381,14 @@ dateFormatter = (date) => {
             </Modal.Header>
             <Modal.Body><img id='picture' src={this.state.modesrc} /></Modal.Body>
           </Modal>
+          <NewReview chars={this.state.characteristics} id={this.props.id} submit={this.state.submit} close={this.thumbClose}/>
           <h1>
             Ratings and Reviews
           </h1>
-          <div>{this.avRat()} Star Average</div>
+          <div>{this.avRat()[0]} Star Average out of {this.avRat()[1]} Ratings</div>
           <div class='ratings'>
             <div class='empty-stars'></div>
-            <div class='full-stars' style={{ width: `${this.avRat() / 5 * 100}%` }}></div>
+            <div class='full-stars' style={{ width: `${this.avRat()[0] / 5 * 100}%` }}></div>
           </div>
           <div>{`${this.avRec()}% of reviewers recommend this product`}</div>
           <div>{this.ratingsMapper()}</div>

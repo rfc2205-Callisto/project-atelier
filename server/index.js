@@ -164,7 +164,6 @@ app.put('/reviews/help', (req, res) => {
     };
     axios(options)
       .then(() => {
-        console.log('REPORTED!')
         res.sendStatus(201);
       })
       .catch((err) => {
