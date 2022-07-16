@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
+import { useSelector, useDispatch, connect } from 'react-redux';
+import allActions from '../../Actions';
 import axios from 'axios';
-
-import PhotoDetail from './photoDetail.jsx';
+const config = require('../../../../config.js');
+import PhotoDetail from './photoDetail.js';
 
 var PhotoList = (props) => {
   var [openModal,setOpenModal]=useState(false);
