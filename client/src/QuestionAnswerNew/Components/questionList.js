@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import axios from 'axios';
 
-const config = require('../../../../config.js');
 import AddQuestion from './addQuestion.js'
 import AddAnswer from './addAnswer.js';
 import AnswerList from './answerList.js';
@@ -22,16 +21,9 @@ var QuestionList = () => {
 
   var helpfulButton = (e) => {
     var question_id = e.target.parentElement.id;
-    // axios.put(`qa/questions/${id}/helpful`).then(() => { console.log('question helpfulness updated') }).catch((err) => { console.log('question helpfulness not submitted') });
-    var apiReq = {
-      method: 'put',
-      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfc/qa/questions/${question_id}/helpful`,
-      headers: {
-        'Authorization': `${config.TOKEN}`
-      }
-    }
-    console.log(apiReq)
-    axios(apiReq).then(() => { console.log('helpful button clicked') }).catch((err) => { throw err })
+    axios.put(`qa/questions/${id}/helpful`)
+      .then(() => { console.log('question helpfulness updated') })
+      .catch((err) => { console.log('question helpfulness not submitted') });
   }
 
 
@@ -46,13 +38,13 @@ var QuestionList = () => {
     setShowDiagQ(!showDiagQ);
   }
   var handleAddA = (e) => {
-    setSelectIdQ(e.target.id||'');
+    setSelectIdQ(e.target.id || '');
     setShowDiagA(!showDiagA);
   }
   return (
     <>
       {showDiagQ && <AddQuestion closeModal={setShowDiagQ} />}
-      {showDiagA && <AddAnswer quest_id={selectIdQ} closeModal={handleAddA}/>}
+      {showDiagA && <AddAnswer quest_id={selectIdQ} closeModal={handleAddA} />}
       <div class="container">
         {relatedQ.map((Quest) => {
           return (
@@ -65,7 +57,7 @@ var QuestionList = () => {
                   <button id={Quest.question_id} class="addA" onClick={handleAddA}>Add Answer</button>
                 </div>
               </div>
-              <AnswerList allA={Object.values(Quest.answers)}/>
+              <AnswerList allA={Object.values(Quest.answers)} />
             </div>
           )
         })

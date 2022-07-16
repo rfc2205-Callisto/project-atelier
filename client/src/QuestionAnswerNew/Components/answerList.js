@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const config = require('../../../../config.js');
 import PhotoList from './photoList.js';
 
 
@@ -16,14 +15,9 @@ var AnswerList = (props) => {
     console.log(id)
     if (!helpful) {
       setHelpful(true);
-      var apiReq = {
-        method: 'put',
-        url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfc/qa/answers/${id}/helpful`,
-        headers: {
-          'Authorization': `${config.TOKEN}`
-        }
-      }
-      axios(apiReq).then(() => { console.log('answer helpfulness updated') }).catch((err) => { 'answer helpfulness not submitted' });
+      axios.put(`qa/answers/${id}/helpful`)
+        .then(() => { console.log('answer helpfulness updated') })
+        .catch((err) => { console.log('answer helpfulness not submitted') });
     }
   }
 
@@ -32,16 +26,9 @@ var AnswerList = (props) => {
     console.log(id)
     if (!report) {
       setReport(true);
-      var apiReq = {
-        method: 'put',
-        url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfc/qa/answers/${id}/report`,
-        headers: {
-          'Authorization': `${config.TOKEN}`
-        }
-      }
-      axios(apiReq).then(() => { console.log('answer is reported') }).catch((err) => { console.log('answer is not reported') })
-
-      // axios.put(`qa/answers/${id}/report`).then(()=>{console.log('answer is reported')}).catch((err)=>{console.log('answer is not reported')});
+      axios.put(`qa/answers/${id}/report`)
+        .then(() => { console.log('answer is reported') })
+        .catch((err) => { console.log('answer is not reported') });
     }
   }
 

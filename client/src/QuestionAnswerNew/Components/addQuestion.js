@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import axios from 'axios';
 
-const config = require('../../../../config.js');
-
 function AddQuestion(props) {
 
   var prod_id = useSelector(state => state.product_id);
@@ -23,23 +21,10 @@ function AddQuestion(props) {
       "email": email
     };
 
-    var apiReq = {
-      method: 'post',
-      url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfc/qa/questions',
-      headers: {
-        'Authorization': `${config.TOKEN}`,
-        'Content-Type': 'application/json'
-      },
-      data: data
-    }
-    console.log(apiReq)
-    axios(apiReq)
-      .then(() => { console.log('a question is posted'); })
-      .catch((err) => { console.log('there is an error in adding question'); })
-
+    axios.post('/qa/questions', data)
+      .then((res) => { console.log('yay Question is added supposely') })
+      .catch((err) => { console.log('there is error in adding question') });
   }
-
-
 
   return (
     <div class="container">

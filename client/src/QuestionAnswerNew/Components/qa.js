@@ -5,7 +5,7 @@ import axios from 'axios';
 //for redux
 import { useSelector, useDispatch, connect } from 'react-redux';
 import allActions from '../Actions';
-const config = require('../../../../config.js');
+
 //other components
 import Search from './search.js'
 import QuestionList from './questionList.js'
@@ -19,13 +19,12 @@ class QA extends React.Component {
   fetchData = () => {
     var apiReq = {
       method: 'get',
-      url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfc/qa/questions',
-      headers: {
-        'Authorization': `${config.TOKEN}`
-      },
-      params: { product_id: this.props.product_id }
+      url: '/qa/questions',
+      params: {
+        product_id: `${this.props.product_id}`,
+        count: 20
+      }
     };
-console.log(apiReq)
     axios(apiReq).then((data) => {
       var sortQ = data.data.results.sort((a, b) => (a.helpfulness > b.helpfulness) ? -1 : 1);
       var initState = allActions.qaAction.initialize(sortQ);

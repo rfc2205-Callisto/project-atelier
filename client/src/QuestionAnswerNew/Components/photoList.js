@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const config = require('../../../../config.js');
 import PhotoDetail from './photoDetail.js';
 
 var PhotoList = (props) => {

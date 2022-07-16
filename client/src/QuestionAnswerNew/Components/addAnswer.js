@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const config = require('../../../../config.js');
-
 var AddAnswer = (props) => {
 
 
@@ -29,19 +27,10 @@ var AddAnswer = (props) => {
       "photo": photos
     };
 
-    var apiReq = {
-      method: 'post',
-      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfc/qa/questions/${req.params.question_id}/answers`,
-      headers: {
-        'Authorization': `${config.TOKEN}`,
-        'Content-Type': 'application/json'
-      },
-      data: data
-    }
-
-    console.log(apiReq.url);
-    axios(apiReq)
-      .then(() => { console.log('answer is added suppposely') })
+    axios.post(`/qa/questions/${Number(props.quest_id)}/answers`, data)
+    .then((result) => {
+      conosle.log('yay Answer is added supposely')
+      console.log(result.data)})
       .catch((err) => { console.log('there is error in adding answer') })
   }
 
