@@ -1,5 +1,3 @@
-
-
 /* Gallery */
 .ondisplayimg {
   width: 100%;
@@ -48,14 +46,17 @@
 
 
 }
+
 .productCategory {
   padding-top: 15px;
   line-height: 20px;
 }
+
 .productName {
   line-height: 40px;
   padding-bottom: 15px;
 }
+
 .anchorLink {
   text-decoration: none;
   color: gray;
@@ -137,14 +138,13 @@
   color: black;
 }
 
-.scrollNotOK:hover {
-
-}
+.scrollNotOK:hover {}
 
 .rowscrollup {
   padding-top: 5px;
   padding-bottom: 7px;
 }
+
 .rowscrolldown {
   padding-top: 7px;
 }
@@ -155,7 +155,8 @@
 }
 
 .scrollbarimgUnselected {
-  -webkit-filter: grayscale(100%) blur(1px); /* Safari 6.0 - 9.0 */
+  -webkit-filter: grayscale(100%) blur(1px);
+  /* Safari 6.0 - 9.0 */
   filter: grayscale(100%) blur(1px);
 }
 
@@ -165,18 +166,21 @@
   -webkit-transform: rotate(-180deg);
 }
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> 5e3107a968f526a715186d45084956bc0a234eaf
 .scrollOK:hover {
   color: black;
 }
 
-.scrollNotOK:hover {
-
-}
+.scrollNotOK:hover {}
 
 .rowscrollup {
   padding-top: 5px;
   padding-bottom: 7px;
 }
+
 .rowscrolldown {
   padding-top: 7px;
 }
@@ -187,7 +191,8 @@
 }
 
 .scrollbarimgUnselected {
-  -webkit-filter: grayscale(100%) blur(1px); /* Safari 6.0 - 9.0 */
+  -webkit-filter: grayscale(100%) blur(1px);
+  /* Safari 6.0 - 9.0 */
   filter: grayscale(100%) blur(1px);
 }
 
@@ -211,6 +216,7 @@
 .thumbnailselected {
   background-color: lightgreen;
 }
+
 .styleSelector {
   border-color: gray;
   border-radius: 20px;
@@ -223,16 +229,19 @@
   width: 90px;
   padding-right: 0;
 }
+
 .aRowOfStyle {
   padding-left: 35px;
   padding-right: 0px;
   padding-bottom: 3px;
   padding-top: 3px;
 }
+
 .twoRowOfStyles {
   padding-right: 0;
   padding-left: 20px;
 }
+
 /* add to cart */
 .size {
   background-color: white;
@@ -260,6 +269,7 @@
   width: 580px;
 
 }
+
 .addtobag {
   /* styling */
   background-color: white;
@@ -277,15 +287,20 @@
   display: flex;
   /* equal height of the children */
 }
+<<<<<<< HEAD
+
+=======
 /* Ratings and Reviews Styling Below Here */
 button {
   margin: 10px 10px;
 }
+>>>>>>> 5e3107a968f526a715186d45084956bc0a234eaf
 .RR {
   background-color: aqua;
   margin: 20px 20px;
   padding: 20px 20px;
 }
+
 .list {
   display: flex;
   justify-content: center;
@@ -329,11 +344,13 @@ h1 {
   display: flex;
   justify-content: space-evenly;
 }
+
 #response {
   background-color: grey;
   border: 2px;
   border-color: black;
 }
+
 .ratings {
   position: relative;
   vertical-align: middle;
@@ -341,6 +358,7 @@ h1 {
   color: #b1b1b1;
   overflow: hidden;
 }
+
 .full-stars {
   position: absolute;
   left: 0;
@@ -349,16 +367,21 @@ h1 {
   overflow: hidden;
   color: #fde16d;
 }
-.empty-stars:before, .full-stars:before {
-  content:"\2605\2605\2605\2605\2605";
+
+.empty-stars:before,
+.full-stars:before {
+  content: "\2605\2605\2605\2605\2605";
   font-size: 24pt;
 }
+
 .empty-stars:before {
   -webkit-text-stroke: 1px #848484;
 }
+
 .full-stars:before {
   -webkit-text-stroke: 1px orange;
 }
+
 progress {
   width: 150px;
   height: 15px;
@@ -368,9 +391,11 @@ progress {
 progress {
   color: lightblue;
 }
+
 progress::-moz-progress-bar {
   background: lightcolor;
 }
+
 progress::-webkit-progress-value {
   background: darkgreen
 }
@@ -380,17 +405,20 @@ progress:hover::-webkit-progress-value {
 progress::-webkit-progress-bar {
   background: grey
 }
+
 #sortButton {
   font-size: large;
   display: flex;
   justify-content: flex-end;
   flex-direction: row;
 }
+
 #dropdown-basic-button {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
 }
+
 u:hover {
   color: grey;
 }
@@ -414,23 +442,25 @@ input {
 }
 /* Ratings and Reviews Styling Above Here */
 
+/*********************************QA style*****************/
 .search {
-  display: inline-block;
-  width:90%;
+  display: flex;
+  width: 90%;
   height: 50px;
   justify-content: center;
   /* grid-template-columns: 4fr 1fr;
   grid-template-rows: 1fr; */
 }
-.searchBar{
-  width:auto;
+
+.searchBar {
+  width: auto;
   height: 40px;
   margin: 2px;
 }
 
 .searchButton {
   margin: 2px;
-  width:50;
+  width: 50;
   height: 40px;
   border: none;
   border-radius: 4px;
@@ -446,15 +476,15 @@ input {
   border: 1px black solid;
 }
 
-/* .partQ {
+.partQ {
   align-items: center;
   justify-content: center;
 
   display: grid;
 
-  grid-template-columns: 20px 3fr 1fr 1fr;
+  grid-template-columns: 20px 5fr 1fr 1fr;
   grid-template-rows: 1fr;
-} */
+}
 
 .partA {
   display: grid;
@@ -472,36 +502,40 @@ input {
   grid-row: 1/span1;
 }
 
-/* .questBody {
-  max-width: 500px;
+.questBody {
+  width: 70%;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 
   grid-column: 2/span1;
   grid-row: 1/span1;
-  overflow-wrap:break-word;
+  overflow-wrap: break-word;
+  display: flex;
 }
 
 .helpfulness {
+  max-width: 120px;
   grid-column: 3/span1;
   grid-row: 1/span1;
-  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
+
 .addAns {
   grid-column: 4/span1;
   grid-row: 1/span1;
-} */
+}
 
 .photo {
   object-fit: cover;
   grid-column: 1/span4;
   grid-row: 2/span1;
 }
+
 /* **************************** */
-.partQ{
+/* .partQ{
   width:auto;
 }
-/* .symbol{
+.symbol{
   width:30px;
   display: inline-block;
 }
@@ -521,134 +555,17 @@ input {
   display: inline-block;
 }
 
-.helpfulness:hover{
+.helpfulness:hover {
   color: blue;
 }
-/* .addAns button {
+
+.addAns button {
   font-size: 10px;
   justify-self: stretch;
   border: none;
   background-color: skyblue;
   border-radius: 4px;
-} */
-
-.search {
-  display: inline-block;
-  width:90%;
-  height: 50px;
-  justify-content: center;
-  /* grid-template-columns: 4fr 1fr;
-  grid-template-rows: 1fr; */
 }
-.searchBar{
-  width:auto;
-  height: 40px;
-  margin: 2px;
-}
-
-.searchButton {
-  margin: 2px;
-  width:50;
-  height: 40px;
-  border: none;
-  border-radius: 4px;
-  background-color: transparent;
-}
-
-.helpfulness,
-.answerer {
-  font-size: 11px;
-}
-
-.oneQ {
-  border: 1px black solid;
-}
-
-/* .partQ {
-  align-items: center;
-  justify-content: center;
-
-  display: grid;
-
-  grid-template-columns: 20px 3fr 1fr 1fr;
-  grid-template-rows: 1fr;
-} */
-
-.partA {
-  display: grid;
-  grid-template-columns: 20px 1fr;
-  grid-template-rows: 1fr;
-}
-
-.symbol {
-  grid-column: 1/span1;
-  grid-row: 1/span1;
-}
-
-.answer {
-  grid-column: 2/span1;
-  grid-row: 1/span1;
-}
-
-/* .questBody {
-  max-width: 500px;
-  align-items: center;
-  justify-content: center;
-
-  grid-column: 2/span1;
-  grid-row: 1/span1;
-  overflow-wrap:break-word;
-}
-
-.helpfulness {
-  grid-column: 3/span1;
-  grid-row: 1/span1;
-  word-wrap: break-word;
-}
-.addAns {
-  grid-column: 4/span1;
-  grid-row: 1/span1;
-} */
-
-.photo {
-  object-fit: cover;
-  grid-column: 1/span4;
-  grid-row: 2/span1;
-}
-/* **************************** */
-.partQ{
-  width:auto;
-}
-/* .symbol{
-  width:30px;
-  display: inline-block;
-}
-.questBody{
-  width: 70%;
-  display: inline-block;
-}
-.helpfulness,
-.addAns{
-  font-size: 10px;
-  width: 30px;
-  display: inline-block;
-
-} */
-.answerer div {
-  padding: 5px;
-  display: inline-block;
-}
-
-.helpfulness:hover{
-  color: blue;
-}
-/* .addAns button {
-  font-size: 10px;
-  justify-self: stretch;
-  border: none;
-  background-color: skyblue;
-  border-radius: 4px;
-} */
 
 .otherOptions {
   display: grid;
@@ -681,23 +598,29 @@ input {
   justify-content: center;
   align-items: center;
 } */
-.container{
-  width: 90%;
-}
+/* .container{
+  max-width: 700px;
+} */
 .modalContainer {
-  width: auto;
-  height: 50%;
+  width: 80%;
+  height: 80%;
   border-radius: 12px;
   background-color: white;
   box-shadow: black 0px 5px 15px;
   display: flex;
   flex-direction: column;
   /* padding: 25px; */
-  position: absolute;
-  z-index:1000;
+  position: fixed;
+  z-index: 1000;
+  justify-content: flex-start;
   /* max-width: max-content;
   max-height: max-content;
   justify-content: space-around; */
+
+  top: 0;
+  left: 0;
+  margin-top: 5%;
+  margin-left: 10%;
 }
 
 /* .modalContainer{
@@ -727,11 +650,21 @@ input {
 .modalContainer .body {
   flex: 50%;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-evenly;
+  align-items: start;
+  margin-left: inherit;
   font-size: 20px;
   text-align: center;
   flex-direction: column;
+}
+
+label input {
+  max-width: 45vw;
+  position: fixed;
+  left: 35%;
+  align-items: center;
+  width: -webkit-fill-available;
+
 }
 
 .modalContainer .footer {
@@ -767,10 +700,66 @@ input {
 
 .magPic {
   max-width: 100%;
-  max-height: auto;
-  object-fit: contain;
-  z-index:2
+  /* max-height: auto; */
+  /* object-fit: contain; */
+  max-height: 90%;
+  object-fit: scale-down;
+  /* justify-content: center; */
+  z-index: 2
 }
+
+.photo {
+  z-index: 1
+}
+
+/************ just for picture modal*****************/
+.modalContainer .pic {
+  flex: 50%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: inherit;
+  font-size: 20px;
+  text-align: center;
+  flex-direction: column;
+  max-height: 500px;
+}
+
+/*********change question list from container to something else******/
+.container .qlist {
+  max-width: 700px;
+}
+<<<<<<< HEAD
+
+.scroller {
+  max-height: 600px;
+  overflow-y: scroll;
+  scrollbar-color: rebeccapurple green;
+  scrollbar-width: thin;
+}
+
+.scrollerA {
+  /* width: 300px; */
+  max-height: 250px;
+  overflow-y: scroll;
+  scrollbar-color: rebeccapurple green;
+  scrollbar-width: thin;
+}
+
+
+/********** modal background*********/
+.modalBackground {
+  position: fixed;
+  background-color: rgba(50.2%, 50.2%, 50.2%, 0.5);
+  width: 100vw;
+  height: 100vh;
+  left: 0;
+  top: 0;
+}
+
+/************* for div alignment******************/
+=======
 .photo{
   z-index:1
 }
+>>>>>>> 5e3107a968f526a715186d45084956bc0a234eaf

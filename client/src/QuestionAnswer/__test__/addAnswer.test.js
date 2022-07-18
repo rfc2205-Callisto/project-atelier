@@ -2,8 +2,6 @@
 import React from "react";
 import axios from 'axios';
 const config = require('../../../../config.js');
-import { Dialog, DialogOverlay, DialogContent } from "@reach/dialog";
-import "@reach/dialog/styles.css";
 import { render, screen, fireEvent, wait } from "@testing-library/react";
 // import {fireEvent} from '@testing-library/user-event';
 
@@ -23,5 +21,5 @@ test("user input should be rendered", () => {
   const usernameInput=getByPlaceholderText(/username .../i);
   fireEvent.change(usernameInput,{target:{value:"sharon"}});
   // await wait(()=>getByText("sharon"))
-   getByText("sharon")
+  //  getByText("sharon")
 })
