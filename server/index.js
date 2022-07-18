@@ -154,6 +154,45 @@ app.put('/reviews/help', (req, res) => {
     })
   })
 
+  app.put('/reviews/report', (req, res) => {
+    var options = {
+      method: 'put',
+      url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfc/reviews/${req.query.review_id}/report`,
+      headers: {
+        'Authorization': `${config.TOKEN}`
+      }
+    };
+    axios(options)
+      .then(() => {
+        res.sendStatus(201);
+      })
+      .catch((err) => {
+        console.log('Serverside Error in Review\'s Report Request:', err)
+      })
+    })
+
+    app.post('/reviews', (req, res) => {
+      var data = req.query
+      data.product_id = Number(data.product_id);
+      data.rating = Number(data.rating);
+      data.recommend = Boolean(data.recommend);
+      data.characteristics = JSON.parse(data.characteristics);
+      var options = {
+        method: 'post',
+        url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfc/reviews',
+        headers: {
+          'Authorization': `${config.TOKEN}`,
+        },
+        data: data
+      };
+      axios(options)
+        .then(() => {
+          res.sendStatus(201);
+        })
+        .catch((err) => {
+          console.log('Serverside Error in Review\'s Post Request:')
+        })
+      })
 
 app.listen(port, () => {
   console.log(`server is listening on port ${port}`);
