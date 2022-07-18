@@ -28,21 +28,22 @@ function AddQuestion(props) {
 
   return (
     <div class="container">
-      <div className="modalContainer">
-        <div className="titleCloseBtn">
-          <button onClick={() => { props.closeModal(false) }}>x</button>
+      <div className="modalBackground">
+        <div className="modalContainer">
+          <div className="titleCloseBtn">
+            <button onClick={() => { props.closeModal(false) }}>x</button>
+          </div>
+          <div className="title">Add a Question</div>
+          <div className="body">
+            <label>Name:<input value={name} placeholder="Example: jackson11!" onChange={(e) => { setName(e.target.value) }}></input></label>
+            <label>Question:<input value={question} placeholder="add a quesiton ..." onChange={(e) => { setQuestion(e.target.value) }}></input></label>
+            <label>Email:<input value={email} placeholder="email ..." onChange={(e) => { setEmail(e.target.value) }}></input></label>
+            {/* <label>Photos:<button>upload photots</button></label> */}
+          </div>
+          <div className="footer">
+            <button onClick={handleSubmit}>Submit</button>
+          </div>
         </div>
-        <div className="title">Add a Question</div>
-        <div className="body">
-          <label>Name:<input value={name} placeholder="username ..." onChange={(e) => { setName(e.target.value) }}></input></label>
-          <label>Question:<input value={question} placeholder="add a quesiton ..." onChange={(e) => { setQuestion(e.target.value) }}></input></label>
-          <label>Email:<input value={email} placeholder="email ..." onChange={(e) => { setEmail(e.target.value) }}></input></label>
-          {/* <label>Photos:<button>upload photots</button></label> */}
-        </div>
-        <div className="footer">
-          <button onClick={handleSubmit}>Submit</button>
-        </div>
-
       </div>
     </div>
   )

@@ -16,7 +16,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       name:'zach',
-      product_id: 66664
+      product_id: 66666
     }
   }
   componentDidMount() {
@@ -51,7 +51,7 @@ class App extends React.Component {
         </div>
         <RR id={this.state.product_id}/>
         <Provider store={qastore}>
-          <QA />
+          <QA id={this.state.product_id}/>
         </Provider>
       </React.Fragment>
     );

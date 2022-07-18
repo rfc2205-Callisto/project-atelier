@@ -34,7 +34,7 @@ var Search = () => {
   return (
     <div class="container">
       <form class="search">
-        <input class="searchBar" value={entry} placeholder="search ..." onChange={(e) => { setEntry(e.target.value ) }}></input>
+        <input class="searchBar" value={entry} placeholder="Search for answers…" onChange={(e) => { setEntry(e.target.value ) }}></input>
         <button class="searchButton" onClick={handleClick}>🔍</button>
       </form>
     </div>

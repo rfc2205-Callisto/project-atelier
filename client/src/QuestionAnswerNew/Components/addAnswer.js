@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+var cloudName='dls2rxfqj';
+var presetName='ap4g9ume';
 
 var AddAnswer = (props) => {
 
@@ -8,35 +10,40 @@ var AddAnswer = (props) => {
   var [answer, setAnswer] = React.useState();
   var [email, setEmail] = React.useState();
   var [photos, setPhotos] = React.useState([]);
-
-  var fileUpload = (e) => {
-    const inputElement = document.getElementById("input");
-    var files = Object.values(inputElement.files);
-    var urls = files.map((file) => { return window.URL.createObjectURL(file) });
-    setPhotos(urls);
-    console.log(urls)
-  }
+  // var [picURL, setPicURL] = React.useState();//not sure why this cannot work??????? need to ask my teammate
 
   var handleSubmit = (e) => {
     e.preventDefault();
     props.closeModal(e);
-    var data = {
-      "body": answer,
-      "name": name,
-      "email": email,
-      "photo": photos
-    };
 
-    axios.post(`/qa/questions/${Number(props.quest_id)}/answers`, data)
-    .then((result) => {
-      conosle.log('yay Answer is added supposely')
-      console.log(result.data)})
-      .catch((err) => { console.log('there is error in adding answer') })
+    var formData = new FormData();
+    formData.append("file", photos[0])
+    formData.append("upload_preset", presetName)
+    console.log(presetName)
+
+    var url;
+    axios.post("https://api.cloudinary.com/v1_1/dls2rxfqj/image/upload", formData)
+      .then((response) => {
+        url=response.data.url;
+      })
+      .then(() => {
+        var data = {
+          "body": answer,
+          "name": name,
+          "email": email,
+          "photo": [`${url}`]
+        };
+        axios.post(`/qa/questions/${props.quest_id}/answers`, data)
+          .then((result) => {
+            conosle.log('yay Answer is added supposely')
+            // console.log(result.data)
+          })
+          .catch((err) => { console.log('there is error in adding answer') })
+      })
   }
 
-
   return (
-    <div class="container">
+    <div class="container modalBackground">
       <div className="modalContainer">
         <div className="titleCloseBtn">
           <button onClick={(e) => { props.closeModal(e) }}>x</button>
@@ -46,8 +53,9 @@ var AddAnswer = (props) => {
           <label>Name:<input value={name} placeholder="username ..." onChange={(e) => { setName(e.target.value) }} required></input></label>
           <label>Answer:<input value={answer} placeholder="add a answer ..." onChange={(e) => { setAnswer(e.target.value) }} required></input></label>
           <label>Email:<input type="email" value={email} placeholder="email ..." onChange={(e) => { setEmail(e.target.value) }} required></input></label>
-          {/* <label>Photo:<input type="file" id="input" multiple onChange={fileUpload}></input></label> */}
-          <label>Photo:<input id="input" onChange={(e) => { setPhotos([e.target.value]) }}></input></label>
+          <label>Photo:<input type="file" id="input" multiple onChange={(e) => { setPhotos(e.target.files) }}></input></label>
+
+          {/* <label>Photo:<input id="input" onChange={(e) => { setPhotos([e.target.value]) }}></input></label> */}
         </div>
         <div className="footer">
           <button onClick={handleSubmit}>Submit</button>

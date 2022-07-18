@@ -8,7 +8,7 @@ var AnswerList = (props) => {
 
   var [defA, setDefA] = useState(2);
   var [helpful, setHelpful] = useState(false);
-  var [report, setReport] = useState(false);
+  var [report, setReport] = useState('');
 
   var helpfulButton = (e) => {
     var id = e.target.parentElement.id || e.target.parentElement.parentElement.id;
@@ -23,9 +23,8 @@ var AnswerList = (props) => {
 
   var reportButton = (e) => {
     var id = e.target.parentElement.id || e.target.parentElement.parentElement.id;
-    console.log(id)
     if (!report) {
-      setReport(true);
+      setReport(true)
       axios.put(`qa/answers/${id}/report`)
         .then(() => { console.log('answer is reported') })
         .catch((err) => { console.log('answer is not reported') });
@@ -39,8 +38,9 @@ var AnswerList = (props) => {
     LoadA = null;
   }
 
+
   return (
-    <>
+    <div className="oneA scrollerA">
       {props.allA.slice(0, defA).map((ans) => {
         return (
           <div class="partA">
@@ -51,15 +51,15 @@ var AnswerList = (props) => {
               <div class="answerer" id={ans.id}>
                 <div>by {ans.answerer_name}   |   </div>
                 <div>{ans.date.slice(0, 10)}   |   </div>
-                <div className="helpfulness" onClick={helpfulButton}>Helpful? <u>Yes({ans.helpfulness})</u>   |   </div>
-                <div className="helpfulness" onClick={reportButton}><u>Report</u></div>
+                <div className="helpfulness" onClick={helpfulButton}>Helpful? <u>Yes({ans.helpfulness})</u>   |</div>
+                <div className="helpfulness" value={ans.id} onClick={reportButton}><u>{ans.repoted?"Reported":"Report"}</u></div>
               </div>
             </div>
           </div>
         )
       })}
       {LoadA}
-    </>
+    </div >
   )
 
 

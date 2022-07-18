@@ -1,13 +1,17 @@
-import {createStore} from 'redux';
 
 const defaultState={
-  product_id:66666,
+  product_id:66633,//initial value, will be reassigned once passed in from App Component
   allQ:[],
   relatedQ:[],
 };
 
 const qaReducer=(state=defaultState,action)=>{
   switch (action.type){
+    case 'AssignId':
+      return{
+        ...state,
+        product_id:action.id
+      }
     case 'Initialize':
       return {
         ...state,
@@ -18,7 +22,6 @@ const qaReducer=(state=defaultState,action)=>{
       return{
         ...state,
         relatedQ:action.relatedQ,
-
       }
     default:
       return state;

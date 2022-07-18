@@ -1,3 +1,9 @@
+const assignID=(id)=>{
+  return {
+    type:"AssignId",
+    id
+  }
+}
 const initialize=(allQ)=>{
   return {
     type:"Initialize",
@@ -12,5 +18,6 @@ const filter=(relatedQ)=>{
 }
 export default {
   initialize,
-  filter
+  filter,
+  assignID
 }

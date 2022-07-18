@@ -10,7 +10,7 @@ var PhotoDetail = (props) => {
         <div className="titleCloseBtn">
           <button onClick={() => { props.closeModal(false) }}>x</button>
         </div>
-        <div className="body">
+        <div className="pic">
           <img class="magPic" src={props.photos[pic]} onClick={()=>{setPic(pic<props.photos.length-1?pic+1:0)}}></img>
         </div>
       </div>

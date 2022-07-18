@@ -10,9 +10,6 @@ var QuestionList = () => {
   var allQ = useSelector(state => state.allQ);
   var relatedQ = useSelector(state => state.relatedQ);
 
-  console.log(allQ)
-  console.log(relatedQ)
-
   var [defQ, setDefQ] = useState(2);
   var [showDiagQ, setShowDiagQ] = useState(false);
   var [selectIdQ, setSelectIdQ] = useState();
@@ -28,7 +25,7 @@ var QuestionList = () => {
 
 
   var LoadQ;
-  if (allQ.length > relatedQ.length) {
+  if (allQ.length > defQ) {
     LoadQ = < button class="loadQ" onClick={() => { setDefQ(defQ + 2) }} >Load more questions</button >
   } else {
     LoadQ = null
@@ -45,10 +42,10 @@ var QuestionList = () => {
     <>
       {showDiagQ && <AddQuestion closeModal={setShowDiagQ} />}
       {showDiagA && <AddAnswer quest_id={selectIdQ} closeModal={handleAddA} />}
-      <div class="container">
-        {relatedQ.map((Quest) => {
+      <div class="container qlist scroller">
+        {relatedQ.slice(0,defQ).map((Quest) => {
           return (
-            <div class="oneQ">
+            <div class="oneQ ">
               <div class="partQ" id={Quest.question_id}>
                 <div class="symbol">Q:</div>
                 <div class="questBody" > {Quest.question_body}</div>

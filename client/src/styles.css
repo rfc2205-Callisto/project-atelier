@@ -1,5 +1,3 @@
-
-
 /* Gallery */
 .ondisplayimg {
   width: 100%;
@@ -48,14 +46,17 @@
 
 
 }
+
 .productCategory {
   padding-top: 15px;
   line-height: 20px;
 }
+
 .productName {
   line-height: 40px;
   padding-bottom: 15px;
 }
+
 .anchorLink {
   text-decoration: none;
   color: gray;
@@ -137,14 +138,13 @@
   color: black;
 }
 
-.scrollNotOK:hover {
-
-}
+.scrollNotOK:hover {}
 
 .rowscrollup {
   padding-top: 5px;
   padding-bottom: 7px;
 }
+
 .rowscrolldown {
   padding-top: 7px;
 }
@@ -155,7 +155,8 @@
 }
 
 .scrollbarimgUnselected {
-  -webkit-filter: grayscale(100%) blur(1px); /* Safari 6.0 - 9.0 */
+  -webkit-filter: grayscale(100%) blur(1px);
+  /* Safari 6.0 - 9.0 */
   filter: grayscale(100%) blur(1px);
 }
 
@@ -170,14 +171,13 @@
   color: black;
 }
 
-.scrollNotOK:hover {
-
-}
+.scrollNotOK:hover {}
 
 .rowscrollup {
   padding-top: 5px;
   padding-bottom: 7px;
 }
+
 .rowscrolldown {
   padding-top: 7px;
 }
@@ -188,7 +188,8 @@
 }
 
 .scrollbarimgUnselected {
-  -webkit-filter: grayscale(100%) blur(1px); /* Safari 6.0 - 9.0 */
+  -webkit-filter: grayscale(100%) blur(1px);
+  /* Safari 6.0 - 9.0 */
   filter: grayscale(100%) blur(1px);
 }
 
@@ -212,6 +213,7 @@
 .thumbnailselected {
   background-color: lightgreen;
 }
+
 .styleSelector {
   border-color: gray;
   border-radius: 20px;
@@ -224,16 +226,19 @@
   width: 90px;
   padding-right: 0;
 }
+
 .aRowOfStyle {
   padding-left: 35px;
   padding-right: 0px;
   padding-bottom: 3px;
   padding-top: 3px;
 }
+
 .twoRowOfStyles {
   padding-right: 0;
   padding-left: 20px;
 }
+
 /* add to cart */
 .size {
   background-color: white;
@@ -261,6 +266,7 @@
   width: 580px;
 
 }
+
 .addtobag {
   /* styling */
   background-color: white;
@@ -278,11 +284,13 @@
   display: flex;
   /* equal height of the children */
 }
+
 .RR {
   background-color: aqua;
   margin: 20px 20px;
   padding: 20px 20px;
 }
+
 .list {
   display: flex;
   justify-content: center;
@@ -321,11 +329,13 @@ h1 {
   display: flex;
   justify-content: space-evenly;
 }
+
 #response {
   background-color: grey;
   border: 2px;
   border-color: black;
 }
+
 .ratings {
   position: relative;
   vertical-align: middle;
@@ -333,6 +343,7 @@ h1 {
   color: #b1b1b1;
   overflow: hidden;
 }
+
 .full-stars {
   position: absolute;
   left: 0;
@@ -341,16 +352,21 @@ h1 {
   overflow: hidden;
   color: #fde16d;
 }
-.empty-stars:before, .full-stars:before {
-  content:"\2605\2605\2605\2605\2605";
+
+.empty-stars:before,
+.full-stars:before {
+  content: "\2605\2605\2605\2605\2605";
   font-size: 24pt;
 }
+
 .empty-stars:before {
   -webkit-text-stroke: 1px #848484;
 }
+
 .full-stars:before {
   -webkit-text-stroke: 1px orange;
 }
+
 progress {
   width: 150px;
   height: 15px;
@@ -360,9 +376,11 @@ progress {
 progress {
   color: lightblue;
 }
+
 progress::-moz-progress-bar {
   background: lightcolor;
 }
+
 progress::-webkit-progress-value {
   background: gold;
 }
@@ -370,38 +388,43 @@ progress::-webkit-progress-value {
 progress::-webkit-progress-bar {
   background: grey
 }
+
 #sortButton {
   font-size: large;
   display: flex;
   justify-content: flex-end;
   flex-direction: row;
 }
+
 #dropdown-basic-button {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
 }
+
 u:hover {
   color: blue;
 }
+
 /*********************************QA style*****************/
 .search {
   display: flex;
-  width:90%;
+  width: 90%;
   height: 50px;
   justify-content: center;
   /* grid-template-columns: 4fr 1fr;
   grid-template-rows: 1fr; */
 }
-.searchBar{
-  width:auto;
+
+.searchBar {
+  width: auto;
   height: 40px;
   margin: 2px;
 }
 
 .searchButton {
   margin: 2px;
-  width:50;
+  width: 50;
   height: 40px;
   border: none;
   border-radius: 4px;
@@ -444,22 +467,23 @@ u:hover {
 }
 
 .questBody {
-  width:70%;
+  width: 70%;
   align-items: center;
   justify-content: flex-start;
 
   grid-column: 2/span1;
   grid-row: 1/span1;
-  overflow-wrap:break-word;
+  overflow-wrap: break-word;
   display: flex;
 }
 
 .helpfulness {
-  max-width: 100px;
+  max-width: 120px;
   grid-column: 3/span1;
   grid-row: 1/span1;
-  overflow-wrap:break-word;
+  overflow-wrap: break-word;
 }
+
 .addAns {
   grid-column: 4/span1;
   grid-row: 1/span1;
@@ -495,9 +519,10 @@ u:hover {
   display: inline-block;
 }
 
-.helpfulness:hover{
+.helpfulness:hover {
   color: blue;
 }
+
 .addAns button {
   font-size: 10px;
   justify-self: stretch;
@@ -541,7 +566,7 @@ u:hover {
   max-width: 700px;
 } */
 .modalContainer {
-  width:80%;
+  width: 80%;
   height: 80%;
   border-radius: 12px;
   background-color: white;
@@ -550,14 +575,14 @@ u:hover {
   flex-direction: column;
   /* padding: 25px; */
   position: fixed;
-  z-index:1000;
+  z-index: 1000;
   justify-content: flex-start;
   /* max-width: max-content;
   max-height: max-content;
   justify-content: space-around; */
 
-  top:0;
-  left:0;
+  top: 0;
+  left: 0;
   margin-top: 5%;
   margin-left: 10%;
 }
@@ -596,14 +621,16 @@ u:hover {
   text-align: center;
   flex-direction: column;
 }
-label input{
+
+label input {
   max-width: 45vw;
   position: fixed;
   left: 35%;
   align-items: center;
-  width:-webkit-fill-available;
+  width: -webkit-fill-available;
 
 }
+
 .modalContainer .footer {
   font-size: 10px;
   flex: 20%;
@@ -642,13 +669,15 @@ input {
   max-height: 90%;
   object-fit: scale-down;
   /* justify-content: center; */
-  z-index:2
+  z-index: 2
 }
-.photo{
-  z-index:1
+
+.photo {
+  z-index: 1
 }
+
 /************ just for picture modal*****************/
-/* .modalContainer .body {
+.modalContainer .pic {
   flex: 50%;
   display: flex;
   justify-content: flex-start;
@@ -658,4 +687,37 @@ input {
   text-align: center;
   flex-direction: column;
   max-height: 500px;
-} */
+}
+
+/*********change question list from container to something else******/
+.container .qlist {
+  max-width: 700px;
+}
+
+.scroller {
+  max-height: 600px;
+  overflow-y: scroll;
+  scrollbar-color: rebeccapurple green;
+  scrollbar-width: thin;
+}
+
+.scrollerA {
+  /* width: 300px; */
+  max-height: 250px;
+  overflow-y: scroll;
+  scrollbar-color: rebeccapurple green;
+  scrollbar-width: thin;
+}
+
+
+/********** modal background*********/
+.modalBackground {
+  position: fixed;
+  background-color: rgba(50.2%, 50.2%, 50.2%, 0.5);
+  width: 100vw;
+  height: 100vh;
+  left: 0;
+  top: 0;
+}
+
+/************* for div alignment******************/
