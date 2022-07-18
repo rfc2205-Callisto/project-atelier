@@ -166,7 +166,10 @@
   -webkit-transform: rotate(-180deg);
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5e3107a968f526a715186d45084956bc0a234eaf
 .scrollOK:hover {
   color: black;
 }
@@ -284,7 +287,14 @@
   display: flex;
   /* equal height of the children */
 }
+<<<<<<< HEAD
 
+=======
+/* Ratings and Reviews Styling Below Here */
+button {
+  margin: 10px 10px;
+}
+>>>>>>> 5e3107a968f526a715186d45084956bc0a234eaf
 .RR {
   background-color: aqua;
   margin: 20px 20px;
@@ -302,6 +312,8 @@ h1 {
 }
 
 #thumbnail {
+  max-height: 90px;
+  max-width: 90px;
   padding: 5px;
 }
 
@@ -318,7 +330,10 @@ h1 {
   max-width: max-content;
   max-height: max-content;
 }
-
+#reviewModal {
+  max-width: 50%;
+  max-height: 50%;
+}
 #picture {
   margin: auto;
   max-width: 1640px;
@@ -382,9 +397,11 @@ progress::-moz-progress-bar {
 }
 
 progress::-webkit-progress-value {
-  background: gold;
+  background: darkgreen
 }
-
+progress:hover::-webkit-progress-value {
+  background-color: gold;
+}
 progress::-webkit-progress-bar {
   background: grey
 }
@@ -403,8 +420,27 @@ progress::-webkit-progress-bar {
 }
 
 u:hover {
-  color: blue;
+  color: grey;
 }
+.stars:hover {
+  color: gold;
+  font-weight: bolder;
+}
+.starbar:hover::before {
+  position: absolute;
+  left: 60pt;
+  content: 'Click to Toggle Filter';
+  font-size: 8pt;
+  color: azure;
+}
+textarea {
+  width: 50%;
+  height: 150px;
+}
+input {
+  max-width: 50%;
+}
+/* Ratings and Reviews Styling Above Here */
 
 /*********************************QA style*****************/
 .search {
@@ -693,6 +729,7 @@ input {
 .container .qlist {
   max-width: 700px;
 }
+<<<<<<< HEAD
 
 .scroller {
   max-height: 600px;
@@ -721,3 +758,8 @@ input {
 }
 
 /************* for div alignment******************/
+=======
+.photo{
+  z-index:1
+}
+>>>>>>> 5e3107a968f526a715186d45084956bc0a234eaf
