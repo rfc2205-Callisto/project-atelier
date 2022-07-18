@@ -278,6 +278,9 @@
   /* equal height of the children */
 }
 /* Ratings and Reviews Styling Below Here */
+button {
+  margin: 10px 10px;
+}
 .RR {
   background-color: aqua;
   margin: 20px 20px;
@@ -294,6 +297,8 @@ h1 {
 }
 
 #thumbnail {
+  max-height: 90px;
+  max-width: 90px;
   padding: 5px;
 }
 

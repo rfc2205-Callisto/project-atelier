@@ -158,6 +158,9 @@ class RR extends React.Component {
     // }
     if (prevState.filter !== this.state.filter) {
       this.allResults(this.state.page, 50, this.state.sort);
+      this.setState({
+        count: 2,
+      })
       console.log('UPDATED')
     }
     if (prevState.sort !== this.state.sort) {
@@ -165,6 +168,11 @@ class RR extends React.Component {
       console.log('UPDATED')
     }
     if (prevProps.id !== this.props.id)  {
+      this.setState({
+        filter: false,
+        count: 2,
+        starFilter: []
+      })
       this.getCharacteristics();
       this.allResults(this.state.page, 50, this.state.sort);
       console.log('UPDATED')
@@ -189,6 +197,22 @@ class RR extends React.Component {
       return null;
     } else {
       return <p id='response'>{`Response from Seller:\n${result.response}`}</p>
+    }
+  }
+  filterCheck = () => {
+    var filter = this.state.starFilter;
+    var stars = ''
+    for (var i = 0; i < filter.length; i ++) {
+      stars += `${filter[i]} or `;
+    }
+    if (filter.length > 0) {
+    return <div>Filter Applied, showing reviews with {stars.slice(0, stars.length - 3)} stars <button onClick={() => {
+      this.setState({
+        starFilter: [],
+        filter: false
+      })
+    }}>Remove All Filters</button>
+    </div>
     }
   }
 // ********* On Click Functions ************
@@ -289,7 +313,6 @@ resultsMapper = () => {
       return list;
     }
     if (this.state.filter === true) {
-      console.log(review.rating, this.state.starFilter)
       if (this.state.starFilter.indexOf(review.rating) > -1) {
         list.push(<div id='rrtile' key={review.review_id} className={review.review_id}>
         <h1>{stars[review.rating]}</h1>
@@ -300,9 +323,11 @@ resultsMapper = () => {
       <div>{this.responseChecker(review)}</div>
       <span>Helpful? <u className={`${review.review_id}1`} onClick={this.sendHelp}>Yes</u>  {review.helpfulness} | <u className={`${review.review_id}2`} onClick={this.sendReport}>Report</u></span>
       <div>{review.photos.map((photo) => {
-        return <span key={photo.id}><img onClick={this.thumbClick} id='thumbnail' src={photo.url} width={200} height={200}/></span>
+        return <span key={photo.id}><img onClick={this.thumbClick} id='thumbnail' src={photo.url}/></span>
       })}</div>
       </div>)
+      } else {
+        count ++
       }
     } else {
       list.push(<div id='rrtile' key={review.review_id} className={review.review_id}>
@@ -379,7 +404,7 @@ dateFormatter = (date) => {
             <Modal.Header>
               <Button onClick={this.thumbClose}>X</Button>
             </Modal.Header>
-            <Modal.Body><img id='picture' src={this.state.modesrc} /></Modal.Body>
+            <Modal.Body><img id='picture' src={this.state.thumbsrc} /></Modal.Body>
           </Modal>
           <NewReview chars={this.state.characteristics} id={this.props.id} submit={this.state.submit} close={this.thumbClose}/>
           <h1>
@@ -392,6 +417,7 @@ dateFormatter = (date) => {
           </div>
           <div>{`${this.avRec()}% of reviewers recommend this product`}</div>
           <div>{this.ratingsMapper()}</div>
+          <span>{this.filterCheck()}</span>
           <div>{this.charMapper()}</div>
           <div id='sortButton'>{`${this.state.length} Reviews sorted by `}
             <DropdownButton id="dropdown-basic-button" title={this.state.sort.toUpperCase()}>
@@ -414,3 +440,19 @@ dateFormatter = (date) => {
 }
 
 export default RR;
+/*
+    if (this.state.filter === true) {
+      var filterCount = 0;
+      this.state.all.forEach((thing) => {
+        if (this.state.starFilter.indexOf(thing.rating) > -1) {
+          filterCount++
+        }
+      })
+      if (filterCount > this.state.count) {
+        var button = <button onClick={this.moreReviews}>Show More Reviews</button>;
+      }
+    } else if (this.state.length > this.state.count && this.state.filter === false) {
+      var button = <button onClick={this.moreReviews}>Show More Reviews</button>;
+    } else {
+      var button = null;
+    }*/
