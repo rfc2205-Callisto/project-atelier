@@ -58,7 +58,6 @@ class AppProductDetail extends React.Component {
       </Provider>
     )
   }
-
 }
 
 export default AppProductDetail

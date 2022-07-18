@@ -87,7 +87,7 @@ app.put('/qa/answers/:answer_id/report',(req,res)=>{
   axios(apiReq).then(()=>{res.sendStatus(204)}).catch((err) => { throw err})
 })
 app.get("/product", (req, res) => {
-  axios.get("https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfc/products/66666/", {headers: {'Authorization': config.TOKEN}})
+  axios.get("https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfc/products/66657/", {headers: {'Authorization': config.TOKEN}})
     .then((data) => {
       // console.log("****data: ", data.data);
       res.send(data.data);
@@ -95,7 +95,7 @@ app.get("/product", (req, res) => {
 })
 
 app.get("/styles", (req, res) => {
-  axios.get("https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfc/products/66666/styles", {headers: {'Authorization': config.TOKEN}})
+  axios.get("https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfc/products/66657/styles", {headers: {'Authorization': config.TOKEN}})
     .then((data) => {
       res.send(data.data);
     })
