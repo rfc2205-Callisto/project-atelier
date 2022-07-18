@@ -16,7 +16,7 @@ style_id: 0 }],
 const reducerFunc = function(state = defaultState, action) {
   switch (action.type) {
     case 'initialize':
-      console.log("****initialize")
+      // console.log("****initialize")
       var newstate = {};
       newstate.interval = 5;
       // Info that are fixed
@@ -44,6 +44,8 @@ const reducerFunc = function(state = defaultState, action) {
 
       }
       newstate.fullView = false;
+      newstate.ymax=1500;
+      newstate.hmax=2900;
 
 
       // Info upon change
@@ -188,6 +190,11 @@ const reducerFunc = function(state = defaultState, action) {
     case "enterFullView":
       var newstate = {...state}
       newstate.fullView = !state.fullView;
+      return newstate
+    case "setImgDimensions":
+      var newstate = {...state}
+      newstate.ymax = action.ymax
+      newstate.hmax = action.hmax
       return newstate
     default:
       return state

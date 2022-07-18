@@ -6,6 +6,8 @@ class Gallery extends React.Component {
   constructor(props) {
     super(props);
 
+    this.state = {top: 0, left: 0, entered: false}
+
   }
 
   nextImg(event) {
@@ -42,16 +44,70 @@ class Gallery extends React.Component {
       type: "enterFullView"
     }
     this.props.dispatch(action)
+
   }
+
+  panUp(event){
+    if (this.state.top < 0) {
+      this.setState({top: this.state.top + 10});
+    }
+  }
+
+  panDown() {
+    if (this.state.top > (-this.props.hmax+480)) {
+      this.setState({top: this.state.top - 10});
+    }
+  }
+
+  panLeft(event){
+    if (this.state.left < 0) {
+      this.setState({left: this.state.left + 10});
+    }
+  }
+
+  panRight(event){
+    if (this.state.left > -this.props.ymax+1186) {
+      this.setState({left: this.state.left - 10});
+    }
+  }
+  getSize({target: img}) {
+
+    const {offsetHeight, offsetWidth} = img
+    var action = {type: "setImgDimensions",hmax: offsetHeight, ymax: offsetWidth}
+    this.props.dispatch(action);
+    this.setState({top: ~~(-offsetHeight/2), left: ~~(-offsetWidth/2)+560})
+
+  }
+
+
   render() {
-    var fullviewMode = this.props.fullView ? "" : "";
+    var marginTop = JSON.stringify(this.state.top) + "px";
+    var marginLeft = JSON.stringify(this.state.left) + "px";
+
+    var imageGoesHere = []
+    if (!this.props.fullView) {
+      // imageGoesHere.push(<input type="button" class="panUp" value="Pan Up"></input>)
+      imageGoesHere.push(<img src={this.props.imgsrc} class="ondisplayimg"/>)
+
+    } else {
+      imageGoesHere.push(
+      <div class="ondisplayimg">
+        <input type="button" class="pan panUp" value="▲" onMouseMove = {this.panUp.bind(this)}></input>
+        <input type="button" class="pan panLeft" value="◀︎" onMouseMove = {this.panLeft.bind(this)}></input>
+        <img src={this.props.imgsrc} style={{"margin-top": marginTop,"margin-left":marginLeft}} onLoad={this.getSize.bind(this)}/>
+        <input type="button" class="pan panDown" value="▼" onMouseMove = {this.panDown.bind(this)}></input>
+        <input type="button" class="pan panRight" value="►" onMouseMove = {this.panRight.bind(this)}></input>
+      </div>)
+
+    }
     return (
       <div class="carousel slide" data-bs-ride="carousel">
 
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src={this.props.imgsrc} class={"d-block w-100 ondisplayimg"}/>
-            <input type="button" class="fullScreenBtn" value = "🀱" onClick={this.fullViewMode.bind(this)}></input>
+
+            {imageGoesHere}
+            <input type="button" class="fullScreenBtn" value = "🀱" onClick={this.fullViewMode.bind(this)} ></input>
           </div>
 
         </div>
@@ -71,11 +127,15 @@ class Gallery extends React.Component {
 }
 
 const stateToProps = (state)=>{
+  console.log("ymax, hmax:", state.ymax, state.hmax)
   return {
     imgsrc: state.photoOnDisplayURL,
     currID: state.selectedImgStyleID,
     maxID: state.scrollmax,
     minID: state.scrollmin,
+    fullView: state.fullView,
+    ymax: state.ymax,
+    hmax: state.hmax
   }
 }
 

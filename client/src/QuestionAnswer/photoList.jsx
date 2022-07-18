@@ -1,20 +1,25 @@
 import React, { useState } from "react";
 import axios from 'axios';
-const config = require('../../../config.js');
 
-const PhotoList = (props) => {
+import PhotoDetail from './photoDetail.jsx';
 
-  return (
+var PhotoList = (props) => {
+  var [openModal,setOpenModal]=useState(false);
 
-
-    (<div className="photo">{
-      props.photos.map((photo) => {
-        return (<img src={photo}></img>)
-      })
-    }</div>)
-
-
-  )
+  if (props.photos.length !== 0) {
+    return (
+      <>
+        {openModal&&<PhotoDetail photos={props.photos} closeModal={setOpenModal}/>}
+        <div className="photo">{
+          props.photos.map((photo) => {
+            return (<img src={photo} onClick={()=>{setOpenModal(true)}}></img>)
+          })
+        }</div>
+      </>
+    )
+  }else{
+    return <></>
+  }
 }
 
 export default PhotoList;
