@@ -15,12 +15,12 @@ var Search = () => {
     }else{
       var relatedQ=[];
       for(var i=0;i<allQ.length;i++){
-        if(allQ[i].question_body.includes(entry)){
+        if(allQ[i].question_body.toLowerCase().includes(entry.toLowerCase())){
           relatedQ.push(allQ[i]);
           continue;
         }else{
           for(var j in allQ[i].answers){
-            if(allQ[i].answers[j].body.includes(entry)){
+            if(allQ[i].answers[j].body.toLowerCase().includes(entry.toLowerCase())){
               relatedQ.push(allQ[i]);
             }
           }
@@ -34,7 +34,7 @@ var Search = () => {
   return (
     <div class="container">
       <form class="search">
-        <input class="searchBar" value={entry} placeholder="Search for answers…" onChange={(e) => { setEntry(e.target.value ) }}></input>
+        <input class="searchBar" value={entry} placeholder="Have a question? Search for answers…" onChange={(e) => { setEntry(e.target.value ) }}></input>
         <button class="searchButton" onClick={handleClick}>🔍</button>
       </form>
     </div>

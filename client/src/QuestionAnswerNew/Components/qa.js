@@ -39,18 +39,20 @@ class QA extends React.Component {
     this.props.dispatch(allActions.qaAction.assignID(this.props.id));
     this.fetchData();
   }
-  // componentDidUpdate() {
-  //   this.props.dispatch(allActions.qaAction.assignID(this.props.id));
-  //   this.fetchData();
-  // }
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.id !== this.props.id) {
+      this.props.dispatch(allActions.qaAction.assignID(this.props.id));
+      this.fetchData();
+    }
+  }
 
   render() {
     var newQ;
     if (this.props.allQ.length === 0) {
       newQ = (
         <>
-          {this.state.showNewQ && <AddQuestion  closeModal={()=>{this.setState({showNewQ:false})}}/>}
-          <button className="addQ" onClick={()=>{this.setState({showNewQ:true})}}>Submit New Question</button>
+          {this.state.showNewQ && <AddQuestion closeModal={() => { this.setState({ showNewQ: false }) }} />}
+          <button className="addQ" onClick={() => { this.setState({ showNewQ: true }) }}>Submit New Question</button>
         </>
       )
     } else {

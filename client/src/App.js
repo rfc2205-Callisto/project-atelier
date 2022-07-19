@@ -1,3 +1,4 @@
+
 import React from "react";
 import axios from 'axios';
 import {createStore} from 'redux';
@@ -14,9 +15,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-
       product_id: 66642
-
     }
   }
   componentDidMount() {
