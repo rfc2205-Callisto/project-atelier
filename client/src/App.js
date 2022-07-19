@@ -19,12 +19,17 @@ class App extends React.Component {
     }
     window.addEventListener('click', (event) => {
       event.preventDefault();
+      console.log(event.target)
       let allClicks = this.state.clicked;
-      if (this.state.clicked[event.target.tagName] === undefined) {
-        allClicks[event.target.tagName] = 1;
+      if (this.state.clicked[`Tag: ${event.target.tagName} InnerHtml: ${event.target.innerHTML}`] === undefined) {
+        allClicks[`Tag: ${event.target.tagName} InnerHtml: ${event.target.innerHTML}`] = {clicks: 1, time: [new Date()]};
       }
-      if (typeof this.state.clicked[event.target.tagName] === 'number') {
-        allClicks[event.target.tagName] += 1;
+      if (typeof this.state.clicked[`Tag: ${event.target.tagName} InnerHtml: ${event.target.innerHTML}`].clicks === 'number') {
+        let clicks = allClicks[`Tag: ${event.target.tagName} InnerHtml: ${event.target.innerHTML}`].clicks + 1
+        allClicks[`Tag: ${event.target.tagName} InnerHtml: ${event.target.innerHTML}`].clicks = clicks;
+        let array = allClicks[`Tag: ${event.target.tagName} InnerHtml: ${event.target.innerHTML}`].time;
+        array.push(new Date());
+        allClicks[`Tag: ${event.target.tagName} InnerHtml: ${event.target.innerHTML}`].time = array;
       }
       this.setState({
         clicked: allClicks
