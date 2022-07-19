@@ -213,8 +213,8 @@ class NewReview extends React.Component {
     })
   }
 
-  photoHandler = (e) => {
-    e.preventDefault();
+  photoHandler = () => {
+
     var files = e.target.files;
     var photos = [];
     for (var i = 0; i < files.length; i++) {
@@ -295,7 +295,7 @@ class NewReview extends React.Component {
               <span>Characteristics* <div>{this.charMapper()}</div><br/></span>
               <span>Your Review*&emsp;&emsp;<textarea onChange={this.bodyHandler} placeholder='Why did you like the product or not?' maxlength="1000"/><br/></span>
               <span>{this.reviewCounter()}</span>
-              <span> Photos <input onChange={this.photoHandler} type='file'  multiple/><button onClick={this.photoSubmitter}>Confirm Pictures</button></span>
+              <span> Photos <input onChange={this.photoHandler} type='file' multiple/><button onClick={this.photoSubmitter}>Confirm Pictures</button></span>
               <span>{this.imgRenderer()}</span>
               <span>Nickname* <input onChange={this.nicknameHandler} placeholder='Example: jackson11!' size="60" maxlength="60" /><br/></span>
               <span>For privacy reasons, do not use your full name or email address<br/></span>

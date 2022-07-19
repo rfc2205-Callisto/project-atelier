@@ -17,24 +17,23 @@ class App extends React.Component {
       product_id: 66666,
       clicked: {}
     }
-    window.addEventListener('click', (event) => {
-      event.preventDefault();
-      console.log(event.target)
-      let allClicks = this.state.clicked;
-      if (this.state.clicked[`Tag: ${event.target.tagName} InnerHtml: ${event.target.innerHTML}`] === undefined) {
-        allClicks[`Tag: ${event.target.tagName} InnerHtml: ${event.target.innerHTML}`] = {clicks: 1, time: [new Date()]};
-      }
-      if (typeof this.state.clicked[`Tag: ${event.target.tagName} InnerHtml: ${event.target.innerHTML}`].clicks === 'number') {
-        let clicks = allClicks[`Tag: ${event.target.tagName} InnerHtml: ${event.target.innerHTML}`].clicks + 1
-        allClicks[`Tag: ${event.target.tagName} InnerHtml: ${event.target.innerHTML}`].clicks = clicks;
-        let array = allClicks[`Tag: ${event.target.tagName} InnerHtml: ${event.target.innerHTML}`].time;
-        array.push(new Date());
-        allClicks[`Tag: ${event.target.tagName} InnerHtml: ${event.target.innerHTML}`].time = array;
-      }
-      this.setState({
-        clicked: allClicks
-      })
-    })
+    // window.addEventListener('click', (event) => {
+    //   event.preventDefault();
+    //   let allClicks = this.state.clicked;
+    //   if (this.state.clicked[`Tag: ${event.target.tagName} InnerHtml: ${event.target.innerHTML}`] === undefined) {
+    //     allClicks[`Tag: ${event.target.tagName} InnerHtml: ${event.target.innerHTML}`] = {clicks: 1, time: [new Date()]};
+    //   }
+    //   if (typeof this.state.clicked[`Tag: ${event.target.tagName} InnerHtml: ${event.target.innerHTML}`].clicks === 'number') {
+    //     let clicks = allClicks[`Tag: ${event.target.tagName} InnerHtml: ${event.target.innerHTML}`].clicks + 1
+    //     allClicks[`Tag: ${event.target.tagName} InnerHtml: ${event.target.innerHTML}`].clicks = clicks;
+    //     let array = allClicks[`Tag: ${event.target.tagName} InnerHtml: ${event.target.innerHTML}`].time;
+    //     array.push(new Date());
+    //     allClicks[`Tag: ${event.target.tagName} InnerHtml: ${event.target.innerHTML}`].time = array;
+    //   }
+    //   this.setState({
+    //     clicked: allClicks
+    //   })
+    // })
 
   }
   componentDidMount() {
@@ -54,8 +53,13 @@ class App extends React.Component {
     })
   }
 
+  toggle = (e) => {
+    e.preventDefault();
+
+    document.body.classList.toggle("dark");
+  }
+
   render() {
-    const name = this.state.name;
     return (
       <React.Fragment>
         <AppProductDetail/>
@@ -63,9 +67,10 @@ class App extends React.Component {
           <button onClick={this.newProductDown}>-</button>
           <div>Product ID: {this.state.product_id} for Testing Purposes</div>
           <button onClick={this.newProductUp}>+</button>
-          <button onClick={() => {console.log(this.state.clicked)}}>Click Counter</button>
+          <button onClick={() => {console.log(this.state.clicked); alert('See Dev Tools for Click Tracker Info')}}>Click Counter</button>
+          <button onClick={this.toggle}>Toggle Dark Mode</button>
         </div>
-        <RR class='RRParent' id={this.state.product_id}/>
+        <RR id={this.state.product_id}/>
         <Provider store={qastore}>
           <QA id={this.state.product_id}/>
         </Provider>

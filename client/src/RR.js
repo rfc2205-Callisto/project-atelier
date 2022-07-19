@@ -454,19 +454,3 @@ dateFormatter = (date) => {
 }
 
 export default RR;
-/*
-    if (this.state.filter === true) {
-      var filterCount = 0;
-      this.state.all.forEach((thing) => {
-        if (this.state.starFilter.indexOf(thing.rating) > -1) {
-          filterCount++
-        }
-      })
-      if (filterCount > this.state.count) {
-        var button = <button onClick={this.moreReviews}>Show More Reviews</button>;
-      }
-    } else if (this.state.length > this.state.count && this.state.filter === false) {
-      var button = <button onClick={this.moreReviews}>Show More Reviews</button>;
-    } else {
-      var button = null;
-    }*/
