@@ -120,7 +120,7 @@ const reducerFunc = function(state = defaultState, action) {
         } else {
           newstate.selectedImgStyleID = action.currID - 1
         }
-        for (var i =0; i < state.styles.length; i++) {
+        for (var i = 0; i < state.styles.length; i++) {
           if (state.styles[i].style_id === parseInt(newstate.selectedImgStyleID)) {
             newstate.photoOnDisplayURL = state.scrollBarImgURL[i].url;
             break;
