@@ -213,7 +213,7 @@ class NewReview extends React.Component {
     })
   }
 
-  photoHandler = () => {
+  photoHandler = (e) => {
 
     var files = e.target.files;
     var photos = [];

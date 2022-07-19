@@ -15,12 +15,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-<<<<<<< HEAD
       product_id: 66666,
       clicked: {}
-=======
-      product_id: 66642
->>>>>>> f0f73da74de3954da3480fea20cf398ff7fb5dac
     }
     // window.addEventListener('click', (event) => {
     //   event.preventDefault();

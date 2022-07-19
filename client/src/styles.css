@@ -496,14 +496,10 @@ input {
   /* grid-template-columns: 4fr 1fr;
   grid-template-rows: 1fr; */
 }
-<<<<<<< HEAD
-.searchBar{
-  width:auto;
-=======
+
 
 .searchBar {
   width: 100%;
->>>>>>> f0f73da74de3954da3480fea20cf398ff7fb5dac
   height: 40px;
   margin: 2px;
   font-size: inherit;
