@@ -16,11 +16,17 @@ class AppProductDetail extends React.Component {
     this.fetchData();
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.id !== this.props.id) {
+      this.fetchData();
+    }
+  }
+
   fetchData = () => {
-    axios.get("/product")
+    axios.get("/product", {params: {'product_id': this.props.id}})
       .then((data)=>{
         // console.log("overview data",data.data);
-        axios.get("/styles").then((styleData) => {
+        axios.get("/styles", {params: {'product_id': this.props.id}}).then((styleData) => {
           // console.log("Style data",styleData.data);
           var initialAction = {
             type: "initialize",

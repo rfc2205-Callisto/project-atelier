@@ -409,7 +409,7 @@ dateFormatter = (date) => {
     }
     if (this.state.all.length > 0) {
       return (
-        <div class='RRParent'>
+        <div class='RRParent' >
           <Modal id='modal' show={this.state.show} onHide={this.thumbClose}>
             <Modal.Header>
               <Button onClick={this.thumbClose}>X</Button>
