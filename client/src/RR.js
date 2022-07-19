@@ -152,14 +152,10 @@ class RR extends React.Component {
       this.allResults(this.state.page, 50, this.state.sort);
       console.log('UPDATED')
     }
-    // if (prevState.helpful !== this.state.helpful) {
-    //   this.allResults(this.state.page, 50, this.state.sort);
-    //   console.log('UPDATED')
-    // }
     if (prevState.filter !== this.state.filter) {
       this.allResults(this.state.page, 50, this.state.sort);
       this.setState({
-        count: 2,
+        count: 2
       })
       console.log('UPDATED')
     }
@@ -391,15 +387,29 @@ dateFormatter = (date) => {
 
 // *********------------*********------------*********------------*********------------ //
   render() {
-    if (this.state.length > this.state.count) {
+    // if (this.state.length > this.state.count) {
+    //   var button = <button onClick={this.moreReviews}>Show More Reviews</button>;
+    // } else {
+    //   var button = null;
+    // }
+    if (this.state.filter === true) {
+      var filterCount = 0;
+      this.state.all.forEach((thing) => {
+        if (this.state.starFilter.indexOf(thing.rating) > -1) {
+          filterCount++
+        }
+      })
+      if (filterCount > this.state.count) {
+        var button = <button onClick={this.moreReviews}>Show More Reviews</button>;
+      }
+    } else if (this.state.length > this.state.count) {
       var button = <button onClick={this.moreReviews}>Show More Reviews</button>;
     } else {
-      var button = null;
+      var button = null
     }
-
     if (this.state.all.length > 0) {
       return (
-        <div>
+        <div class='RRParent'>
           <Modal id='modal' show={this.state.show} onHide={this.thumbClose}>
             <Modal.Header>
               <Button onClick={this.thumbClose}>X</Button>
@@ -407,9 +417,11 @@ dateFormatter = (date) => {
             <Modal.Body><img id='picture' src={this.state.thumbsrc} /></Modal.Body>
           </Modal>
           <NewReview chars={this.state.characteristics} id={this.props.id} submit={this.state.submit} close={this.thumbClose}/>
-          <h1>
+          <h1 id='header'>
             Ratings and Reviews
           </h1>
+          <div id='menu'>
+          <div class='menu'>
           <div>{this.avRat()[0]} Star Average out of {this.avRat()[1]} Ratings</div>
           <div class='ratings'>
             <div class='empty-stars'></div>
@@ -419,22 +431,24 @@ dateFormatter = (date) => {
           <div>{this.ratingsMapper()}</div>
           <span>{this.filterCheck()}</span>
           <div>{this.charMapper()}</div>
-          <div id='sortButton'>{`${this.state.length} Reviews sorted by `}
+          </div>
+          </div>
+          <div class ='main' id='sortButton'>{`${this.state.length} Reviews sorted by `}
             <DropdownButton id="dropdown-basic-button" title={this.state.sort.toUpperCase()}>
               <Dropdown.Item onClick={this.changeSortHelp}>Helpful</Dropdown.Item>
               <Dropdown.Item onClick={this.changeSortRel}>Relevant</Dropdown.Item>
               <Dropdown.Item onClick={this.changeSortNew}>Newest</Dropdown.Item>
             </DropdownButton>
           </div>
-          <div>{this.resultsMapper()}</div>
-          <span id='reviewButtons'>
+          <div id='main'>{this.resultsMapper()}</div>
+          <span id='reviewButtons' class='footer'>
             <div>{button}</div>
-            <button onClick={this.writeReview}>Write a Review</button></span>
+            <div><button onClick={this.writeReview}>Write a Review</button></div></span>
         </div>
       );
     }
     else {
-      return <button onClick={this.writeReview}>Write a Review</button>
+      return <button id='main' onClick={this.writeReview}>Write a Review</button>
     }
   }
 }

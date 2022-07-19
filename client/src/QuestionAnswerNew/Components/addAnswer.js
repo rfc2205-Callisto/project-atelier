@@ -31,8 +31,9 @@ var AddAnswer = (props) => {
           "body": answer,
           "name": name,
           "email": email,
-          "photo": [`${url}`]
+          "photos": [`${url}`]
         };
+        console.log(data)
         axios.post(`/qa/questions/${props.quest_id}/answers`, data)
           .then((result) => {
             conosle.log('yay Answer is added supposely')

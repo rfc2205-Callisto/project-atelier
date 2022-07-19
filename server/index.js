@@ -51,7 +51,7 @@ app.post('/qa/questions/:question_id/answers', (req, res) => {
     },
     data:req.body
   }
-
+console.log(req.body)
 console.log(apiReq.url);
   axios(apiReq).then(() => { res.sendStatus(201)}).catch((err) => { console.log(err) })
 });

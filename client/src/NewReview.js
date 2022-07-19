@@ -191,8 +191,9 @@ class NewReview extends React.Component {
   charMapper = () => {
     var obj = this.props.chars;
     var list = [];
+    var reference = {'Fit': {1: 'Runs tight', 2: 'Runs slightly tight', 3: 'Perfect', 4: 'Runs slightly long', 5: 'Runs Long'}, 'Length': {1: 'Runs short', 2: 'Runs slightly short', 3: 'Perfect', 4: 'Runs slightly long', 5: 'Runs Long'}, 'Comfort': {1: 'Uncomfortable', 2: 'Slightly uncomfortable', 3: 'Ok', 4: 'Comfortable', 5: 'Perfect'}, 'Quality': {1: 'Poor', 2: 'Below Average', 3: 'What I expect', 4: 'Pretty great', 5: 'Perfect'}, 'Size':  {1: 'A size too small', 2: '1/2 size too small', 3: 'Perfect', 4: '1/2 size too big', 5: 'A size too big'}, 'Width': {1: 'Too narrow', 2: 'Slightly Narrow', 3: 'Perfect', 4: 'Slightly Wide', 5: 'Too wide'}}
     for (var key in obj) {
-      list.push(<div>{key}<input onChange={this.handleCharChange}type='range' min="1" max="5" value={this.state.chars[obj[key].id]} id={key}/></div>)
+      list.push(<div> &emsp;{key} &emsp;<input onChange={this.handleCharChange}type='range' min="1" max="5" value={this.state.chars[obj[key].id]} id={key}/>&emsp;{reference[key][this.state.chars[obj[key].id]]}</div>)
     }
     return<form>{list}</form>
   }
@@ -292,7 +293,7 @@ class NewReview extends React.Component {
               <form>Recommended?* <input onClick={this.recommendHandlerYes} type='radio' value='true' name='yon' id='Yes'/><label for='Yes'>&nbsp;Yes&nbsp;</label>
               <input onClick={this.recommendHandlerNo} type='radio' value='false' name='yon' id='No' /><label for='No'>&nbsp;No&nbsp;</label><br/></form>
               <span>Characteristics* <div>{this.charMapper()}</div><br/></span>
-              <span>Your Review* <textarea onChange={this.bodyHandler} placeholder='Why did you like the product or not?' maxlength="1000"/><br/></span>
+              <span>Your Review*&emsp;&emsp;<textarea onChange={this.bodyHandler} placeholder='Why did you like the product or not?' maxlength="1000"/><br/></span>
               <span>{this.reviewCounter()}</span>
               <span> Photos <input onChange={this.photoHandler} type='file'  multiple/><button onClick={this.photoSubmitter}>Confirm Pictures</button></span>
               <span>{this.imgRenderer()}</span>
