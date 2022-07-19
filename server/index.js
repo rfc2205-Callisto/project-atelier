@@ -51,8 +51,6 @@ app.post('/qa/questions/:question_id/answers', (req, res) => {
     },
     data:req.body
   }
-
-console.log(apiReq.url);
   axios(apiReq).then(() => { res.sendStatus(201)}).catch((err) => { console.log(err) })
 });
 
@@ -89,7 +87,6 @@ app.put('/qa/answers/:answer_id/report',(req,res)=>{
 app.get("/product", (req, res) => {
   axios.get("https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfc/products/66657/", {headers: {'Authorization': config.TOKEN}})
     .then((data) => {
-      // console.log("****data: ", data.data);
       res.send(data.data);
     })
 })
