@@ -23,9 +23,9 @@ class PanelModule extends React.Component {
     }
 
     return (
-      <div>
+      <>
         {panelModuleGoesHere}
-      </div>
+      </>
     )
   }
 }

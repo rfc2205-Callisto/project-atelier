@@ -5,7 +5,7 @@ import {connect} from "react-redux"
 class PanelAddToCart extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {value: "SELECT SIZE", quan: 0, addedToCart: false, popover: false}
+    this.state = {value: "SELECT SIZE", quan: 0, addedToCart: false, popover: false, saved: false}
   }
 
   selectSize(event) {
