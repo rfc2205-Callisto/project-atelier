@@ -5,7 +5,6 @@ import GalleryModule from "./GalleryModule.jsx"
 import PanelModule from "./PanelModule.jsx"
 import Overview from "./Overview.jsx"
 import {Provider} from "react-redux"
-
 class AppProductDetail extends React.Component {
   constructor(props) {
     super(props);
@@ -36,7 +35,6 @@ class AppProductDetail extends React.Component {
   updateState = () => {
     this.setState(store.getState())
   }
-
 
   render() {
     // console.log("what is state, ");

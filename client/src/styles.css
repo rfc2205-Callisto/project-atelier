@@ -3,8 +3,6 @@
   overflow: hidden;
   width: 100%;
   height: 480px;
-  /* height: 100%; */
-  /* height: 100%; */
   padding-right: 20px;
   object-fit: cover;
 }
@@ -15,7 +13,6 @@
   padding-top: 7px;
   padding-bottom: 7px;
   object-fit: fill;
-
 }
 
 .fullviewMode {
@@ -33,7 +30,6 @@
   width: 70px;
   font-size: 50px;
   color: rgb(227, 227, 227);
-  /* font-weight: bold; */
 }
 
 .fullScreenBtn:hover {
@@ -116,12 +112,10 @@
 
 .col-feature {
   border-left: solid thin gray;
-  /* border-left: solid 20px lightskyblue; */
   flex: auto;
   align-items: center;
   padding-top: 5%;
   color: gray;
-  /* border-top: solid thin gray; */
   padding-bottom: 20px;
 
 }
@@ -185,7 +179,6 @@
   color: black;
 }
 
-.scrollNotOK:hover {}
 
 .rowscrollup {
   padding-top: 5px;
@@ -217,7 +210,6 @@
   color: black;
 }
 
-.scrollNotOK:hover {}
 
 .rowscrollup {
   padding-top: 5px;
@@ -235,7 +227,6 @@
 
 .scrollbarimgUnselected {
   -webkit-filter: grayscale(100%) blur(1px);
-  /* Safari 6.0 - 9.0 */
   filter: grayscale(100%) blur(1px);
 }
 
@@ -328,7 +319,6 @@
 
 .row {
   display: flex;
-  /* equal height of the children */
 }
 /* Ratings and Reviews Styling Below Here */
 button {
