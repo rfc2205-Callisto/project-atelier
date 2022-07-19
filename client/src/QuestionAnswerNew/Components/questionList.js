@@ -17,18 +17,24 @@ var QuestionList = () => {
 
 
   var helpfulButton = (e) => {
-    var question_id = e.target.parentElement.id;
-    axios.put(`qa/questions/${id}/helpful`)
-      .then(() => { console.log('question helpfulness updated') })
-      .catch((err) => { console.log('question helpfulness not submitted') });
+    var id = e.target.parentElement.id || e.target.parentElement.parentElement.id;
+    var helpful = document.getElementsByClassName(`helpfulness`)[0];
+    if (helpful.innerHTML.includes('?')) {
+      helpful.innerHTML = 'Helpful ✓   |';
+      axios.put(`qa/questions/${id}/helpful`)
+        .then(() => { console.log('question helpfulness updated') })
+        .catch((err) => { console.log('question helpfulness not submitted') });
+    }
   }
 
 
   var LoadQ;
-  if (allQ.length > defQ) {
-    LoadQ = < button class="loadQ" onClick={() => { setDefQ(defQ + 2) }} >Load more questions</button >
+  if (allQ.length<=2){
+    LoadQ=null;
+  }else if(allQ.length > defQ) {
+    LoadQ = <button class="loadQ" onClick={() => { setDefQ(defQ + 2) }} >Load More Questions</button >
   } else {
-    LoadQ = null
+    LoadQ = <button class="loadQ" onClick={() => { setDefQ(2) }} >Collapse Questions</button >
   };
 
   var handleAddQ = () => {
@@ -43,7 +49,7 @@ var QuestionList = () => {
       {showDiagQ && <AddQuestion closeModal={setShowDiagQ} />}
       {showDiagA && <AddAnswer quest_id={selectIdQ} closeModal={handleAddA} />}
       <div class="container qlist scroller">
-        {relatedQ.slice(0,defQ).map((Quest) => {
+        {relatedQ.slice(0, defQ).map((Quest) => {
           return (
             <div class="oneQ ">
               <div class="partQ" id={Quest.question_id}>
