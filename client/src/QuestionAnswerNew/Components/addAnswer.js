@@ -66,10 +66,6 @@ var AddAnswer = (props) => {
       })
     }
 
-
-
-
-
   };
 
   return (
