@@ -1,9 +1,15 @@
-h1 {
-  color: white;
-  background-color: rgb(186, 98, 98);
+h1, h3 {
+  height: 100px;
   text-align: center;
-  padding-top: 1%;
+  background-color: rgb(186, 98, 98);
+  padding: 3%;
   font-family: 'Times New Roman', Times, serif;
+  color: white;
+  font-size: xx-large;
+}
+#pageTitle {
+  text-align: center;
+  font-size: 100pt;
 }
 span {
   font-family: Impact, 'Arial Narrow Bold', sans-serif;
@@ -12,6 +18,11 @@ span {
 div {
   font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
   font-weight: bolder;
+}
+.demoButtons {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
 }
 .dark {
   background-color: rgb(50, 7, 88);
@@ -34,10 +45,6 @@ div {
 .ondisplayimg {
   width: 100%;
   height: 480px;
-<<<<<<< HEAD
-  /* height: 100%; */
-=======
->>>>>>> f0f73da74de3954da3480fea20cf398ff7fb5dac
   padding-right: 20px;
   object-fit: cover;
 }
@@ -166,12 +173,6 @@ div {
   color: black;
 }
 
-<<<<<<< HEAD
-.scrollNotOK:hover {
-
-}
-=======
->>>>>>> f0f73da74de3954da3480fea20cf398ff7fb5dac
 
 .rowscrollup {
   padding-top: 5px;
@@ -201,12 +202,6 @@ div {
   color: black;
 }
 
-<<<<<<< HEAD
-.scrollNotOK:hover {
-
-}
-=======
->>>>>>> f0f73da74de3954da3480fea20cf398ff7fb5dac
 
 .rowscrollup {
   padding-top: 5px;
@@ -222,11 +217,7 @@ div {
 }
 
 .scrollbarimgUnselected {
-<<<<<<< HEAD
-  -webkit-filter: grayscale(100%) blur(1px); /* Safari 6.0 - 9.0 */
-=======
   -webkit-filter: grayscale(100%) blur(1px);
->>>>>>> f0f73da74de3954da3480fea20cf398ff7fb5dac
   filter: grayscale(100%) blur(1px);
 }
 
@@ -324,14 +315,15 @@ button {
   display: grid;
   grid-template-columns: 1fr 2fr;
     grid-template-rows: 100px 1fr 100px;
-    margin: 20px 20px;
-    background-color: rgb(199, 199, 199);
+    /* background-color: rgb(199, 199, 199); */
+
     padding: 20px 20px;
   }
 
   #header {
-    grid-column: 2;
     grid-row: 1;
+    grid-column-start: 1;
+    grid-column-end: 3;
     justify-items: center;
   }
 
@@ -496,14 +488,9 @@ input {
   /* grid-template-columns: 4fr 1fr;
   grid-template-rows: 1fr; */
 }
-<<<<<<< HEAD
-.searchBar{
-  width:auto;
-=======
 
 .searchBar {
   width: 100%;
->>>>>>> f0f73da74de3954da3480fea20cf398ff7fb5dac
   height: 40px;
   margin: 2px;
   font-size: inherit;
@@ -621,11 +608,7 @@ input {
   /* grid-template-columns: 4fr 1fr;
   grid-template-rows: 1fr; */
 }
-.searchBar{
-  width:auto;
-  height: 40px;
-  margin: 2px;
-}
+
 
 .searchButton {
   margin: 2px;
@@ -761,7 +744,7 @@ input {
   align-items: center;
 } */
 .container{
-  width: 90%;
+  width: 100%;
 }
 .modalContainer {
   width: auto;

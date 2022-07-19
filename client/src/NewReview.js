@@ -213,7 +213,7 @@ class NewReview extends React.Component {
     })
   }
 
-  photoHandler = () => {
+  photoHandler = (e) => {
 
     var files = e.target.files;
     var photos = [];
@@ -225,8 +225,7 @@ class NewReview extends React.Component {
     })
   }
 
-  photoSubmitter = (e) => {
-    e.preventDefault();
+  photoSubmitter = () => {
 
     for (var i = 0; i < this.state.photos.length; i++) {
       let photoData = new FormData();
