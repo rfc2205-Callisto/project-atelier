@@ -35,9 +35,9 @@ function AddQuestion(props) {
           </div>
           <div className="title">Add a Question</div>
           <div className="body">
-            <label>Name:<input value={name} placeholder="Example: jackson11!" onChange={(e) => { setName(e.target.value) }}></input></label>
-            <label>Question:<input value={question} placeholder="add a quesiton ..." onChange={(e) => { setQuestion(e.target.value) }}></input></label>
-            <label>Email:<input value={email} placeholder="email ..." onChange={(e) => { setEmail(e.target.value) }}></input></label>
+            <label>Name:<input value={name} placeholder="Example: jackson11!" onChange={(e) => { setName(e.target.value) }} required></input></label>
+            <label>Question:<input value={question} placeholder="add a quesiton ..." onChange={(e) => { setQuestion(e.target.value) }} required></input></label>
+            <label>Email:<input type="email" value={email} placeholder="email ..." onChange={(e) => { setEmail(e.target.value) }} required></input></label>
             {/* <label>Photos:<button>upload photots</button></label> */}
           </div>
           <div className="footer">

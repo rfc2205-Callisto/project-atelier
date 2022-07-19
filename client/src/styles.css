@@ -492,9 +492,10 @@ input {
 }
 
 .searchBar {
-  width: auto;
+  width: 100%;
   height: 40px;
   margin: 2px;
+  font-size: inherit;
 }
 
 .searchButton {
@@ -626,7 +627,8 @@ input {
 
 .photo img {
   max-height: 70px;
-  display: inline-block
+  display: inline-block;
+  margin: 2px;
 }
 
 /* .modalBackground{
@@ -768,6 +770,47 @@ input {
 .container .qlist {
   max-width: 700px;
 }
+
+.scroller {
+  max-height: 600px;
+  overflow-y: scroll;
+  /* scrollbar-color: rebeccapurple green; */
+  scrollbar-width: thin;
+}
+
+.scrollerA {
+  /* width: 300px; */
+  max-height: 250px;
+  overflow-y: scroll;
+  scrollbar-color: rebeccapurple green;
+  scrollbar-width: thin;
+}
+
+
+/********** modal background*********/
+.modalBackground {
+  position: fixed;
+  background-color: rgba(50.2%, 50.2%, 50.2%, 0.5);
+  width: 100vw;
+  height: 100vh;
+  left: 0;
+  top: 0;
+}
+
+/************* for div alignment******************/
 .photo{
   z-index:1
+}
+.photoUpload,
+.photoUpload button{
+  display:inline-block;
+}
+
+.add{
+  display:flex
+}
+.prePhoto{
+  max-height: 100px;
+  margin-left: 100px;
+  display: inline-block;
 }
