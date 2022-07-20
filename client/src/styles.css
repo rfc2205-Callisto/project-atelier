@@ -1,9 +1,15 @@
-h1 {
-  color: white;
-  background-color: rgb(186, 98, 98);
+h1, h3 {
+  height: 100px;
   text-align: center;
-  padding-top: 1%;
+  background-color: rgb(186, 98, 98);
+  padding: 3%;
   font-family: 'Times New Roman', Times, serif;
+  color: white;
+  font-size: xx-large;
+}
+#pageTitle {
+  text-align: center;
+  font-size: 100pt;
 }
 span {
   font-family: Impact, 'Arial Narrow Bold', sans-serif;
@@ -12,6 +18,11 @@ span {
 div {
   font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
   font-weight: bolder;
+}
+.demoButtons {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
 }
 .dark {
   background-color: rgb(50, 7, 88);
@@ -34,10 +45,6 @@ div {
 .ondisplayimg {
   width: 100%;
   height: 480px;
-<<<<<<< HEAD
-  /* height: 100%; */
-=======
->>>>>>> f0f73da74de3954da3480fea20cf398ff7fb5dac
   padding-right: 20px;
   object-fit: cover;
 }
@@ -166,12 +173,6 @@ div {
   color: black;
 }
 
-<<<<<<< HEAD
-.scrollNotOK:hover {
-
-}
-=======
->>>>>>> f0f73da74de3954da3480fea20cf398ff7fb5dac
 
 .rowscrollup {
   padding-top: 5px;
@@ -201,12 +202,6 @@ div {
   color: black;
 }
 
-<<<<<<< HEAD
-.scrollNotOK:hover {
-
-}
-=======
->>>>>>> f0f73da74de3954da3480fea20cf398ff7fb5dac
 
 .rowscrollup {
   padding-top: 5px;
@@ -222,11 +217,7 @@ div {
 }
 
 .scrollbarimgUnselected {
-<<<<<<< HEAD
-  -webkit-filter: grayscale(100%) blur(1px); /* Safari 6.0 - 9.0 */
-=======
   -webkit-filter: grayscale(100%) blur(1px);
->>>>>>> f0f73da74de3954da3480fea20cf398ff7fb5dac
   filter: grayscale(100%) blur(1px);
 }
 
@@ -324,14 +315,15 @@ button {
   display: grid;
   grid-template-columns: 1fr 2fr;
     grid-template-rows: 100px 1fr 100px;
-    margin: 20px 20px;
-    background-color: rgb(199, 199, 199);
+    /* background-color: rgb(199, 199, 199); */
+
     padding: 20px 20px;
   }
 
   #header {
-    grid-column: 2;
     grid-row: 1;
+    grid-column-start: 1;
+    grid-column-end: 3;
     justify-items: center;
   }
 
@@ -497,7 +489,6 @@ input {
   grid-template-rows: 1fr; */
 }
 
-
 .searchBar {
   width: 100%;
   height: 40px;
@@ -523,15 +514,15 @@ input {
   border: 1px black solid;
 }
 
-/* .partQ {
+.partQ {
   align-items: center;
   justify-content: center;
 
   display: grid;
 
-  grid-template-columns: 20px 3fr 1fr 1fr;
+  grid-template-columns: 20px 5fr 1fr 1fr;
   grid-template-rows: 1fr;
-} */
+}
 
 .partA {
   display: grid;
@@ -549,25 +540,25 @@ input {
   grid-row: 1/span1;
 }
 
-/* .questBody {
-  max-width: 500px;
+.questBody {
+  width: 70%;
   align-items: center;
-  justify-content: center;
-
+  justify-content: flex-start;
   grid-column: 2/span1;
   grid-row: 1/span1;
-  overflow-wrap:break-word;
+  overflow-wrap: break-word;
+  display: flex;
 }
-
 .helpfulness {
+  max-width: 120px;
   grid-column: 3/span1;
   grid-row: 1/span1;
-  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 .addAns {
   grid-column: 4/span1;
   grid-row: 1/span1;
-} */
+}
 
 .photo {
   object-fit: cover;
@@ -575,24 +566,7 @@ input {
   grid-row: 2/span1;
 }
 /* **************************** */
-.partQ{
-  width:auto;
-}
-/* .symbol{
-  width:30px;
-  display: inline-block;
-}
-.questBody{
-  width: 70%;
-  display: inline-block;
-}
-.helpfulness,
-.addAns{
-  font-size: 10px;
-  width: 30px;
-  display: inline-block;
 
-} */
 .answerer div {
   padding: 5px;
   display: inline-block;
@@ -601,140 +575,25 @@ input {
 .helpfulness:hover{
   color: blue;
 }
-/* .addAns button {
+.addAns button {
   font-size: 10px;
   justify-self: stretch;
   border: none;
   background-color: skyblue;
   border-radius: 4px;
-} */
-
-.search {
-  display: inline-block;
-  width:90%;
-  height: 50px;
-  justify-content: center;
-  /* grid-template-columns: 4fr 1fr;
-  grid-template-rows: 1fr; */
 }
-.searchBar{
-  width:auto;
-  height: 40px;
-  margin: 2px;
-}
-
-.searchButton {
-  margin: 2px;
-  width:50;
-  height: 40px;
-  border: none;
-  border-radius: 4px;
-  background-color: transparent;
-}
-
-.helpfulness,
-.answerer {
-  font-size: 11px;
-}
-
-.oneQ {
-  border: 1px black solid;
-}
-
-/* .partQ {
-  align-items: center;
-  justify-content: center;
-
-  display: grid;
-
-  grid-template-columns: 20px 3fr 1fr 1fr;
-  grid-template-rows: 1fr;
-} */
-
-.partA {
-  display: grid;
-  grid-template-columns: 20px 1fr;
-  grid-template-rows: 1fr;
-}
-
-.symbol {
-  grid-column: 1/span1;
-  grid-row: 1/span1;
-}
-
-.answer {
-  grid-column: 2/span1;
-  grid-row: 1/span1;
-}
-
-/* .questBody {
-  max-width: 500px;
-  align-items: center;
-  justify-content: center;
-
-  grid-column: 2/span1;
-  grid-row: 1/span1;
-  overflow-wrap:break-word;
-}
-
-.helpfulness {
-  grid-column: 3/span1;
-  grid-row: 1/span1;
-  word-wrap: break-word;
-}
-.addAns {
-  grid-column: 4/span1;
-  grid-row: 1/span1;
-} */
-
-.photo {
-  object-fit: cover;
-  grid-column: 1/span4;
-  grid-row: 2/span1;
-}
-/* **************************** */
-.partQ{
-  width:auto;
-}
-/* .symbol{
-  width:30px;
-  display: inline-block;
-}
-.questBody{
-  width: 70%;
-  display: inline-block;
-}
-.helpfulness,
-.addAns{
-  font-size: 10px;
-  width: 30px;
-  display: inline-block;
-
-} */
-.answerer div {
-  padding: 5px;
-  display: inline-block;
-}
-
-/* .addAns button {
-  font-size: 10px;
-  justify-self: stretch;
-  border: none;
-  background-color: skyblue;
-  border-radius: 4px;
-} */
-
-.otherOptions {
+/* .otherOptions {
   display: grid;
   gap: 2px;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: 1fr;
-}
+} */
 
 .loadQ,
 .loadA,
 .addQ {
   /* padding: 2px; */
+  display: inline-flex;
   margin-top: 2px;
   font-size: 10px;
   border: none;
@@ -756,27 +615,31 @@ input {
   justify-content: center;
   align-items: center;
 } */
-.container{
-  width: 90%;
-}
+/* .container{
+  width: 100%;
+} */
 .modalContainer {
-  width: auto;
-  height: 50%;
+  width: 80%;
+  height: 80%;
   border-radius: 12px;
   background-color: white;
   box-shadow: black 0px 5px 15px;
   display: flex;
   flex-direction: column;
   /* padding: 25px; */
-  position: absolute;
-  z-index:1000;
+  position: fixed;
+  z-index: 1000;
+  justify-content: flex-start;
   /* max-width: max-content;
   max-height: max-content;
   justify-content: space-around; */
+  top: 0;
+  left: 0;
+  margin-top: 5%;
+  margin-left: 10%;
+  max-height: 500px;
 }
 
-/* .modalContainer{
-} */
 .modalContainer .title {
   font-size: 25px;
   font-weight: bold;
@@ -802,13 +665,21 @@ input {
 .modalContainer .body {
   flex: 50%;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-evenly;
+  align-items: start;
+  margin-left: inherit;
   font-size: 20px;
   text-align: center;
   flex-direction: column;
 }
 
+label input {
+  max-width: 45vw;
+  position: fixed;
+  left: 35%;
+  align-items: center;
+  width: -webkit-fill-available;
+}
 .modalContainer .footer {
   font-size: 10px;
   flex: 20%;
@@ -816,35 +687,50 @@ input {
   justify-content: center;
   align-items: center;
 }
-
 .modalContainer .footer button,
 .body label button {
   width: 150px;
   height: 45px;
   margin: 10px;
   border: none;
-  /* background-color: cornflowerblue; */
-  /* color: white; */
-  /* border-radius: 8px; */
   font-size: 20px;
   cursor: pointer;
 }
-
 #cancelBtn {
   background-color: red;
 }
-
 label,
 input {
   font-size: 20px;
   display: inline-block;
 }
-
 .magPic {
   max-width: 100%;
-  max-height: auto;
-  object-fit: contain;
-  z-index:2
+  /* max-height: auto; */
+  /* object-fit: contain; */
+  max-height: 90%;
+  object-fit: scale-down;
+  /* justify-content: center; */
+  z-index: 2
+}
+.photo {
+  z-index:1;
+}
+/************ just for picture modal*****************/
+.modalContainer .pic {
+  flex: 50%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: inherit;
+  font-size: 20px;
+  text-align: center;
+  flex-direction: column;
+  max-height: 500px;
+}
+
+.container .qlist {
+  max-width: auto;
 }
 
 .scroller {
@@ -853,7 +739,6 @@ input {
   /* scrollbar-color: rebeccapurple green; */
   scrollbar-width: thin;
 }
-
 .scrollerA {
   /* width: 300px; */
   max-height: 250px;
@@ -861,9 +746,6 @@ input {
   scrollbar-color: rebeccapurple green;
   scrollbar-width: thin;
 }
-
-
-/********** modal background*********/
 .modalBackground {
   position: fixed;
   background-color: rgba(50.2%, 50.2%, 50.2%, 0.5);
@@ -872,7 +754,6 @@ input {
   left: 0;
   top: 0;
 }
-
 /************* for div alignment******************/
 .photo{
   z-index:1
@@ -881,7 +762,6 @@ input {
 .photoUpload button{
   display:inline-block;
 }
-
 .add{
   display:flex
 }
