@@ -18,23 +18,23 @@ class App extends React.Component {
       product_id: 66666,
       clicked: {}
     }
-    window.addEventListener('click', (event) => {
+    // window.addEventListener('click', (event) => {
 
-      let allClicks = this.state.clicked;
-      if (this.state.clicked[`Tag: ${event.target.tagName} InnerHtml: ${event.target.innerHTML}`] === undefined) {
-        allClicks[`Tag: ${event.target.tagName} InnerHtml: ${event.target.innerHTML}`] = {clicks: 1, time: [new Date()]};
-      }
-      if (typeof this.state.clicked[`Tag: ${event.target.tagName} InnerHtml: ${event.target.innerHTML}`].clicks === 'number') {
-        let clicks = allClicks[`Tag: ${event.target.tagName} InnerHtml: ${event.target.innerHTML}`].clicks + 1
-        allClicks[`Tag: ${event.target.tagName} InnerHtml: ${event.target.innerHTML}`].clicks = clicks;
-        let array = allClicks[`Tag: ${event.target.tagName} InnerHtml: ${event.target.innerHTML}`].time;
-        array.push(new Date());
-        allClicks[`Tag: ${event.target.tagName} InnerHtml: ${event.target.innerHTML}`].time = array;
-      }
-      this.setState({
-        clicked: allClicks
-      })
-    })
+    //   let allClicks = this.state.clicked;
+    //   if (this.state.clicked[`Tag: ${event.target.tagName} InnerHtml: ${event.target.innerHTML}`] === undefined) {
+    //     allClicks[`Tag: ${event.target.tagName} InnerHtml: ${event.target.innerHTML}`] = {clicks: 1, time: [new Date()]};
+    //   }
+    //   if (typeof this.state.clicked[`Tag: ${event.target.tagName} InnerHtml: ${event.target.innerHTML}`].clicks === 'number') {
+    //     let clicks = allClicks[`Tag: ${event.target.tagName} InnerHtml: ${event.target.innerHTML}`].clicks + 1
+    //     allClicks[`Tag: ${event.target.tagName} InnerHtml: ${event.target.innerHTML}`].clicks = clicks;
+    //     let array = allClicks[`Tag: ${event.target.tagName} InnerHtml: ${event.target.innerHTML}`].time;
+    //     array.push(new Date());
+    //     allClicks[`Tag: ${event.target.tagName} InnerHtml: ${event.target.innerHTML}`].time = array;
+    //   }
+    //   this.setState({
+    //     clicked: allClicks
+    //   })
+    // })
 
   }
   componentDidMount() {
@@ -54,23 +54,27 @@ class App extends React.Component {
     })
   }
 
-  toggle = (e) => {
+  toggledark = (e) => {
     e.preventDefault();
 
     document.body.classList.toggle("dark");
+  }
+  togglepink = (e) => {
+    e.preventDefault();
+    document.body.classList.toggle("pink");
   }
 
   render() {
     return (
       <React.Fragment>
         <h2 id='pageTitle'>Atelier</h2>
-        <div class='demoButtons'>
-          <button onClick={this.newProductDown}>-</button>
-          <div>Dispalying Product ID# {this.state.product_id}</div>
-          <button onClick={this.newProductUp}>+</button>
-          <button onClick={() => {console.log(this.state.clicked); alert('See Dev Tools for Click Tracker Info')}}>Click Counter</button>
-          <button onClick={this.toggle}>Toggle Dark Mode</button>
+        <body class='container demoButtons'>
+          <div>  <button onClick={this.newProductDown}>Last Product</button>Dispalying Product ID# {this.state.product_id}           <button onClick={this.newProductUp}>Next Product</button><br/></div><br/>
+
+          {/* <button onClick={() => {console.log(this.state.clicked); alert('See Dev Tools for Click Tracker Info')}}>Click Counter</button> */}
+          <div><button onClick={this.toggledark}>Toggle Dark Mode</button><button onClick={this.togglepink}>Toggle Pink Mode</button>
         </div>
+        </body>
         <AppProductDetail id={this.state.product_id}/>
         <div  class='container'>
         <RR id={this.state.product_id}/>

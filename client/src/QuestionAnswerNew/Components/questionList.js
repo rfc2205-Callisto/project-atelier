@@ -53,8 +53,8 @@ var QuestionList = () => {
           return (
             <div class="oneQ ">
               <div class="partQ" id={Quest.question_id}>
-                <div class="symbol">Q:</div>
-                <div class="questBody" > {Quest.question_body}</div>
+                <div class="symbol fs-5">Q:</div>
+                <div class="questBody fs-5" > {Quest.question_body}</div>
                 <div class="helpfulness" id={Quest.question_id} onClick={helpfulButton}>Helpful? <u>Yes({Quest.question_helpfulness})</u></div>
                 <div class="addAns" >
                   <button id={Quest.question_id} class="addA" onClick={handleAddA}>Add Answer</button>
