@@ -64,7 +64,7 @@ class QA extends React.Component {
     }
     return (
       <div  class='container'>
-        <h3>Questions and Answers session</h3>
+        <h3>Questions and Answers</h3>
         {newQ}
       </div>
 

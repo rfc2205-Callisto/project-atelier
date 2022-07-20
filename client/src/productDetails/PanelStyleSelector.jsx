@@ -23,9 +23,6 @@ class PanelStyleSelector extends React.Component {
       }
       this.props.dispatch(action2)
     }
-
-
-
   }
 
 
@@ -33,13 +30,8 @@ class PanelStyleSelector extends React.Component {
 
   render() {
     var styleTNGoesHere=[];
-
-    for (var i = 0; i < ~~(this.props.styles.length/4)+1;i++) {
-
-      var styleRow = [];
-
-      var upperLimit = Math.min(i*4+4,this.props.styles.length)
-      for (var j = i*4; j< upperLimit; j++) {
+    var styleRow = [];
+    for (var j = 0; j< this.props.styles.length; j++) {
         if(this.props.selectedStyleID === this.props.styles[j].style_id) {
           var isSelected = ' thumbnailselected'
         } else {
@@ -52,7 +44,25 @@ class PanelStyleSelector extends React.Component {
           {styleRow}
         </div>
       )
-    }
+    // for (var i = 0; i < ~~(this.props.styles.length/4)+1;i++) {
+
+    //   var styleRow = [];
+
+    //   var upperLimit = Math.min(i*4+4,this.props.styles.length)
+    //   for (var j = i*4; j< upperLimit; j++) {
+    //     if(this.props.selectedStyleID === this.props.styles[j].style_id) {
+    //       var isSelected = ' thumbnailselected'
+    //     } else {
+    //       var isSelected = ''
+    //     }
+    //     styleRow.push(<img onClick={this.selectTN.bind(this)} src={this.props.styles[j]["thumbnail_url"]} class={"col-lg-3 thumbnail "+isSelected} id={this.props.styles[j].style_id}></img>)
+    //   }
+    //   styleTNGoesHere.push(
+    //     <div class="row aRowOfStyle">
+    //       {styleRow}
+    //     </div>
+    //   )
+    // }
     return (
       <div class="row styleSelector">
         <div class="row twoRowOfStyles">

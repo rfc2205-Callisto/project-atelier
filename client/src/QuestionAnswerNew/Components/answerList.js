@@ -46,9 +46,9 @@ var AnswerList = (props) => {
       {props.allA.slice(0, defA).map((ans) => {
         return (
           <div class="partA">
-            <div class="symbol">A:</div>
+            <div class="symbol fs-5 fw-light">A:</div>
             <div class="answer">
-              <div class="ansBody">{ans.body}</div>
+              <div class="ansBody fs-5 fw-light">{ans.body}</div>
               <PhotoList class="container" photos={ans.photos} />
               <div class="answerer" id={ans.id}>
                 <div>by {ans.answerer_name}   |   </div>

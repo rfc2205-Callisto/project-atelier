@@ -18,7 +18,6 @@ class App extends React.Component {
       product_id: 66666,
       clicked: {}
     }
-
     // window.addEventListener('click', (event) => {
 
     //   let allClicks = this.state.clicked;

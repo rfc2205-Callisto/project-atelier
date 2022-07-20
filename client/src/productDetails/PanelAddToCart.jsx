@@ -5,7 +5,7 @@ import {connect} from "react-redux"
 class PanelAddToCart extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {value: "SELECT SIZE", quan: 0, addedToCart: false, popover: false}
+    this.state = {value: "SELECT SIZE", quan: 0, addedToCart: false, popover: false, saved: false}
   }
 
   selectSize(event) {
@@ -24,7 +24,7 @@ class PanelAddToCart extends React.Component {
   }
 
   addToBag(event) {
-    // event.preventDefault();
+    event.preventDefault();
     console.log("add to cart")
     if (this.state.value === "SELECT SIZE") {
       console.log("Error")
@@ -78,13 +78,13 @@ class PanelAddToCart extends React.Component {
 
             </select>
             <br></br>
-            <select name="quantity" id="quantity" class="col-lg-3 fs-5 fw-light quantity" onChange= {this.selectQuan.bind(this)}>
+            <select name="quantity" id="quantity" class="col-lg-3 fs-5 fw-light quantity" onChange={this.selectQuan.bind(this)}>
               {quanOpt}
             </select>
 
             </div>
             <div class="row">
-                <button type="button" class="col-lg-7 fs-5 fw-light addtobag" onClick={this.addToBag.bind(this)}>
+                <button class="col-lg-7 fs-5 fw-light addtobag" onClick={this.addToBag.bind(this)}>
                   ADD TO BAG
                 </button>
                 <button class="col-lg-2 fs-5 fw-light addtobag">☆</button>
