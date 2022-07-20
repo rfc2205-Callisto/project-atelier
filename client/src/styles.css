@@ -1,15 +1,15 @@
+/****** Zach's part starts here *******/
 h1, h3 {
-  height: 100px;
+  height: 60px;
   text-align: center;
-  /* background-color: rgb(186, 98, 98); */
-  background-color: rgb(215, 150, 150);
-  padding: 3%;
+  background-color: rgb(186, 98, 98);
   font-family: 'Times New Roman', Times, serif;
   color: white;
   font-size: xx-large;
+  line-height: 200%;
 }
 #app {
-  background-color: honeydew;
+  background-color: transparent;
 }
 #pageTitle {
   text-align: center;
@@ -17,7 +17,7 @@ h1, h3 {
   font-family: cursive;
 }
 span {
-  font-family: Impact, 'Arial Narrow Bold', sans-serif;
+  font-family: 'Times New Roman', Times, serif;
   font-weight: lighter;
 }
 div {
@@ -26,16 +26,22 @@ div {
 }
 .demoButtons {
   display: flex;
+  flex-direction: column;
   justify-content: flex-end;
   text-align: center;
+  max-width: fit-content;
 }
 .dark #app {
   background-color: rgb(173, 219, 219);
 }
 .dark {
-  filter: invert(1) hue-rotate(180deg);
+  filter: invert(100%) hue-rotate(180deg);
 }
 .dark img {
+  filter: invert(100%) hue-rotate(180deg);
+}
+.dark .full-stars,
+.dark .mystar {
   filter: invert(100%) hue-rotate(180deg);
 }
 .dark #modal {
@@ -48,8 +54,24 @@ div {
   padding-top: 10%;
   margin-top: 30px;
 }
+.pink #app {
+  background-color: rgb(173, 219, 219);
+}
+.pink {
+  filter: hue-rotate(180deg);
+}
+.pink img {
+  filter: hue-rotate(180deg);
+}
+.pink .full-stars,
+.pink .mystar {
+  filter: hue-rotate(180deg);
+}
+
+/********** KAI'S PART STARTS HERE *********/
 /* Gallery */
 .ondisplayimg {
+  overflow: hidden;
   width: 100%;
   height: 480px;
   padding-right: 20px;
@@ -86,6 +108,71 @@ div {
   font-weight: bold;
 
 }
+.pan {
+  color: transparent;
+}
+.pan:hover {
+  color: white;
+}
+.panUp {
+  background: transparent;
+  border: none;
+  position: absolute;
+  top: 0%;
+  left: 25%;
+  height: 170px;
+  width: 50%;
+}
+
+.panDown {
+  background: transparent;
+  border: none;
+  position: absolute;
+  top: 65%;
+  left: 25%;
+  height: 170px;
+  width: 50%;
+}
+
+.panLeft {
+  background: transparent;
+  border: none;
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  height: 80%;
+  width: 15%;
+}
+
+.panRight {
+  background: transparent;
+  border: none;
+  position: absolute;
+  top: 10%;
+  left: 75%;
+  height: 80%;
+  width: 15%;
+}
+
+/* Carousel */
+.carousel-control-next, .carousel-control-prev {
+  height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 15%;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+  background: 0 0;
+  border: 0;
+  opacity: .5;
+  transition: opacity .15s ease;
+}
 
 /* product overview */
 .infoOverview {
@@ -93,14 +180,17 @@ div {
 
 
 }
+
 .productCategory {
   padding-top: 15px;
   line-height: 20px;
 }
+
 .productName {
   line-height: 40px;
   padding-bottom: 15px;
 }
+
 .anchorLink {
   text-decoration: none;
   color: gray;
@@ -115,7 +205,7 @@ div {
   border-left: solid thin gray;
   flex: auto;
   align-items: center;
-  padding-top: 5%;
+  padding-top: 1.9%;
   color: gray;
   padding-bottom: 20px;
 
@@ -161,11 +251,10 @@ div {
 
 .scrollbtn {
   height: 20px;
-  width: 100%;
+  width: 90%;
 
-  background: white;
+  background: transparent;
   border: none;
-
 }
 
 .scrollOK {
@@ -183,10 +272,11 @@ div {
 
 .rowscrollup {
   padding-top: 5px;
-  padding-bottom: 7px;
+  /* padding-bottom: 7px; */
 }
+
 .rowscrolldown {
-  padding-top: 7px;
+  padding-top: 9px;
 }
 
 
@@ -195,7 +285,8 @@ div {
 }
 
 .scrollbarimgUnselected {
-  -webkit-filter: grayscale(100%) blur(1px); /* Safari 6.0 - 9.0 */
+  -webkit-filter: grayscale(100%) blur(1px);
+  /* Safari 6.0 - 9.0 */
   filter: grayscale(100%) blur(1px);
 }
 
@@ -214,6 +305,7 @@ div {
   padding-top: 5px;
   padding-bottom: 7px;
 }
+
 .rowscrolldown {
   padding-top: 7px;
 }
@@ -248,6 +340,7 @@ div {
 .thumbnailselected {
   background-color: lightgreen;
 }
+
 .styleSelector {
   border-color: gray;
   border-radius: 20px;
@@ -260,16 +353,19 @@ div {
   width: 90px;
   padding-right: 0;
 }
+
 .aRowOfStyle {
   padding-left: 35px;
   padding-right: 0px;
   padding-bottom: 3px;
   padding-top: 3px;
 }
+
 .twoRowOfStyles {
   padding-right: 0;
   padding-left: 20px;
 }
+
 /* add to cart */
 .size {
   background-color: white;
@@ -279,6 +375,7 @@ div {
   font: inherit;
   margin-right: 10px;
   height: 40px;
+  width: 50%;
 }
 
 .quantity {
@@ -290,13 +387,15 @@ div {
   font: inherit;
   margin-right: 10px;
   height: 40px;
+  width: 25%;
 }
 
 .addToCart {
   padding-top: 10px;
-  width: 580px;
+  width: 110%;
 
 }
+
 .addtobag {
   /* styling */
   background-color: white;
@@ -306,6 +405,7 @@ div {
   font: inherit;
   margin-right: 10px;
   margin-top: 10px;
+  margin-left:0;
   height: 40px;
 }
 
@@ -313,10 +413,16 @@ div {
 .row {
   display: flex;
 }
+/********** KAI'S PART ENDS HERE *********/
+
 /************************* Ratings and Reviews Styling Below Here **************************/
 button {
-  max-height: 30px;
+  background: lightblue;
+  height: 30px;
   margin: 10px 10px;
+  border-radius: 10px;
+  border: none;
+  line-height: 85%;
 }
 .RRParent {
   display: grid;
@@ -348,11 +454,14 @@ button {
     grid-column: 2;
     grid-row: 2;
     margin: 30px 30px;
+
   }
 
   .main {
     grid-column: 2;
-    grid-row: 2
+    grid-row: 2;
+    margin: 2px;
+
   }
 
   .footer {
@@ -458,11 +567,15 @@ progress::-webkit-progress-bar {
   flex-direction: row;
 }
 #dropdown-basic-button {
+  background-color: lightblue;
+  color: black;
   display: flex;
   justify-content: space-between;
   flex-direction: row;
   padding-bottom: 10px;
-  margin: 0px 0px 10px 10px;
+  margin: 0 0 0 10px;
+  height: 30px;
+  line-height: 16px;
 }
 u:hover {
   color: grey;
@@ -485,7 +598,8 @@ textarea {
 input {
   max-width: 50%;
 }
-/*********************** Ratings and Reviews Styling Above Here ***********************/
+/**** Ratings and Reviews Styling Above Here ***********************/
+/*******Sharon's Part starts here******/
 
 .search {
   display: inline-block;
@@ -521,20 +635,23 @@ input {
   border: 1px black solid;
 }
 
-/* .partQ {
+.partQ {
   align-items: center;
   justify-content: center;
 
   display: grid;
 
-  grid-template-columns: 20px 3fr 1fr 1fr;
+  grid-template-columns: 30px 5fr 1fr 1fr;
   grid-template-rows: 1fr;
-} */
+  margin-left: 10px;
+}
 
 .partA {
   display: grid;
-  grid-template-columns: 20px 1fr;
+  grid-template-columns: 30px 1fr;
   grid-template-rows: 1fr;
+  margin-left: 10px;
+  margin-bottom: 10px;
 }
 
 .symbol {
@@ -547,25 +664,25 @@ input {
   grid-row: 1/span1;
 }
 
-/* .questBody {
-  max-width: 500px;
+.questBody {
+  width: 70%;
   align-items: center;
-  justify-content: center;
-
+  justify-content: flex-start;
   grid-column: 2/span1;
   grid-row: 1/span1;
-  overflow-wrap:break-word;
+  overflow-wrap: break-word;
+  display: flex;
 }
-
 .helpfulness {
+  max-width: 120px;
   grid-column: 3/span1;
   grid-row: 1/span1;
-  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 .addAns {
   grid-column: 4/span1;
   grid-row: 1/span1;
-} */
+}
 
 .photo {
   object-fit: cover;
@@ -573,24 +690,7 @@ input {
   grid-row: 2/span1;
 }
 /* **************************** */
-.partQ{
-  width:auto;
-}
-/* .symbol{
-  width:30px;
-  display: inline-block;
-}
-.questBody{
-  width: 70%;
-  display: inline-block;
-}
-.helpfulness,
-.addAns{
-  font-size: 10px;
-  width: 30px;
-  display: inline-block;
 
-} */
 .answerer div {
   padding: 5px;
   display: inline-block;
@@ -599,141 +699,32 @@ input {
 .helpfulness:hover{
   color: blue;
 }
-/* .addAns button {
-  font-size: 10px;
+.addAns button {
+line-height:85%;
+  font-size: 100%;
   justify-self: stretch;
   border: none;
-  background-color: skyblue;
+  background-color: lightblue;
   border-radius: 4px;
-} */
-
-.search {
-  display: inline-block;
-  width:90%;
-  height: 50px;
-  justify-content: center;
-  /* grid-template-columns: 4fr 1fr;
-  grid-template-rows: 1fr; */
 }
-
-
-.searchButton {
-  margin: 2px;
-  width:50;
-  height: 40px;
-  border: none;
-  border-radius: 4px;
-  background-color: transparent;
-}
-
-.helpfulness,
-.answerer {
-  font-size: 11px;
-}
-
-.oneQ {
-  border: 1px black solid;
-}
-
-/* .partQ {
-  align-items: center;
-  justify-content: center;
-
-  display: grid;
-
-  grid-template-columns: 20px 3fr 1fr 1fr;
-  grid-template-rows: 1fr;
-} */
-
-.partA {
-  display: grid;
-  grid-template-columns: 20px 1fr;
-  grid-template-rows: 1fr;
-}
-
-.symbol {
-  grid-column: 1/span1;
-  grid-row: 1/span1;
-}
-
-.answer {
-  grid-column: 2/span1;
-  grid-row: 1/span1;
-}
-
-/* .questBody {
-  max-width: 500px;
-  align-items: center;
-  justify-content: center;
-
-  grid-column: 2/span1;
-  grid-row: 1/span1;
-  overflow-wrap:break-word;
-}
-
-.helpfulness {
-  grid-column: 3/span1;
-  grid-row: 1/span1;
-  word-wrap: break-word;
-}
-.addAns {
-  grid-column: 4/span1;
-  grid-row: 1/span1;
-} */
-
-.photo {
-  object-fit: cover;
-  grid-column: 1/span4;
-  grid-row: 2/span1;
-}
-/* **************************** */
-.partQ{
-  width:auto;
-}
-/* .symbol{
-  width:30px;
-  display: inline-block;
-}
-.questBody{
-  width: 70%;
-  display: inline-block;
-}
-.helpfulness,
-.addAns{
-  font-size: 10px;
-  width: 30px;
-  display: inline-block;
-
-} */
-.answerer div {
-  padding: 5px;
-  display: inline-block;
-}
-
-/* .addAns button {
-  font-size: 10px;
-  justify-self: stretch;
-  border: none;
-  background-color: skyblue;
-  border-radius: 4px;
-} */
-
-.otherOptions {
+/* .otherOptions {
   display: grid;
   gap: 2px;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: 1fr;
-}
+} */
 
 .loadQ,
 .loadA,
 .addQ {
   /* padding: 2px; */
+  display: inline-flex;
   margin-top: 2px;
-  font-size: 10px;
+  font-size: 100%;
   border: none;
   background-color: skyblue;
   border-radius: 4px;
+
 }
 
 .photo img {
@@ -750,27 +741,31 @@ input {
   justify-content: center;
   align-items: center;
 } */
-.container{
+/* .container{
   width: 100%;
-}
+} */
 .modalContainer {
-  width: auto;
-  height: 50%;
+  width: 80%;
+  height: 80%;
   border-radius: 12px;
   background-color: white;
   box-shadow: black 0px 5px 15px;
   display: flex;
   flex-direction: column;
   /* padding: 25px; */
-  position: absolute;
-  z-index:1000;
+  position: fixed;
+  z-index: 1000;
+  justify-content: flex-start;
   /* max-width: max-content;
   max-height: max-content;
   justify-content: space-around; */
+  top: 0;
+  left: 0;
+  margin-top: 5%;
+  margin-left: 10%;
+  max-height: 500px;
 }
 
-/* .modalContainer{
-} */
 .modalContainer .title {
   font-size: 25px;
   font-weight: bold;
@@ -796,13 +791,21 @@ input {
 .modalContainer .body {
   flex: 50%;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-evenly;
+  align-items: start;
+  margin-left: inherit;
   font-size: 20px;
   text-align: center;
   flex-direction: column;
 }
 
+label input {
+  max-width: 45vw;
+  position: fixed;
+  left: 35%;
+  align-items: center;
+  width: -webkit-fill-available;
+}
 .modalContainer .footer {
   font-size: 10px;
   flex: 20%;
@@ -810,35 +813,50 @@ input {
   justify-content: center;
   align-items: center;
 }
-
 .modalContainer .footer button,
 .body label button {
   width: 150px;
   height: 45px;
   margin: 10px;
   border: none;
-  /* background-color: cornflowerblue; */
-  /* color: white; */
-  /* border-radius: 8px; */
   font-size: 20px;
   cursor: pointer;
 }
-
 #cancelBtn {
   background-color: red;
 }
-
 label,
 input {
   font-size: 20px;
   display: inline-block;
 }
-
 .magPic {
   max-width: 100%;
-  max-height: auto;
-  object-fit: contain;
-  z-index:2
+  /* max-height: auto; */
+  /* object-fit: contain; */
+  max-height: 90%;
+  object-fit: scale-down;
+  /* justify-content: center; */
+  z-index: 2
+}
+.photo {
+  z-index:1;
+}
+/************ just for picture modal*****************/
+.modalContainer .pic {
+  flex: 50%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: inherit;
+  font-size: 20px;
+  text-align: center;
+  flex-direction: column;
+  max-height: 500px;
+}
+
+.container .qlist {
+  max-width: auto;
 }
 
 .scroller {
@@ -847,7 +865,6 @@ input {
   /* scrollbar-color: rebeccapurple green; */
   scrollbar-width: thin;
 }
-
 .scrollerA {
   /* width: 300px; */
   max-height: 250px;
@@ -855,9 +872,6 @@ input {
   scrollbar-color: rebeccapurple green;
   scrollbar-width: thin;
 }
-
-
-/********** modal background*********/
 .modalBackground {
   position: fixed;
   background-color: rgba(50.2%, 50.2%, 50.2%, 0.5);
@@ -866,7 +880,6 @@ input {
   left: 0;
   top: 0;
 }
-
 /************* for div alignment******************/
 .photo{
   z-index:1
@@ -875,7 +888,6 @@ input {
 .photoUpload button{
   display:inline-block;
 }
-
 .add{
   display:flex
 }

@@ -55,23 +55,26 @@ class App extends React.Component {
     })
   }
 
-  toggle = (e) => {
+  toggledark = (e) => {
     e.preventDefault();
-
     document.body.classList.toggle("dark");
+  }
+  togglepink = (e) => {
+    e.preventDefault();
+    document.body.classList.toggle("pink");
   }
 
   render() {
     return (
       <React.Fragment>
         <h2 id='pageTitle'>Atelier</h2>
-        <div class='demoButtons'>
-          <button onClick={this.newProductDown}>-</button>
-          <div>Dispalying Product ID# {this.state.product_id}</div>
-          <button onClick={this.newProductUp}>+</button>
+        <body class='container demoButtons'>
+          <div>  <button onClick={this.newProductDown}>Last Product</button>Dispalying Product ID# {this.state.product_id}           <button onClick={this.newProductUp}>Next Product</button><br/></div><br/>
+
           {/* <button onClick={() => {console.log(this.state.clicked); alert('See Dev Tools for Click Tracker Info')}}>Click Counter</button> */}
-          <button onClick={this.toggle}>Toggle Dark Mode</button>
+          <div><button onClick={this.toggledark}>Toggle Dark Mode</button><button onClick={this.togglepink}>Toggle Pink Mode</button>
         </div>
+        </body>
         <AppProductDetail id={this.state.product_id}/>
         <div  class='container'>
         <RR id={this.state.product_id}/>
@@ -83,6 +86,5 @@ class App extends React.Component {
     );
   }
 }
-
 
 export default App;
