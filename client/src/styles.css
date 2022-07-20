@@ -25,39 +25,34 @@ div {
   font-weight: bolder;
 }
 .demoButtons {
+  border: none;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   text-align: center;
   max-width: fit-content;
-}
+  border-radius: 30px;
+  }
 .dark #app {
   background-color: rgb(173, 219, 219);
 }
-.dark {
+/* .dark {
+  filter: invert(100%) hue-rotate(180deg);
+} */
+.dark:not(.modal-open) {
   filter: invert(100%) hue-rotate(180deg);
 }
-.dark img {
-  filter: invert(100%) hue-rotate(180deg);
+.dark #picture {
+  filter: none;
 }
-.dark .full-stars,
+.dark .full-stars, .dark img,
 .dark .mystar {
   filter: invert(100%) hue-rotate(180deg);
-}
-.dark #modal {
-  position: fixed;
-  top: 10%;
-  left: 10%;
-  overflow-y: auto;
-  max-width: max-content;
-  max-height: max-content;
-  padding-top: 10%;
-  margin-top: 30px;
 }
 .pink #app {
   background-color: rgb(173, 219, 219);
 }
-.pink {
+.pink:not(.modal-open) {
   filter: hue-rotate(180deg);
 }
 .pink img {
@@ -66,6 +61,9 @@ div {
 .pink .full-stars,
 .pink .mystar {
   filter: hue-rotate(180deg);
+}
+.pink #picture {
+  filter: none;
 }
 
 /********** KAI'S PART STARTS HERE *********/
