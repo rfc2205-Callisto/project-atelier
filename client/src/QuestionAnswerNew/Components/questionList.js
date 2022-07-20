@@ -20,7 +20,7 @@ var QuestionList = () => {
     var id = e.target.parentElement.id || e.target.parentElement.parentElement.id;
     var helpful = document.getElementsByClassName(`helpfulness`)[0];
     if (helpful.innerHTML.includes('?')) {
-      helpful.innerHTML = 'Helpful ✓   |';
+      helpful.innerHTML = 'Helpful ✓   ';
       axios.put(`qa/questions/${id}/helpful`)
         .then(() => { console.log('question helpfulness updated') })
         .catch((err) => { console.log('question helpfulness not submitted') });
