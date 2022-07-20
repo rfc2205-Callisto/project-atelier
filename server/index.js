@@ -110,6 +110,7 @@ app.get('/reviews', (req, res) => {
   };
   axios(options)
     .then((reviews) => {
+      console.log("*******review Data",reviews.data);
       res.json(reviews.data)
     })
     .catch((err) => {

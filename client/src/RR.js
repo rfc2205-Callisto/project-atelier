@@ -311,7 +311,7 @@ resultsMapper = () => {
     if (this.state.filter === true) {
       if (this.state.starFilter.indexOf(review.rating) > -1) {
         list.push(<div id='rrtile' key={review.review_id} className={review.review_id}>
-        <h1>{stars[review.rating]}</h1>
+        <h1 className="mystar">{stars[review.rating]}</h1>
         <h2>{review.summary}</h2>
       <div>{this.longBodyChecker(review)}</div>
       <div>Reviewed On: {this.dateFormatter(review.date)} By: {review.reviewer_name}</div>
@@ -327,7 +327,7 @@ resultsMapper = () => {
       }
     } else {
       list.push(<div id='rrtile' key={review.review_id} className={review.review_id}>
-      <h1>{stars[review.rating]}</h1>
+      <h1 className="mystar">{stars[review.rating]}</h1>
       <h2>{review.summary}</h2>
     <div>{this.longBodyChecker(review)}</div>
     <div>Reviewed On: {this.dateFormatter(review.date)} By: {review.reviewer_name}</div>
