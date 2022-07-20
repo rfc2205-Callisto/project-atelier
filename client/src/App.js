@@ -56,7 +56,6 @@ class App extends React.Component {
 
   toggledark = (e) => {
     e.preventDefault();
-
     document.body.classList.toggle("dark");
   }
   togglepink = (e) => {
@@ -86,6 +85,5 @@ class App extends React.Component {
     );
   }
 }
-
 
 export default App;
