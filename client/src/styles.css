@@ -1,18 +1,23 @@
+/****** Zach's part starts here *******/
 h1, h3 {
-  height: 100px;
+  height: 60px;
   text-align: center;
   background-color: rgb(186, 98, 98);
-  padding: 3%;
   font-family: 'Times New Roman', Times, serif;
   color: white;
   font-size: xx-large;
+  line-height: 200%;
+}
+#app {
+  background-color: transparent;
 }
 #pageTitle {
   text-align: center;
   font-size: 100pt;
+  font-family: cursive;
 }
 span {
-  font-family: Impact, 'Arial Narrow Bold', sans-serif;
+  font-family: 'Times New Roman', Times, serif;
   font-weight: lighter;
 }
 div {
@@ -21,14 +26,22 @@ div {
 }
 .demoButtons {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: flex-end;
   text-align: center;
+  max-width: fit-content;
+}
+.dark #app {
+  background-color: rgb(173, 219, 219);
 }
 .dark {
-  background-color: rgb(50, 7, 88);
-  filter: invert(1) hue-rotate(180deg);
+  filter: invert(100%) hue-rotate(180deg);
 }
 .dark img {
+  filter: invert(100%) hue-rotate(180deg);
+}
+.dark .full-stars,
+.dark .mystar {
   filter: invert(100%) hue-rotate(180deg);
 }
 .dark #modal {
@@ -41,8 +54,24 @@ div {
   padding-top: 10%;
   margin-top: 30px;
 }
+.pink #app {
+  background-color: rgb(173, 219, 219);
+}
+.pink {
+  filter: hue-rotate(180deg);
+}
+.pink img {
+  filter: hue-rotate(180deg);
+}
+.pink .full-stars,
+.pink .mystar {
+  filter: hue-rotate(180deg);
+}
+
+/********** KAI'S PART STARTS HERE *********/
 /* Gallery */
 .ondisplayimg {
+  overflow: hidden;
   width: 100%;
   height: 480px;
   padding-right: 20px;
@@ -79,6 +108,71 @@ div {
   font-weight: bold;
 
 }
+.pan {
+  color: transparent;
+}
+.pan:hover {
+  color: white;
+}
+.panUp {
+  background: transparent;
+  border: none;
+  position: absolute;
+  top: 0%;
+  left: 25%;
+  height: 170px;
+  width: 50%;
+}
+
+.panDown {
+  background: transparent;
+  border: none;
+  position: absolute;
+  top: 65%;
+  left: 25%;
+  height: 170px;
+  width: 50%;
+}
+
+.panLeft {
+  background: transparent;
+  border: none;
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  height: 80%;
+  width: 15%;
+}
+
+.panRight {
+  background: transparent;
+  border: none;
+  position: absolute;
+  top: 10%;
+  left: 75%;
+  height: 80%;
+  width: 15%;
+}
+
+/* Carousel */
+.carousel-control-next, .carousel-control-prev {
+  height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 15%;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+  background: 0 0;
+  border: 0;
+  opacity: .5;
+  transition: opacity .15s ease;
+}
 
 /* product overview */
 .infoOverview {
@@ -86,14 +180,17 @@ div {
 
 
 }
+
 .productCategory {
   padding-top: 15px;
   line-height: 20px;
 }
+
 .productName {
   line-height: 40px;
   padding-bottom: 15px;
 }
+
 .anchorLink {
   text-decoration: none;
   color: gray;
@@ -108,7 +205,7 @@ div {
   border-left: solid thin gray;
   flex: auto;
   align-items: center;
-  padding-top: 5%;
+  padding-top: 1.9%;
   color: gray;
   padding-bottom: 20px;
 
@@ -154,11 +251,10 @@ div {
 
 .scrollbtn {
   height: 20px;
-  width: 100%;
+  width: 90%;
 
-  background: white;
+  background: transparent;
   border: none;
-
 }
 
 .scrollOK {
@@ -176,10 +272,11 @@ div {
 
 .rowscrollup {
   padding-top: 5px;
-  padding-bottom: 7px;
+  /* padding-bottom: 7px; */
 }
+
 .rowscrolldown {
-  padding-top: 7px;
+  padding-top: 9px;
 }
 
 
@@ -188,7 +285,8 @@ div {
 }
 
 .scrollbarimgUnselected {
-  -webkit-filter: grayscale(100%) blur(1px); /* Safari 6.0 - 9.0 */
+  -webkit-filter: grayscale(100%) blur(1px);
+  /* Safari 6.0 - 9.0 */
   filter: grayscale(100%) blur(1px);
 }
 
@@ -207,6 +305,7 @@ div {
   padding-top: 5px;
   padding-bottom: 7px;
 }
+
 .rowscrolldown {
   padding-top: 7px;
 }
@@ -241,6 +340,7 @@ div {
 .thumbnailselected {
   background-color: lightgreen;
 }
+
 .styleSelector {
   border-color: gray;
   border-radius: 20px;
@@ -253,16 +353,19 @@ div {
   width: 90px;
   padding-right: 0;
 }
+
 .aRowOfStyle {
   padding-left: 35px;
   padding-right: 0px;
   padding-bottom: 3px;
   padding-top: 3px;
 }
+
 .twoRowOfStyles {
   padding-right: 0;
   padding-left: 20px;
 }
+
 /* add to cart */
 .size {
   background-color: white;
@@ -272,6 +375,7 @@ div {
   font: inherit;
   margin-right: 10px;
   height: 40px;
+  width: 50%;
 }
 
 .quantity {
@@ -283,13 +387,15 @@ div {
   font: inherit;
   margin-right: 10px;
   height: 40px;
+  width: 25%;
 }
 
 .addToCart {
   padding-top: 10px;
-  width: 580px;
+  width: 110%;
 
 }
+
 .addtobag {
   /* styling */
   background-color: white;
@@ -299,6 +405,7 @@ div {
   font: inherit;
   margin-right: 10px;
   margin-top: 10px;
+  margin-left:0;
   height: 40px;
 }
 
@@ -306,10 +413,16 @@ div {
 .row {
   display: flex;
 }
+/********** KAI'S PART ENDS HERE *********/
+
 /************************* Ratings and Reviews Styling Below Here **************************/
 button {
-  max-height: 30px;
+  background: lightblue;
+  height: 30px;
   margin: 10px 10px;
+  border-radius: 10px;
+  border: none;
+  line-height: 85%;
 }
 .RRParent {
   display: grid;
@@ -341,11 +454,14 @@ button {
     grid-column: 2;
     grid-row: 2;
     margin: 30px 30px;
+
   }
 
   .main {
     grid-column: 2;
-    grid-row: 2
+    grid-row: 2;
+    margin: 2px;
+
   }
 
   .footer {
@@ -451,11 +567,15 @@ progress::-webkit-progress-bar {
   flex-direction: row;
 }
 #dropdown-basic-button {
+  background-color: lightblue;
+  color: black;
   display: flex;
   justify-content: space-between;
   flex-direction: row;
   padding-bottom: 10px;
-  margin: 0px 0px 10px 10px;
+  margin: 0 0 0 10px;
+  height: 30px;
+  line-height: 16px;
 }
 u:hover {
   color: grey;
@@ -478,7 +598,8 @@ textarea {
 input {
   max-width: 50%;
 }
-/*********************** Ratings and Reviews Styling Above Here ***********************/
+/**** Ratings and Reviews Styling Above Here ***********************/
+/*******Sharon's Part starts here******/
 
 .search {
   display: inline-block;
@@ -520,14 +641,17 @@ input {
 
   display: grid;
 
-  grid-template-columns: 20px 5fr 1fr 1fr;
+  grid-template-columns: 30px 5fr 1fr 1fr;
   grid-template-rows: 1fr;
+  margin-left: 10px;
 }
 
 .partA {
   display: grid;
-  grid-template-columns: 20px 1fr;
+  grid-template-columns: 30px 1fr;
   grid-template-rows: 1fr;
+  margin-left: 10px;
+  margin-bottom: 10px;
 }
 
 .symbol {
@@ -576,10 +700,11 @@ input {
   color: blue;
 }
 .addAns button {
-  font-size: 10px;
+line-height:85%;
+  font-size: 100%;
   justify-self: stretch;
   border: none;
-  background-color: skyblue;
+  background-color: lightblue;
   border-radius: 4px;
 }
 /* .otherOptions {
@@ -595,10 +720,11 @@ input {
   /* padding: 2px; */
   display: inline-flex;
   margin-top: 2px;
-  font-size: 10px;
+  font-size: 100%;
   border: none;
   background-color: skyblue;
   border-radius: 4px;
+
 }
 
 .photo img {
