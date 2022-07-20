@@ -368,9 +368,9 @@ charMapper = () => {
   var obj = this.state.characteristics;
   for (var key in obj) {
     var length = Math.floor(Number(obj[key].value)/5*200)
-    list.push(<div style={{margin: '20px 10px', 'font-size': '9pt', 'text-align-last': 'center', width: '200px'}}>{key}<br/>
-    <div style={{'background-color':'beige', 'text-align-last': 'center', width: '200px'}}>|</div>
-    <div style={{height: '1px', width: `${length}px`, 'text-align-last': 'right'}}>^</div>
+    list.push(<div style={{margin: '20px 10px', 'font-size': '9pt', 'textAlignLast': 'center', width: '200px'}}>{key}<br/>
+    <div style={{'background-color':'khaki', 'textAlignLast': 'center', width: '200px'}}>|</div>
+    <div style={{height: '1px', width: `${length}px`, 'textAlignLast': 'right'}}>^</div>
     <br/>
     {reference[key][0]}&emsp;&nbsp;{reference[key][1]}&nbsp;&emsp;{reference[key][2]}</div>)
   }

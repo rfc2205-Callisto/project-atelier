@@ -1,15 +1,20 @@
 h1, h3 {
   height: 100px;
   text-align: center;
-  background-color: rgb(186, 98, 98);
+  /* background-color: rgb(186, 98, 98); */
+  background-color: rgb(215, 150, 150);
   padding: 3%;
   font-family: 'Times New Roman', Times, serif;
   color: white;
   font-size: xx-large;
 }
+#app {
+  background-color: honeydew;
+}
 #pageTitle {
   text-align: center;
   font-size: 100pt;
+  font-family: cursive;
 }
 span {
   font-family: Impact, 'Arial Narrow Bold', sans-serif;
@@ -21,11 +26,13 @@ div {
 }
 .demoButtons {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   text-align: center;
 }
+.dark #app {
+  background-color: rgb(173, 219, 219);
+}
 .dark {
-  background-color: rgb(50, 7, 88);
   filter: invert(1) hue-rotate(180deg);
 }
 .dark img {

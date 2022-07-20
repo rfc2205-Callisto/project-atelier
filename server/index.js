@@ -174,6 +174,7 @@ app.put('/reviews/help', (req, res) => {
       data.rating = Number(data.rating);
       data.recommend = Boolean(data.recommend);
       data.characteristics = JSON.parse(data.characteristics);
+      console.log(data)
       var options = {
         method: 'post',
         url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfc/reviews',
@@ -187,7 +188,7 @@ app.put('/reviews/help', (req, res) => {
           res.sendStatus(201);
         })
         .catch((err) => {
-          console.log('Serverside Error in Review\'s Post Request:')
+          console.log('Serverside Error in Review\'s Post Request:', err)
         })
       })
 
