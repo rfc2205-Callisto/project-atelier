@@ -14,7 +14,6 @@ app.use(express.static(path.join(__dirname, '/../client/dist')));
 app.use(compression())
 
 app.get('/qa/questions', (req, res) => {
-  // console.log(req.query)
   var apiReq = {
     method: 'get',
     url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfc/qa/questions',
@@ -27,7 +26,6 @@ app.get('/qa/questions', (req, res) => {
 })
 
 app.post('/qa/questions', (req, res) => {
-  // console.log(req.body)
   var apiReq = {
     method: 'post',
     url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfc/qa/questions',
@@ -175,7 +173,6 @@ app.put('/reviews/help', (req, res) => {
       data.rating = Number(data.rating);
       data.recommend = Boolean(data.recommend);
       data.characteristics = JSON.parse(data.characteristics);
-      console.log(data)
       var options = {
         method: 'post',
         url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfc/reviews',
