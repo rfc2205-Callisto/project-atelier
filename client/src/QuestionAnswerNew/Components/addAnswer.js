@@ -48,7 +48,7 @@ var AddAnswer = (props) => {
 
       })
       Promise.all(cloudPost).then((resProm) => {
-        console.log(resProm)
+
         var url = resProm.map((item) => {
           return item.data.url;
         });
@@ -58,7 +58,7 @@ var AddAnswer = (props) => {
           "email": email,
           "photos": url
         };
-        console.log(data)
+
         axios.post(`/qa/questions/${props.quest_id}/answers`, data)
           .then((result) => {
             conosle.log('yay Answer is added supposely');
