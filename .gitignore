@@ -9,5 +9,9 @@ apiTesting.js
 .DS_Store
 package-lock.json
 coverage
+<<<<<<< HEAD
+AtelierFEC.pem
+=======
 
 AtelierCallisto.pem
+>>>>>>> 7a931b28a534d36c878e4637ce90a7bdb61c367c

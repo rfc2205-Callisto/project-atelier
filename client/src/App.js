@@ -15,9 +15,10 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      product_id: 66666,
+      product_id: 66657,
       clicked: {}
     }
+
     // window.addEventListener('click', (event) => {
 
     //   let allClicks = this.state.clicked;
@@ -36,9 +37,6 @@ class App extends React.Component {
     //   })
     // })
 
-  }
-  componentDidMount() {
-    console.log('App is Mounted :)')
   }
 
   newProductUp = (e) => {
