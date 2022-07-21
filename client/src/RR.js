@@ -335,7 +335,7 @@ resultsMapper = () => {
     <div>{this.responseChecker(review)}</div>
     <span>Helpful? <u className={`${review.review_id}1`} onClick={this.sendHelp}>Yes</u>  {review.helpfulness} | <u className={`${review.review_id}2`} onClick={this.sendReport}>Report</u></span>
     <div>{review.photos.map((photo) => {
-      return <span key={photo.id}><img onClick={this.thumbClick} id='thumbnail' src={photo.url} width={200} height={200}/></span>
+      return <span key={photo.id}><img onClick={this.thumbClick} id='thumbnail' src={photo.url}/></span>
     })}</div>
     </div>)
     }
