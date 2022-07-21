@@ -54,7 +54,6 @@ class PanelInfoOverview extends React.Component {
 }
 
 const stateToProps = (state)=>{
-  console.log("***state to Props,", state.selectedStyle.sale_price)
   return {
     name: state.overview.name,
     category: state.overview.category,

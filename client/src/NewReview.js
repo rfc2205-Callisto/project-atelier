@@ -24,7 +24,6 @@ class NewReview extends React.Component {
 
 
   componentDidMount() {
-    console.log('NewReview is Mounted :)');
     this.charMounter();
   }
 

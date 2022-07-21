@@ -31,7 +31,6 @@ class QA extends React.Component {
       var sortQ = data.data.results.sort((a, b) => (a.helpfulness > b.helpfulness) ? -1 : 1);
       var initState = allActions.qaAction.initialize(sortQ);
       this.props.dispatch(initState);
-      console.log(sortQ)
     }).catch(() => { console.log('there is error in api get request') })
   }
 
@@ -73,8 +72,6 @@ class QA extends React.Component {
 };
 
 var mapStateToProps = (state) => {
-  console.log(state)
-  console.log(state.product_id)
   return {
     product_id: state.product_id,
     allQ: state.allQ

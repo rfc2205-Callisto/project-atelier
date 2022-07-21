@@ -141,7 +141,6 @@ class RR extends React.Component {
   }
 // ********* LifeCycle Methods ***********
   componentDidMount() {
-    console.log('RR is Mounted :)');
     this.getCharacteristics();
     this.allResults(this.state.page, 50,
       this.state.sort);
@@ -150,18 +149,15 @@ class RR extends React.Component {
   componentDidUpdate(prevProps, prevState) {
     if (prevState.count !== this.state.count) {
       this.allResults(this.state.page, 50, this.state.sort);
-      console.log('UPDATED')
     }
     if (prevState.filter !== this.state.filter) {
       this.allResults(this.state.page, 50, this.state.sort);
       this.setState({
         count: 2
       })
-      console.log('UPDATED')
     }
     if (prevState.sort !== this.state.sort) {
       this.allResults(this.state.page, 50, this.state.sort);
-      console.log('UPDATED')
     }
     if (prevProps.id !== this.props.id)  {
       this.setState({
@@ -171,7 +167,6 @@ class RR extends React.Component {
       })
       this.getCharacteristics();
       this.allResults(this.state.page, 50, this.state.sort);
-      console.log('UPDATED')
     }
   }
 // ************* Checker Functions ************
@@ -335,7 +330,7 @@ resultsMapper = () => {
     <div>{this.responseChecker(review)}</div>
     <span>Helpful? <u className={`${review.review_id}1`} onClick={this.sendHelp}>Yes</u>  {review.helpfulness} | <u className={`${review.review_id}2`} onClick={this.sendReport}>Report</u></span>
     <div>{review.photos.map((photo) => {
-      return <span key={photo.id}><img onClick={this.thumbClick} id='thumbnail' src={photo.url} width={200} height={200}/></span>
+      return <span key={photo.id}><img onClick={this.thumbClick} id='thumbnail' src={photo.url}/></span>
     })}</div>
     </div>)
     }

@@ -11,7 +11,6 @@ class Gallery extends React.Component {
   }
 
   nextImg(event) {
-    console.log("next image")
     if (this.props.currID + 1 > this.props.maxID) {
       var action2 = {
         type: "scrollDown",
@@ -39,7 +38,6 @@ class Gallery extends React.Component {
   }
 
   fullViewMode(event) {
-    console.log("want to expand image")
     var action = {
       type: "enterFullView"
     }
@@ -127,7 +125,6 @@ class Gallery extends React.Component {
 }
 
 const stateToProps = (state)=>{
-  console.log("ymax, hmax:", state.ymax, state.hmax)
   return {
     imgsrc: state.photoOnDisplayURL,
     currID: state.selectedImgStyleID,

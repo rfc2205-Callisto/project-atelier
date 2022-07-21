@@ -1,7 +1,7 @@
 const express = require('express');
 const axios = require('axios');
 const path = require('path');
-
+const compression = require('compression')
 const config = require('../config.js');
 
 //create server
@@ -11,9 +11,9 @@ var port = 3000;
 //middle ware
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '/../client/dist')));
+app.use(compression())
 
 app.get('/qa/questions', (req, res) => {
-  // console.log(req.query)
   var apiReq = {
     method: 'get',
     url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfc/qa/questions',
@@ -26,7 +26,6 @@ app.get('/qa/questions', (req, res) => {
 })
 
 app.post('/qa/questions', (req, res) => {
-  // console.log(req.body)
   var apiReq = {
     method: 'post',
     url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfc/qa/questions',
@@ -110,7 +109,6 @@ app.get('/reviews', (req, res) => {
   };
   axios(options)
     .then((reviews) => {
-      console.log("*******review Data",reviews.data);
       res.json(reviews.data)
     })
     .catch((err) => {
@@ -175,7 +173,6 @@ app.put('/reviews/help', (req, res) => {
       data.rating = Number(data.rating);
       data.recommend = Boolean(data.recommend);
       data.characteristics = JSON.parse(data.characteristics);
-      console.log(data)
       var options = {
         method: 'post',
         url: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfc/reviews',

@@ -9,7 +9,6 @@ class GalleryScrollBar extends React.Component {
   }
 
   selectImg(event) {
-    console.log("***click on an image,", arguments, event);
     var action = {
       type: "changeImage",
       styleID: arguments[0]
@@ -70,8 +69,6 @@ class GalleryScrollBar extends React.Component {
 }
 
 const stateToProps = (state)=>{
-  // console.log("state to Props,", state.selectedStyle.name)
-  console.log("Min, max ID",state.scrollmin, state.minStyleID, state.scrollmax,state.maxStyleID);
   return {
     gallery: state.scrollBarImgURLpartial,
     selectedImgID: state.selectedImgStyleID,
