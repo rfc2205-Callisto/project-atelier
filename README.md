@@ -1,6 +1,6 @@
 # project-atelier
 
-Empty project.
+Atelier is a mock e-commerce browser application that showcases multiple widgets common to e-commerce websites.
 
 ## Building and running on localhost
 
@@ -24,15 +24,14 @@ npm run build-dev
 
 ## Running
 
-Open the file `dist/index.html` in your browser
-
-## Testing
-
-To run unit tests:
-
 ```sh
-npm test
+npm run server-dev
 ```
+Then connect to localhost:3000 in your browser
+
+## Contributors
+
+[Kai](https://github.com/maestrokyles), [Sharon](https://github.com/sharonhw888),[Zach](https://github.com/Zach-Smith1 )
 
 ## Credits
 
