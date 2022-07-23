@@ -31,7 +31,7 @@ Then connect to localhost:3000 in your browser
 
 ## Contributors
 
-[Kai](https://github.com/maestrokyles), [Sharon](https://github.com/sharonhw888),[Zach](https://github.com/Zach-Smith1 )
+[Kai Sheng](https://github.com/maestrokyles), [Sharon Huang](https://github.com/sharonhw888), and [Zach Smith](https://github.com/Zach-Smith1 )
 
 ## Credits
 
