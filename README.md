@@ -4,7 +4,7 @@ Atelier is a mock e-commerce browser application that showcases multiple widgets
 
 # Screenshots
 
-![alt text](https://res.cloudinary.com/dktim9rur/image/upload/v1658593677/Screen_Shot_2022-07-23_at_10.18.31_AM_reozzr.jpg) ![alt text](https://res.cloudinary.com/dktim9rur/image/upload/v1658593677/Screen_Shot_2022-07-23_at_10.18.42_AM_j60rnt.jpg)
+![alt text](https://res.cloudinary.com/dktim9rur/image/upload/v1658593677/Screen_Shot_2022-07-23_at_10.18.31_AM_reozzr.jpg) ![alt text](https://res.cloudinary.com/dktim9rur/image/upload/v1658593677/Screen_Shot_2022-07-23_at_10.18.42_AM_j60rnt.jpg) ![alt text](https://res.cloudinary.com/dktim9rur/image/upload/v1658593677/Screen_Shot_2022-07-23_at_10.19.01_AM_kakzri.jpg) ![alt text](https://res.cloudinary.com/dktim9rur/image/upload/v1658593677/Screen_Shot_2022-07-23_at_10.20.20_AM_ivqyv8.jpg) ![alt text](https://res.cloudinary.com/dktim9rur/image/upload/v1658593677/Screen_Shot_2022-07-23_at_10.19.52_AM_i95mxt.jpg) ![alt text](https://res.cloudinary.com/dktim9rur/image/upload/v1658593677/Screen_Shot_2022-07-23_at_10.20.32_AM_outk9z.jpg) ![alt text](https://res.cloudinary.com/dktim9rur/image/upload/v1658593677/Screen_Shot_2022-07-23_at_10.19.09_AM_bd7cto.jpg) ![alt text](https://res.cloudinary.com/dktim9rur/image/upload/v1658593677/Screen_Shot_2022-07-23_at_10.20.47_AM_ygvlmu.jpg) ![alt text](https://res.cloudinary.com/dktim9rur/image/upload/v1658593677/Screen_Shot_2022-07-23_at_10.19.32_AM_as9hgq.jpg)
 
 ## Building and running on localhost
 
