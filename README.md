@@ -4,13 +4,21 @@ Atelier is a mock e-commerce browser application that showcases multiple widgets
 
 ## Building and running on localhost
 
-First install dependencies:
+Create a .config.js file in which you place:
+``` sh
+module.exports = {
+  TOKEN: '[Github Token Here]'
+};
+```
+this allows access to the heroku API
+
+# First install dependencies:
 
 ```sh
 npm install
 ```
 
-To create a production build:
+# To create a production build:
 
 ```sh
 npm run build-prod
