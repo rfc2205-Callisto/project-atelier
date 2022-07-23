@@ -1,6 +1,10 @@
-# project-atelier
+# Project-Atelier
 
 Atelier is a mock e-commerce browser application that showcases multiple widgets common to e-commerce websites.
+
+# Screenshots
+
+(https://drive.google.com/file/d/1pV_rHFzfUFiGUGItboIDS88MLANfYzLh/view?usp=sharing) (https://drive.google.com/file/d/1AMdn-wv3MvUfAX0Jf7pXWpfQqGypyyqe/view?usp=sharing)
 
 ## Building and running on localhost
 
