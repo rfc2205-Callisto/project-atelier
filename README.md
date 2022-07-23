@@ -4,7 +4,7 @@ Atelier is a mock e-commerce browser application that showcases multiple widgets
 
 # Screenshots
 
-![alt text](https://cliparting.com/wp-content/uploads/2018/03/cool-pictures-2018-3.jpg) ![alt text](https://drive.google.com/file/d/1AMdn-wv3MvUfAX0Jf7pXWpfQqGypyyqe/view?usp=sharing)
+![alt text](https://res.cloudinary.com/dktim9rur/image/upload/v1658593677/Screen_Shot_2022-07-23_at_10.18.31_AM_reozzr.jpg) ![alt text](https://res.cloudinary.com/dktim9rur/image/upload/v1658593677/Screen_Shot_2022-07-23_at_10.18.42_AM_j60rnt.jpg)
 
 ## Building and running on localhost
 
